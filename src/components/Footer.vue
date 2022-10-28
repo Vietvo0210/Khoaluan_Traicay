@@ -48,7 +48,7 @@
               <li class="d-lg-flex justify-content-between">Chủ Nhật<span>12-20.00</span></li>
             </ul>
 
-            <h5>Call Now : +(000) 000-000</h5>
+            <h5>Liên hệ ngay: +(000) 000-000</h5>
           </div>
         </div>
       </div>
