@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-white w-100 navigation" id="navbar">
     <div class="container">
-      <a class="navbar-brand font-weight-bold" href="#">E-Shop</a>
+      <a class="navbar-brand font-weight-bold" href="#">Hufi-Fruits</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
               aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,40 +11,25 @@
       <div class="collapse navbar-collapse " id="main-navbar">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home </a>
+            <a class="nav-link" href="#">Trang chủ </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
+            <a class="nav-link" href="#">Về chúng tôi</a>
           </li>
           <!-- Pages -->
-          <li class="nav-item dropdown dropdown-slide">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-delay="350"
-               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Pages.
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Blog Single</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">404 Page</a></li>
-              <li><a href="#">FAQ</a></li>
-            </ul>
-          </li><!-- /Pages -->
+
           <!-- / Blog -->
 
           <li class="nav-item dropdown dropdown-slide">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Shop.
+              Sản phẩm.
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">Product Details</a></li>
-              <li><a href="#">Checkout</a></li>
-              <li><a href="#">Cart</a></li>
-              <li><a href="#">Confirmation</a></li>
+              <li><router-link to="/campaigns">Trái cây đặc sản </router-link></li>
+              <li><a href="#">Giỏ hàng của bạn</a></li>
+              <li><a href="#">Thanh toán</a></li>
             </ul>
           </li><!-- / Blog -->
 
@@ -86,7 +71,7 @@
             <!-- Cart Item -->
             <div class="media">
               <a href="#">
-                <img class="media-object img- mr-3" src="assets/images/cart-1.jpg" alt="image" />
+                <img class="media-object img- mr-3" src="assets/images/1.jpg" alt="image" />
               </a>
               <div class="media-body">
                 <h6>Ladies Bag</h6>

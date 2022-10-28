@@ -1,42 +1,27 @@
 <template>
-
   <div id="carouselExampleControls" class="carousel slide main-slider slider" data-ride="carousel">
     <div class="carousel-inner">
-      <div  class="slider-item carousel-item active" style="background-image:url('assets/images/slideshow1-2.jpg')">
+      <div  class="slider-item carousel-item active" style="background-image:url('https://dacsandalat.com.vn/wp-content/uploads/2014/06/qua-hong.jpg')">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-12 offset-lg-6 offset-md-6">
-              <div class="slider-caption">
-                <span class="lead">Winter Collection Sale </span>
-                <h1 class="mt-2 mb-5"><span class="text-color">70% off </span>to everything</h1>
-                <a href="#" class="btn btn-main">Shop Now</a>
-              </div>
             </div>
           </div>
         </div>
       </div>
-      <div   class="slider-item carousel-item" style="background-image:url('assets/images/slideshow1-3.jpg')">
+      <div   class="slider-item carousel-item" style="background-image:url('https://2.bp.blogspot.com/-rm4WSmTHJsM/Unkgq-rt26I/AAAAAAAAFBg/Wbaj_1wuNxc/s1600/ip+006.JPG')">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-12 offset-lg-6 offset-md-6">
-              <div class="slider-caption">
-                <span class="lead">up to 70% off</span>
-                <h1 class="mt-2 mb-5"><span class="text-color">Classic</span> Style</h1>
-                <a href="#" class="btn btn-main">Shop Now</a>
-              </div>
             </div>
           </div>
         </div>
       </div>
-      <div   class="slider-item carousel-item" style="background-image:url('assets/images/slideshow1-1.jpg'); background-position:50%;background-repeat:no-repeat;">
+      <div   class="slider-item carousel-item" style="background-image:url('https://2.bp.blogspot.com/-rm4WSmTHJsM/Unkgq-rt26I/AAAAAAAAFBg/Wbaj_1wuNxc/s1600/ip+006.JPG');
+      background-position:50%;background-repeat:no-repeat;">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-12 offset-lg-6 offset-md-6">
-              <div class="slider-caption">
-                <span class="lead">Trendy dress</span>
-                <h1 class="mt-2 mb-5"><span class="text-color">Winter </span>Collection</h1>
-                <a href="#" class="btn btn-main">Shop Now</a>
-              </div>
             </div>
           </div>
         </div>
@@ -52,46 +37,7 @@
     </a>
   </div>
   <section class="category section pt-3 pb-0">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-sm-12 col-md-6">
-          <div class="cat-item mb-4 mb-lg-0">
-            <img src="assets/images/cat-1.jpg" alt="" class="img-fluid">
-            <div class="item-info">
-              <p class="mb-0">Stylish Leather watch</p>
-              <h4 class="mb-4">up to <strong>50% </strong>off</h4>
 
-              <a href="#" class="read-more">Shop now</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-12 col-md-6">
-          <div class="cat-item mb-4 mb-lg-0">
-            <img src="assets/images/cat-2.jpg" alt="" class="img-fluid">
-
-            <div class="item-info">
-              <p class="mb-0">Ladies hand bag</p>
-              <h4 class="mb-4">up to <strong>40% </strong>off</h4>
-
-              <a href="#" class="read-more">Shop now</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-12 col-md-6">
-          <div class="cat-item">
-            <img src="assets/images/cat-3.jpg" alt="" class="img-fluid">
-            <div class="item-info">
-              <p class="mb-0">Trendy shoe</p>
-              <h4 class="mb-4">up to <strong>50% </strong>off</h4>
-
-              <a href="#" class="read-more">Shop now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <section class="section products-main">
@@ -99,8 +45,8 @@
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <div class="title text-center">
-            <h2>New arrivals</h2>
-            <p>The best Online sales to shop these weekend</p>
+            <h2 >Cửa hàng trái cây tươi Hufi-Fruits</h2>
+            <p>Viet huy Doan</p>
           </div>
         </div>
       </div>
@@ -110,8 +56,8 @@
         <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" >
           <div class="product">
             <div class="product-wrap">
-              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/322.jpg" alt="product-img" /></a>
-              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/444.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="http://cdn.tgdd.vn/Files/2022/03/19/1421206/cay-mang-cut-trong-o-dau-bao-lau-thi-co-trai-202203191428342280.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="http://cdn.tgdd.vn/Files/2022/03/19/1421206/cay-mang-cut-trong-o-dau-bao-lau-thi-co-trai-202203191428342280.jpg" alt="product-img" /></a>
             </div>
 
             <span class="onsale">Sale</span>
@@ -132,8 +78,8 @@
         <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
           <div class="product">
             <div class="product-wrap">
-              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/111.jpg" alt="product-img" /></a>
-              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/444.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="http://cdn.tgdd.vn/Files/2017/05/23/985304/nhung-cong-dung-tuyet-voi-cua-thanh-long-ban-nen-biet-202109171144120943.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="http://cdn.tgdd.vn/Files/2017/05/23/985304/nhung-cong-dung-tuyet-voi-cua-thanh-long-ban-nen-biet-202109171144120943.jpg" alt="product-img" /></a>
             </div>
 
             <div class="product-hover-overlay">
@@ -153,8 +99,8 @@
         <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" >
           <div class="product">
             <div class="product-wrap">
-              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/222.jpg" alt="product-img" /></a>
-              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/322.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="https://2.bp.blogspot.com/-rm4WSmTHJsM/Unkgq-rt26I/AAAAAAAAFBg/Wbaj_1wuNxc/s1600/ip+006.JPG" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="https://2.bp.blogspot.com/-rm4WSmTHJsM/Unkgq-rt26I/AAAAAAAAFBg/Wbaj_1wuNxc/s1600/ip+006.JPG" alt="product-img" /></a>
             </div>
 
             <span class="onsale">Sale</span>
@@ -175,8 +121,8 @@
         <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
           <div class="product">
             <div class="product-wrap">
-              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/322.jpg" alt="product-img" /></a>
-              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/111.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxO03C4uqg9L6t2sepaM97dS6sUG7qmA0EcH6xdK7r7E2hDATjP5KrHpFtKBFpLbCefzk&usqp=CAU" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxO03C4uqg9L6t2sepaM97dS6sUG7qmA0EcH6xdK7r7E2hDATjP5KrHpFtKBFpLbCefzk&usqp=CAU" alt="product-img" /></a>
             </div>
 
             <div class="product-hover-overlay">
@@ -196,8 +142,8 @@
         <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
           <div class="product">
             <div class="product-wrap">
-              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/444.jpg" alt="product-img" /></a>
-              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/222.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="https://biquyetkhoedep.net/wp-content/uploads/2021/07/an-man-ha-noi-co-nong-khong.png" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="https://biquyetkhoedep.net/wp-content/uploads/2021/07/an-man-ha-noi-co-nong-khong.png" alt="product-img" /></a>
             </div>
 
             <div class="product-hover-overlay">
@@ -217,8 +163,8 @@
         <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" >
           <div class="product">
             <div class="product-wrap">
-              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/322.jpg" alt="product-img" /></a>
-              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/222.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="https://tieudung.kinhtedothi.vn/upload_images/images/2020/12/18/oi.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="https://tieudung.kinhtedothi.vn/upload_images/images/2020/12/18/oi.jpg" alt="product-img" /></a>
             </div>
 
             <div class="product-hover-overlay">
@@ -238,8 +184,8 @@
         <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5 " >
           <div class="product">
             <div class="product-wrap">
-              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/111.jpg" alt="product-img" /></a>
-              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/444.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="https://dacsandalat.com.vn/wp-content/uploads/2014/06/qua-hong.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="https://dacsandalat.com.vn/wp-content/uploads/2014/06/qua-hong.jpg" alt="product-img" /></a>
             </div>
 
             <div class="product-hover-overlay">
@@ -259,8 +205,14 @@
         <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5 " >
           <div class="product">
             <div class="product-wrap">
-              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/222.jpg" alt="product-img" /></a>
-              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/322.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-first"
+                               src="https://media.cooky.vn/images/blog-2016/thu-gian-voi-hinh-anh-trai-cay-cuc-dang-yeu%207.jpg" />
+              </a>
+              <a href="#"><img
+                class="img-fluid w-100 mb-3 img-second"
+                src="https://media.cooky.vn/images/blog-2016/thu-gian-voi-hinh-anh-trai-cay-cuc-dang-yeu%207.jpg"
+                alt="product-img" />
+              </a>
             </div>
 
             <div class="product-hover-overlay">
