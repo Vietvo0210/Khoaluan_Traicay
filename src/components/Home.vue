@@ -234,145 +234,23 @@
   </section>
   <!-- /portfolio -->
 
-  <section class="ads section">
+  <section>
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 offset-lg-6">
-          <div class="ads-content">
-            <span class="h5 deal">Deal of the day 50% Off</span>
-            <h2 class="mt-3 text-white">Trendy Suit</h2>
-            <p class="text-md mt-3 text-white">Hurry up! Limited time offer.Grab ot now!</p>
-            <!-- syo-timer -->
-            <div id="simple-timer" class="syotimer mb-5"></div>
+      <div class="row" >
+        <div class="col-lg-6">
+      <img
+        src="https://img.meta.com.vn/Data/image/2020/09/03/trai-cay-tot-cho-sinh-ly-nam-al.jpg"/>\
+        </div>
+        <div class="col-lg-6">
+            <span class="h5 deal">Giảm lên đến 50% </span>
+            <h2 class="mt-3 text-black">Các loại trái cây Việt Nam</h2>
+            <p class="text-md mt-3 text-white">Nhanh chóng đặt hàng ngay nào!</p>
             <a href="#" class="btn btn-main"><i class="ti-bag mr-2"></i>Shop Now </a>
           </div>
         </div>
       </div>
-    </div>
   </section>
 
-  <section class="section products-list">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-sm-12 col-md-12">
-          <img src="assets/images/adsv.jpg" alt="Product big thumb"  class="img-fluid w-100">
-        </div>
-
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="widget-featured-entries mt-5 mt-lg-0">
-            <h4 class="mb-4 pb-3">Best selllers</h4>
-
-            <div class="media mb-3">
-              <a class="featured-entry-thumb" href="#">
-                <img src="assets/images/p-1.jpg" alt="Product thumb" width="64" class="img-fluid mr-3">
-              </a>
-              <div class="media-body">
-                <h6 class="featured-entry-title mb-0"><a href="#">Keds - Kickstart Pom Pom</a></h6>
-                <p class="featured-entry-meta">$42.99</p>
-              </div>
-            </div>
-
-            <div class="media mb-3">
-              <a class="featured-entry-thumb" href="#">
-                <img src="assets/images/p-2.jpg" alt="Product thumb" width="64" class="img-fluid mr-3">
-              </a>
-              <div class="media-body">
-                <h6 class="featured-entry-title mb-0"><a href="#">Nike - Brasilia Medium Backpack</a></h6>
-                <p class="featured-entry-meta">$27.99</p>
-              </div>
-            </div>
-
-            <div class="media mb-3">
-              <a class="featured-entry-thumb" href="#">
-                <img src="assets/images/p-3.jpg" alt="Product thumb" width="64" class="img-fluid mr-3">
-              </a>
-              <div class="media-body">
-                <h6 class="featured-entry-title mb-0"><a href="#">Guess - GU7295</a></h6>
-                <p>$38.00</p>
-              </div>
-            </div>
-
-            <div class="media mb-3">
-              <a class="featured-entry-thumb" href="#">
-                <img src="assets/images/p-4.jpg" alt="Product thumb" width="64" class="img-fluid mr-3">
-              </a>
-              <div class="media-body">
-                <h6 class="featured-entry-title mb-0"><a href="#">Adidas Originals Cap</a></h6>
-                <p class="featured-entry-meta">$35.00</p>
-              </div>
-            </div>
-
-            <div class="media">
-              <a class="featured-entry-thumb" href="#">
-                <img src="assets/images/p-5.jpg" alt="Product thumb" width="64" class="img-fluid mr-3">
-              </a>
-              <div class="media-body">
-                <h6 class="featured-entry-title mb-0"><a href="#">Big Star Flip Tops</a></h6>
-                <p class="featured-entry-meta">$10.60</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="widget-featured-entries mt-5 mt-lg-0">
-            <h4 class="mb-4 pb-3">New Arrivals</h4>
-
-            <div class="media mb-3">
-              <a class="featured-entry-thumb" href="#">
-                <img src="assets/images/p-7.jpg" alt="Product thumb" width="64" class="img-fluid mr-3">
-              </a>
-              <div class="media-body">
-                <h6 class="featured-entry-title mb-0"><a href="#">Keds - Kickstart Pom Pom</a></h6>
-                <p class="featured-entry-meta">$42.99</p>
-              </div>
-            </div>
-
-            <div class="media mb-3">
-              <a class="featured-entry-thumb" href="#">
-                <img src="assets/images/p-8.jpg" alt="Product thumb" width="64" class="img-fluid mr-3">
-              </a>
-              <div class="media-body">
-                <h6 class="featured-entry-title mb-0"><a href="#">Nike - Brasilia Medium Backpack</a></h6>
-                <p class="featured-entry-meta">$27.99</p>
-              </div>
-            </div>
-
-            <div class="media mb-3">
-              <a class="featured-entry-thumb" href="#">
-                <img src="assets/images/p-1.jpg" alt="Product thumb" width="64" class="img-fluid mr-3">
-              </a>
-              <div class="media-body">
-                <h6 class="featured-entry-title mb-0"><a href="#">Guess - GU7295</a></h6>
-                <p>$38.00</p>
-              </div>
-            </div>
-
-            <div class="media mb-3">
-              <a class="featured-entry-thumb" href="#">
-                <img src="assets/images/p-2.jpg" alt="Product thumb" width="64" class="img-fluid mr-3">
-              </a>
-              <div class="media-body">
-                <h6 class="featured-entry-title mb-0"><a href="#">Adidas Originals Cap</a></h6>
-                <p class="featured-entry-meta">$35.00</p>
-              </div>
-            </div>
-
-            <div class="media">
-              <a class="featured-entry-thumb" href="#">
-                <img src="assets/images/p-4.jpg" alt="Product thumb" width="64" class="img-fluid mr-3">
-              </a>
-              <div class="media-body">
-                <h6 class="featured-entry-title mb-0"><a href="#">Big Star Flip Tops</a></h6>
-                <p class="featured-entry-meta">$10.60</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <section class="features border-top">
     <div class="container">
       <div class="row">

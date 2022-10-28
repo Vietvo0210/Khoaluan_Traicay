@@ -27,32 +27,14 @@
               Sản phẩm.
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-              <li><router-link to="/campaigns">Trái cây đặc sản </router-link></li>
+              <li><a href="#">Trái cây đặc sản </a></li>
               <li><a href="#">Giỏ hàng của bạn</a></li>
               <li><a href="#">Thanh toán</a></li>
             </ul>
           </li><!-- / Blog -->
 
-          <!-- Account -->
-          <li class="nav-item dropdown dropdown-slide">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown5" role="button" data-delay="350"
-               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Account.
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown5">
-              <li><a href="#">Dahsboard</a></li>
-              <li><a href="#">Orders</a></li>
-              <li><a href="#">Downloads</a></li>
-              <li><a href="#">Address</a></li>
-              <li><a href="#">Profile Details</a></li>
-              <li><a href="#">Login Page</a></li>
-              <li><a href="#">SignUp Page</a></li>
-              <li><a href="#">Forgot Password</a></li>
-            </ul>
-          </li><!-- / Account -->
-
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link" href="#">Liên hệ</a>
           </li>
         </ul>
       </div>
