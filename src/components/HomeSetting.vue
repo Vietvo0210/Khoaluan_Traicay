@@ -13,7 +13,7 @@ export default {
   components: {
     Header,
     Footer,
-    Home
+    Home,
   }
 }
 </script>

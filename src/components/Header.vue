@@ -1,7 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-white w-100 navigation" id="navbar">
     <div class="container">
-      <a class="navbar-brand font-weight-bold" href="#">Hufi-Fruits</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
               aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,9 +9,6 @@
 
       <div class="collapse navbar-collapse " id="main-navbar">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Trang chủ </a>
-          </li>
 
           <li class="nav-item">
             <a class="nav-link" href="#">Về chúng tôi</a>
@@ -32,6 +28,10 @@
               <li><a href="#">Thanh toán</a></li>
             </ul>
           </li><!-- / Blog -->
+
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Dự đoán trái cây </a>
+          </li>
 
           <li class="nav-item">
             <a class="nav-link" href="#">Liên hệ</a>
@@ -91,7 +91,11 @@
             </div>
           </div>
         </li>
-        <li class="list-inline-item"><a href="#"><i class="tf-ion-ios-person mr-3"></i></a></li>
+        <li class="list-inline-item">
+          <router-link to="/login">
+            <i class="tf-ion-ios-person mr-3"></i>
+          </router-link>
+        </li>
       </ul>
     </div>
   </nav>

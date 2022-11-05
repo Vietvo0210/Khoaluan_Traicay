@@ -6,5 +6,6 @@ import "popper.js/dist/umd/popper.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "../public/assets/css/style.css";
 import "../public/assets/fonts/style.css";
+import router from './router'
 
-createApp(App).mount('#app')
+createApp(App).use(router).mount('#app')

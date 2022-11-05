@@ -1,14 +1,14 @@
 <template>
-  <HomeSetting msg="Welcome to Your Vue.js App"/>
+  <div>
+  <router-link to="/home">Hufi-Fruits</router-link>
+  </div>
+  <router-view/>
 </template>
 
 <script>
-import HomeSetting from './components/HomeSetting.vue'
-
 export default {
   name: 'App',
   components: {
-    HomeSetting
   }
 }
 </script>
