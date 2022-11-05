@@ -4,7 +4,7 @@ import Login from "../components/Login";
 
 const routes = [
     {
-        path: "/home",
+        path: "",
         name: "home",
         component: HomeSetting,
     },

@@ -1,6 +1,6 @@
 <template>
   <div>
-  <router-link to="/home">Hufi-Fruits</router-link>
+  <router-link to="/">Hufi-Fruits</router-link>
   </div>
   <router-view/>
 </template>
