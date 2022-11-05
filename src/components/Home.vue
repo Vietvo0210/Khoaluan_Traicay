@@ -46,7 +46,7 @@
         <div class="col-lg-8">
           <div class="title text-center">
             <h2 >Cửa hàng trái cây tươi Hufi-Fruits</h2>
-            <p>Viet huy Doan</p>
+            <p>Viet Huy Doan</p>
           </div>
         </div>
       </div>
@@ -67,9 +67,10 @@
             </div>
 
             <div class="product-info">
-              <h2 class="product-title h5 mb-0"><a href="#">Floral Kirby</a></h2>
+              <h2 class="product-title h5 mb-0"><a href="#">Măng cụt</a></h2>
+              <del>160.000vnđ/1kg<pre wp-pre-tag-5=""></pre></del>
               <span class="price">
-                        $329.10
+                        120.000vnđ/1kg
                     </span>
             </div>
           </div>
@@ -88,9 +89,9 @@
             </div>
 
             <div class="product-info">
-              <h2 class="product-title h5 mb-0"><a href="#">Open knit switer</a></h2>
+              <h2 class="product-title h5 mb-0"><a href="#">Thanh long</a></h2>
               <span class="price">
-                        $29.10
+                        40.000vnđ/1kg
                     </span>
             </div>
           </div>
@@ -110,9 +111,9 @@
             </div>
 
             <div class="product-info">
-              <h2 class="product-title h5 mb-0"><a href="#">Official trendy</a></h2>
+              <h2 class="product-title h5 mb-0"><a href="#">Xoài cát</a></h2>
               <span class="price">
-                        $350.00 – $355.00
+                        50.000vnđ - 80.000vnđ/1kg
                     </span>
             </div>
           </div>
@@ -131,9 +132,9 @@
             </div>
 
             <div class="product-info">
-              <h2 class="product-title h5 mb-0"><a href="#">Frock short</a></h2>
+              <h2 class="product-title h5 mb-0"><a href="#">Táo đỏ mỹ</a></h2>
               <span class="price">
-                        $249
+                        85.000vnđ/1kg
                     </span>
             </div>
           </div>
@@ -152,9 +153,9 @@
             </div>
 
             <div class="product-info">
-              <h2 class="product-title h5 mb-0"><a href="#">Sleeve dress</a></h2>
+              <h2 class="product-title h5 mb-0"><a href="#">Mận Hà Nội</a></h2>
               <span class="price">
-                        $59.10
+                        40.000vnđ/1kg
                     </span>
             </div>
           </div>
@@ -173,9 +174,9 @@
             </div>
 
             <div class="product-info">
-              <h2 class="product-title h5 mb-0"><a href="#">Stylish dress</a></h2>
+              <h2 class="product-title h5 mb-0"><a href="#">Ổi</a></h2>
               <span class="price">
-                        $99.00
+                        30.000vnđ/1kg
                     </span>
             </div>
           </div>
@@ -194,9 +195,9 @@
             </div>
 
             <div class="product-info">
-              <h2 class="product-title h5 mb-0"><a href="#">Body suite</a></h2>
+              <h2 class="product-title h5 mb-0"><a href="#">Hồng Đà Lạt</a></h2>
               <span class="price">
-                        $329.10
+                        90.000vnđ/1kg
                     </span>
             </div>
           </div>
@@ -221,10 +222,10 @@
             </div>
 
             <div class="product-info">
-              <h2 class="product-title h5 mb-0"><a href="#">Sleeve linen shirt</a></h2>
+              <h2 class="product-title h5 mb-0"><a href="#">Táo xanh cười</a></h2>
               <span class="price">
-                        <del>60<pre wp-pre-tag-5=""></pre></del>
-                        $50.10
+                        <del>300.000vnđ/1kg<pre wp-pre-tag-5=""></pre></del>
+                        200.000vnđ/1kg
                     </span>
             </div>
           </div>
@@ -258,8 +259,8 @@
           <div class="feature-block">
             <i class="tf-ion-android-bicycle"></i>
             <div class="content">
-              <h5>Free Shipping</h5>
-              <p>On all order over $39.00</p>
+              <h5>Miễn phí giao hàng</h5>
+              <p>Khi tổng hoá đơn trên 300.000vnđ</p>
             </div>
           </div>
         </div>
@@ -267,8 +268,8 @@
           <div class="feature-block">
             <i class="tf-wallet"></i>
             <div class="content">
-              <h5>30 Days Return</h5>
-              <p>Money back Guarantee</p>
+              <h5>Hoàn trả trong vòng 3h</h5>
+              <p>Đảm bảo hoàn lại tiền</p>
             </div>
           </div>
         </div>
@@ -276,8 +277,8 @@
           <div class="feature-block">
             <i class="tf-key"></i>
             <div class="content">
-              <h5>Secure Checkout</h5>
-              <p>100% Protected by paypal</p>
+              <h5>Thanh toán an toàn</h5>
+              <p>100% được đảm bảo bởi ứng dụng Momo</p>
             </div>
           </div>
         </div>
@@ -285,8 +286,8 @@
           <div class="feature-block">
             <i class="tf-clock"></i>
             <div class="content">
-              <h5>24/7 Support</h5>
-              <p>All time customer support </p>
+              <h5>Hỗ trợ 24/7 </h5>
+              <p>Hỗ trợ khách hàng mọi lúc</p>
             </div>
           </div>
         </div>
