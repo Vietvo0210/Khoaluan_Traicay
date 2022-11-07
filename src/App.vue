@@ -1,14 +1,14 @@
 <template>
-  <div>
-  <router-link to="/">Hufi-Fruits</router-link>
-  </div>
+    <Header></Header>
   <router-view/>
 </template>
 
 <script>
+import Header from '/src/components/Header'
 export default {
   name: 'App',
   components: {
+    Header,
   }
 }
 </script>
