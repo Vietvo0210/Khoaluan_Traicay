@@ -11,17 +11,27 @@
         <ul class="navbar-nav mx-auto">
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Về chúng tôi</a>
+            <router-link to="/home">
+              <a class="nav-link" >Trang chủ</a>
+            </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/aboutUs">
+            <a class="nav-link" >Về chúng tôi</a>
+            </router-link>
           </li>
           <!-- Pages -->
 
           <!-- / Blog -->
 
           <li class="nav-item dropdown dropdown-slide">
+            <router-link to="/login">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Sản phẩm.
             </a>
+            </router-link>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
               <li><a href="#">Trái cây đặc sản </a></li>
               <li><a href="#">Giỏ hàng của bạn</a></li>
@@ -30,11 +40,21 @@
           </li><!-- / Blog -->
 
           <li class="nav-item active">
+            <router-link to="/login">
             <a class="nav-link" href="#">Dự đoán trái cây </a>
+            </router-link>
           </li>
 
           <li class="nav-item">
+            <router-link to="/login">
             <a class="nav-link" href="#">Liên hệ</a>
+            </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/login">
+              <a class="nav-link" >Đăng nhập</a>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -90,11 +110,6 @@
               </div>
             </div>
           </div>
-        </li>
-        <li class="list-inline-item">
-          <router-link to="/login">
-            <i class="tf-ion-ios-person mr-3"></i>
-          </router-link>
         </li>
       </ul>
     </div>

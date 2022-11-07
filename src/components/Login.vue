@@ -1,50 +1,113 @@
 <template>
-  <div class="mx-auto flex w-full max-w-sm flex-col">
-    <div class="mx-auto flex lg:hidden">
-    </div>
-    <h1 class="mt-8 text-2xl font-semibold text-gray-700 lg:mt-0">
-      Chào mừng bạn trở lại
-    </h1>
-    <p class="mt-2 text-sm text-gray-400">Please sign in below</p>
-    <p class="mt-5 text-sm font-semibold text-gray-500">Email</p>
-    <input class="mt-1 rounded border py-1 px-3 text-sm shadow" />
-    <p class="mt-5 text-sm font-semibold text-gray-500">Password</p>
-    <input
-        class="mt-1 rounded border py-1 px-3 text-sm text-sm shadow"
-        type="password"
-    />
-    <div class="mt-5 flex items-center">
-      <input class="mr-2 align-middle text-sm text-sm" type="checkbox" />
-      <p class="text-sm font-semibold text-gray-500">Remember me</p>
-      <span class="flex-1" />
-      <a
-          href="#"
-          class="text-sm font-semibold text-indigo-400 hover:text-indigo-500"
-      >Forgot password?</a
-      >
-    </div>
-    <button
-        class="mt-5 rounded border bg-indigo-400 py-2 px-5 text-sm text-sm font-semibold text-gray-50 shadow hover:bg-indigo-500"
-    >
-      Sign in
-    </button>
-    <button
-        class="mt-3 rounded border bg-white py-2 px-5 shadow hover:bg-gray-100"
-    >
-      <div class="flex items-center justify-center space-x-2">
-        <GitHubLogo />
-        <span class="text-sm font-semibold text-gray-700"
-        >Sign in with GitHub</span
-        >
+  <div id="app">
+
+    <div class="login-page">
+      <transition name="fade">
+        <div v-if="!registerActive" class="wallpaper-login"></div>
+      </transition>
+      <div class="wallpaper-register"></div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-8 mx-auto">
+            <div v-if="!registerActive" class="card login" v-bind:class="{ error: emptyFields }">
+              <h1>Đăng nhập</h1>
+              <form class="form-group">
+                <input v-model="Email" type="email" class="form-control" placeholder="Email" required>
+                <input v-model="passwordLogin" type="password" class="form-control" placeholder="Mật khẩu" required>
+                <input type="submit" class="btn btn-primary" @click="doLogin">
+                <p>Bạn chưa có tài khoản? <a href="#" @click="registerActive = !registerActive, emptyFields = false">Sign up here</a>
+                </p>
+                <p><a href="#">Quên mật khẩu?</a></p>
+              </form>
+            </div>
+
+            <div v-else class="card register" v-bind:class="{ error: emptyFields }">
+              <h1>Đăng ký</h1>
+              <form class="form-group">
+                <input v-model="emailReg" type="email" class="form-control" placeholder="Email" required>
+                <input v-model="passwordReg" type="password" class="form-control" placeholder="Mật khẩu" required>
+                <input v-model="confirmReg" type="password" class="form-control" placeholder="Nhập lại mật khẩu" required>
+                <input type="submit" class="btn btn-primary" @click="doRegister">
+                <p>Bạn đã có tài khoản? <a href="#" @click="registerActive = !registerActive, emptyFields = false">Sign in here</a>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </button>
-    <div class="mt-8 flex items-center space-x-1">
-      <p class="text-sm font-semibold text-gray-500">Don't have an account?</p>
-      <a
-          href="#"
-          class="text-sm font-semibold text-indigo-400 hover:text-indigo-500"
-      >Sign up</a
-      >
     </div>
+
   </div>
 </template>
+
+<style>
+p {
+  line-height: 1rem;
+}
+
+.card {
+  padding: 20px;
+}
+
+.form-group
+input {
+  margin-bottom: 20px;
+}
+
+.login-page {
+  align-items: center;
+  display: flex;
+  height: 50vh;
+}
+
+.wallpaper-login {
+  height: 50%;
+  position: absolute;
+  width: 100%;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.wallpaper-register {
+  height: 50%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+}
+
+.error {
+  animation-name: errorShake;
+  animation-duration: 0.3s;
+}
+
+@keyframes errorShake {
+  0% {
+    transform: translateX(-25px);
+  }
+  25% {
+    transform: translateX(25px);
+  }
+  50% {
+    transform: translateX(-25px);
+  }
+  75% {
+    transform: translateX(25px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+</style>

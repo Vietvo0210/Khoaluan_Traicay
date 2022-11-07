@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory} from 'vue-router';
 import HomeSetting from "../components/HomeSetting";
 import Login from "../components/Login";
+import Header from "../components/Header";
+import AboutUs from "../components/AboutUs";
 
 const routes = [
     {
-        path: "",
+        path: "/home",
         name: "home",
         component: HomeSetting,
     },
@@ -13,6 +15,11 @@ const routes = [
         name: "login",
         component: Login,
     },
+    {
+        path: "/aboutUs",
+        name: "aboutUs",
+        component: AboutUs,
+    }
 ];
 
 const router = createRouter({
