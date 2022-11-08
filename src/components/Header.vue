@@ -57,12 +57,13 @@
             </router-link>
           </li>
         </ul>
-      </div>
+
       <!-- Navbar-collapse -->
 
-      <ul class="top-menu list-inline mb-0 d-none d-lg-block" id="top-menu">
-        <li class="list-inline-item">
-          <a href="#" class="search_toggle" id="search-icon"><i class="tf-ion-android-search"></i></a>
+      <ul class="navbar-nav mx-auto" >
+        <li class="nav-item">
+          <i class="tf-ion-android-search"/>
+          <a href="#" class="search_toggle" id="search-icon">Tìm kiếm</a>
         </li>
 
         <li class="dropdown cart-nav dropdown-slide list-inline-item">
@@ -112,6 +113,7 @@
           </div>
         </li>
       </ul>
+    </div>
     </div>
   </nav>
 </template>
