@@ -12,7 +12,7 @@
 
           <li class="nav-item">
             <router-link to="/home">
-              <a class="nav-link" >Trang chủ</a>
+              <a class="nav-link" >Dự đoán trái cây</a>
             </router-link>
           </li>
 
@@ -29,7 +29,7 @@
             <router-link to="/login">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Sản phẩm.
+              Sản phẩm
             </a>
             </router-link>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
@@ -39,11 +39,6 @@
             </ul>
           </li><!-- / Blog -->
 
-          <li class="nav-item active">
-            <router-link to="/login">
-            <a class="nav-link" href="#">Dự đoán trái cây </a>
-            </router-link>
-          </li>
 
           <li class="nav-item">
             <router-link to="/login">
