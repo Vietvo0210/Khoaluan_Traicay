@@ -6,3 +6,9 @@ class Empmodel(models.Model):
 	password=models.CharField(max_length=100)
 	class Meta:
 		db_table='Admin'
+
+class ProductModel(models.Model):
+    title=models.CharField(max_length=100)
+    price=models.IntegerField()
+    class Meta:
+        db_table='Product'
