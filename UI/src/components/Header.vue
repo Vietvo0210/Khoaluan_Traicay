@@ -58,7 +58,7 @@
       <ul class="navbar-nav mx-auto" >
         <li class="nav-item">
           <i class="tf-ion-android-search"/>
-          <a href="#" class="search_toggle" id="search-icon">Tìm kiếm</a>
+          <a href="http://localhost:5003/" class="search_toggle" id="search-icon">Tìm kiếm</a>
         </li>
 
         <li class="dropdown cart-nav dropdown-slide list-inline-item">
