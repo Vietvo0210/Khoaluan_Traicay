@@ -1,7 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   devServer: {
-    host: 'hufifruit.kltn.local',
+    host: 'fruitadmin.hufi.local',
     allowedHosts: "all",
    },
   transpileDependencies: true,
