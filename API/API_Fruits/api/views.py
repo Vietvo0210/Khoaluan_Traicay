@@ -103,20 +103,20 @@ def deleteCustomer(request, pk):
 @api_view(['GET'])
 def ShowAll_Feedback(request):
     feedback = Feedback.objects.all()
-    serializer = CustomerSerializer(feedback, many=True)
+    serializer = FeedbackSerializer(feedback, many=True)
     return Response(serializer.data)
 
 
 @api_view(['GET'])
 def ViewFeedback(request, pk):
     feedback = Feedback.objects.get(id=pk)
-    serializer = CustomerSerializer(feedback, many=False)
+    serializer = FeedbackSerializer(feedback, many=False)
     return Response(serializer.data)
 
 
 @api_view(['POST'])
 def CreateFeedback(request):
-    serializer = CustomerSerializer(data=request.data)
+    serializer = FeedbackSerializer(data=request.data)
 
     if serializer.is_valid():
         serializer.save()
@@ -128,7 +128,7 @@ def CreateFeedback(request):
 @api_view(['POST'])
 def updateFeedback(request, pk):
     feedback = Feedback.objects.get(id=pk)
-    serializer = CustomerSerializer(instance=feedback, data=request.data)
+    serializer = FeedbackSerializer(instance=feedback, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
