@@ -9,15 +9,15 @@
   <div class="row">
     <div class="column">
       <div class="card">
-        <img src="https://scontent.fsgn1-1.fna.fbcdn.net/v/t39.30808-6/316098583_1694021794326554_734760932040845010_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=VIq6o1J1w6sAX-ADDl7&_nc_ht=scontent.fsgn1-1.fna&oh=00_AfCaLUzFDKVu_AtE8RYqqKe9zZq3jiIyml_y6LX9vwSnSQ&oe=637E5722"
+        <img src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-6/316098583_1694021794326554_734760932040845010_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=QsDLzI6DeQUAX8p5BSK&_nc_ht=scontent.fsgn2-4.fna&oh=00_AfAIwAg7MucIN8iskrLTWJI7m2Qyi2H87Ri8iJ--Enu2wQ&oe=63902362"
              alt="Viet"
              style="width:100%">
         <div class="container">
           <h2>Quoc Viet</h2>
           <p class="title">CEO & Founder</p>
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p>LEADER</p>
           <p>vietvmq@smartgift.vn</p>
-          <p><button class="button">Contact</button></p>
+          <p><button class="button">Liên Hệ</button></p>
         </div>
       </div>
     </div>
@@ -30,10 +30,10 @@
             style="width:100%">
         <div class="container">
           <h2>Van Huy</h2>
-          <p class="title">Art Director</p>
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p class="title">Thành Viên</p>
+          <p>MEMBER</p>
           <p>huytv@gmail.com</p>
-          <p><button class="button">Contact</button></p>
+          <p><button class="button">Liên Hệ</button></p>
         </div>
       </div>
     </div>
@@ -45,10 +45,10 @@
              style="width:100%">
         <div class="container">
           <h2>Cong Doan</h2>
-          <p class="title">Designer</p>
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p class="title">Thành Viên</p>
+          <p>MEMBER</p>
           <p>Doancc@gmail.com</p>
-          <p><button class="button">Contact</button></p>
+          <p><button class="button">Liên Hệ</button></p>
         </div>
       </div>
     </div>
@@ -88,7 +88,7 @@ html {
 }
 
 .about-section {
-  padding: 50px;
+  padding: 20px;
   text-align: center;
   background-color: #dcbba8;
   color: white;

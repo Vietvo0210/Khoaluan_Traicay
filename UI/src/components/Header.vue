@@ -11,7 +11,7 @@
         <ul class="navbar-nav mx-auto">
 
           <li class="nav-item">
-            <router-link to="/home">
+            <router-link to="/homepredict">
               <a class="nav-link" >Dự đoán trái cây</a>
             </router-link>
           </li>
@@ -26,7 +26,7 @@
           <!-- / Blog -->
 
           <li class="nav-item dropdown dropdown-slide">
-            <router-link to="/login">
+            <router-link to="/product">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Sản phẩm
@@ -72,7 +72,9 @@
                 <img class="media-object img- mr-3" src="assets/images/1.jpg" alt="image" />
               </a>
               <div class="media-body">
-                <h6>Ladies Bag</h6>
+                <h6>
+
+                Buoi  Tay</h6>
                 <div class="cart-price">
                   <span>1 x</span>
                   <span>1250.00</span>
@@ -87,7 +89,7 @@
                 <img class="media-object img-fluid mr-3" src="assets/images/cart-2.jpg" alt="image" />
               </a>
               <div class="media-body">
-                <h6>Skinny Jeans</h6>
+                <h6>Chuoi Tay</h6>
                 <div class="cart-price">
                   <span>1 x</span>
                   <span>1250.00</span>

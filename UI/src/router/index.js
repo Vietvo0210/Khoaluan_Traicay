@@ -1,13 +1,18 @@
 import { createRouter, createWebHistory} from 'vue-router';
 import HomeSetting from "../components/HomeSetting";
 import Login from "../components/Login";
-import Header from "../components/Header";
+import HomePredict from "../components/HomePredict";
 import AboutUs from "../components/AboutUs";
 
 const routes = [
     {
-        path: "/home",
-        name: "home",
+        path: "/homepredict",
+        name: "homepredict",
+        component: HomePredict,
+    },
+    {
+        path: "/product",
+        name: "product",
         component: HomeSetting,
     },
     {
