@@ -9,7 +9,7 @@
         <v-toolbar
           flat
         >
-          <v-toolbar-title>Product</v-toolbar-title>
+          <v-toolbar-title>Customer</v-toolbar-title>
           <v-divider
             class="mx-4"
             inset
@@ -190,7 +190,6 @@
           { text: 'Phone_number', value: 'phone_number' },
           { text: 'Address', value: 'address' },
           { text: 'Password', value: 'password' },
-          { text: 'Admin_id', value: 'admin_id' },
           { text: 'Actions', value: 'actions', sortable: false },
         ],
         desserts: [],
@@ -201,16 +200,14 @@
           email: 0,
           phone_number: 0,
           address: 0,
-          admin_id: 0,
           password: 0,
         },
         defaultItem: {
-            id: '',
+          id: '',
           fullname: 0,
           email: 0,
           phone_number: 0,
           address: 0,
-          admin_id: 0,
           password: 0,
         },
       }),
@@ -239,7 +236,6 @@
                 email: 0,
                 phone_number: 0,
                 address: 0,
-                admin_id: 0,
                 password: 0,
             },
             {
@@ -248,7 +244,6 @@
                 email: 0,
                 phone_number: 0,
                 address: 0,
-                admin_id: 0,
                 password: 0,
             },
             {
@@ -257,7 +252,6 @@
                 email: 0,
                 phone_number: 0,
                 address: 0,
-                admin_id: 0,
                 password: 0,
             },
             {
@@ -266,7 +260,6 @@
                 email: 0,
                 phone_number: 0,
                 address: 0,
-                admin_id: 0,
                 password: 0,
             },
           ]
