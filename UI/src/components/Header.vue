@@ -21,9 +21,6 @@
             <a class="nav-link" >Về chúng tôi</a>
             </router-link>
           </li>
-          <!-- Pages -->
-
-          <!-- / Blog -->
 
           <li class="nav-item dropdown dropdown-slide">
             <router-link to="/product">
@@ -44,6 +41,13 @@
               <a class="nav-link" >Đăng nhập</a>
             </router-link>
           </li>
+
+          <li class="nav-item">
+            <router-link to="/aboutUs">
+              <a class="nav-link" >Tin tức</a>
+            </router-link>
+          </li>
+
         </ul>
 
       <!-- Navbar-collapse -->
