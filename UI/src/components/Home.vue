@@ -53,7 +53,8 @@
 
 
       <div class="row">
-        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" >
+
+        <!-- <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" >
           <div class="product">
             <div class="product-wrap">
               <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="http://cdn.tgdd.vn/Files/2022/03/19/1421206/cay-mang-cut-trong-o-dau-bao-lau-thi-co-trai-202203191428342280.jpg" alt="product-img" /></a>
@@ -74,13 +75,13 @@
                     </span>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
-          <div class="product">
+          <div class="product" v-for="post in posts" v-bind:key="post.id">
             <div class="product-wrap">
-              <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="http://cdn.tgdd.vn/Files/2017/05/23/985304/nhung-cong-dung-tuyet-voi-cua-thanh-long-ban-nen-biet-202109171144120943.jpg" alt="product-img" /></a>
-              <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="http://cdn.tgdd.vn/Files/2017/05/23/985304/nhung-cong-dung-tuyet-voi-cua-thanh-long-ban-nen-biet-202109171144120943.jpg" alt="product-img" /></a>
+              <a href="#"><img class="img-fluid w-100 mb-3 img-first" v-bind:src="post.thumbnail" alt="okke"/></a>
+              <!-- <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="http://cdn.tgdd.vn/Files/2017/05/23/985304/nhung-cong-dung-tuyet-voi-cua-thanh-long-ban-nen-biet-202109171144120943.jpg" alt="product-img" /></a> -->
             </div>
 
             <div class="product-hover-overlay">
@@ -89,15 +90,16 @@
             </div>
 
             <div class="product-info">
-              <h2 class="product-title h5 mb-0"><a href="#">Thanh long</a></h2>
+              <h2 class="product-title h5 mb-0"><a href="#">{{post.title}}</a></h2>
               <span class="price">
-                        40.000vnđ/1kg
+                {{post.price}}
                     </span>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" >
+
+        <!-- <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" >
           <div class="product">
             <div class="product-wrap">
               <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="https://2.bp.blogspot.com/-rm4WSmTHJsM/Unkgq-rt26I/AAAAAAAAFBg/Wbaj_1wuNxc/s1600/ip+006.JPG" alt="product-img" /></a>
@@ -173,7 +175,7 @@
               <a href="#"><i class="tf-ion-ios-heart"></i></a>
             </div>
 
-            <div class="product-info">
+            <div class="product-info" >
               <h2 class="product-title h5 mb-0"><a href="#">Ổi</a></h2>
               <span class="price">
                         30.000vnđ/1kg
@@ -229,8 +231,8 @@
                     </span>
             </div>
           </div>
-        </div>
-      </div>
+        </div>-->
+      </div> 
     </div>
   </section>
   <!-- /portfolio -->
@@ -295,3 +297,27 @@
     </div>
   </section>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      posts: [],
+    };
+  },
+
+  methods: {
+    async getData() {
+      try {
+        let response = await fetch("http://127.0.0.1:8000/api/product-list/");
+        this.posts = await response.json();;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+
+  created() {
+    this.getData();
+  },
+};
+</script>
