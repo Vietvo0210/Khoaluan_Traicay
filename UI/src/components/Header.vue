@@ -39,13 +39,6 @@
             </ul>
           </li><!-- / Blog -->
 
-
-          <li class="nav-item">
-            <router-link to="/login">
-            <a class="nav-link" href="#">Liên hệ</a>
-            </router-link>
-          </li>
-
           <li class="nav-item">
             <router-link to="/login">
               <a class="nav-link" >Đăng nhập</a>

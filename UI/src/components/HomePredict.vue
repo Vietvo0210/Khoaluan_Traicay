@@ -2,6 +2,7 @@
   <div class="container">
     <h1
     >DỰ ĐOÁN TRÁI CÂY ĐẶC SẢN VIỆT NAM</h1>
+    <button @click="fetchData" >TEST FETCHDATA</button>
 
     <br><br>
     <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
@@ -32,7 +33,7 @@
           <br/>
           <div>
             <p></p>
-            <h4>Prediction: <i> {{'PRED_ENGLISH'}} </i></h4>
+            <h4>{{ tasks }}</h4>
             <h4 > Dự đoán : <i> {{'PRED_VIETNAMESE'}} </i> </h4>
           </div>
         </div>
@@ -41,9 +42,62 @@
 </template>
 
 <script>
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+
 export default {
   name: 'HomePredict',
-};
+  data() {
+    return {
+      // tasks
+      tasks: {}
+    }
+  },
+  methods: {
+    fetchData(){
+      axios.get('http://192.168.1.26:8085/api/predict/')
+      .then((response) => {
+        console.log(response.data)
+        this.tasks = response.data
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    },
+    data() {
+      return {
+        predict: axios.get('http://192.168.1.26:8085/api/predict/'),
+      }
+    },
+  },
+  created() {
+    // Fetch tasks on page load
+    this.fetchData();
+    Promise.all([
+        this.data(),
+    ])
+  }
+}
+
+</script>
+
+<script setup>
+
+import { onMounted, ref } from 'vue';
+const props = defineProps({
+  item: {
+    type: Object,
+    default: () => {},
+  },
+})
+onMounted(() => {
+  result()
+  axios.get('http://192.168.1.26:8085/api/predict/')
+})
+
+let rs1 = null
+const result = () => {
+}
 </script>
 
 <style scoped>
