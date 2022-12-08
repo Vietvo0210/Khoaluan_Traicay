@@ -42,7 +42,6 @@ export default {
         ["mdi-clipboard-list-outline", "Products","/Product"],
         ["mdi-card-account-details-outline", "Orders","/Order"],
         ["mdi-account-details-outline", "Customer","/Customer"],
-        ["mdi-cog", "System Setting"],
       ],
     };
   },
