@@ -79,7 +79,7 @@ def deleteProduct(request, pk):
     return Response('Items delete successfully!')
 
 class GetPredictedResult(ListCreateAPIView):
-    vgg16_model=load_model('/Users/admin/Desktop/Hocky6/Nhandangraucu_mayhoc/GUI/Viet_Huy_Doan_Traicay.model')
+    vgg16_model=load_model('E:/huyvip_123/KhoaLuan_NhanDangHoaQua/Viet_Huy_Doan_Traicay/Viet_Huy_Doan_Traicay.model')
     class_names = ["ambarella", "avocado ", "banana", "coconut", "custardapple", "dragonfruit", "durian", "guava", "jackfruit" ,
                   "lychee","mango","mangosteen","persimmon","pineapple","plumcot",
                   "plums","pomelo", "rambutan","saboche","tomato", "watermelon"
