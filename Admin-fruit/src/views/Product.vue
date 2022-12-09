@@ -1,7 +1,7 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="desserts"
+    :items="data"
     sort-by="calories"
     class="elevation-1"
   >
@@ -153,38 +153,30 @@
     <template v-slot:no-data>
       <v-btn
         color="primary"
-        @click="getData"
+        @click="initialize"
       >
         Reset
       </v-btn>
     </template>
   </v-data-table>
 </template>
-
 <script>
 import axios from "axios";
-  export default {
-    name:"product",
-    data: () => ({
-      dialog: false,
-      dialogDelete: false,
-      headers: [
-      {
-          text: 'ID',
-          align: 'start',
-          sortable: false,
-          value: 'id',
-        },
-        
-        { text: 'Title', value: 'title' },
-        { text: 'Price', value: 'price' },
-        { text: 'Discount', value: 'discount' },
-        { text: 'Thumbnail', value: 'thumbnail' },
-        { text: 'Description', value: 'description' },
-        { text: 'Actions', value: 'actions', sortable: false },
-      ],
-      desserts: [],
-      editedIndex: -1,
+export default {
+  name: "Products",
+  data: () => ({
+    selected: "",
+    headers: [
+      { text: "Id", align: "center", sortable: false, value: "id" },
+      { text: "Title", value: "title" },
+      { text: "Price", value: "price" },
+      { text: "Discount", value: "discount" },
+      { text: "Thumbnail", value: "thumbnail" },
+      { text: "Description", value: "" },
+      { text: "Actions", value: 'actions', sortable: false },
+    ],
+    editedIndex: -1,
+    data: [],
       editedItem: {
         id: '',
         title: 0,
@@ -200,14 +192,15 @@ import axios from "axios";
         discount: 0,
         thumbnail: 0,
         description: 0,
-      },
-    }),
+      },     
+    
     computed: {
       formTitle () {
         return this.editedIndex === -1 ? 'New Product' : 'Edit Product'
       },
     },
-    watch: {
+  }),
+  watch: {
       dialog (val) {
         val || this.close()
       },
@@ -215,24 +208,21 @@ import axios from "axios";
         val || this.closeDelete()
       },
     },
-    created () {
-      this.getData()
-    },
-    methods: {
-      getData() {
-      return axios
-        .get("http://127.0.0.1:8000/api/product-list/" + this.selected, {
-          dataType: "json",
-        })
+  methods: {
+    getData() {
+      axios
+        .get("http://192.168.1.116:8085/api/product-list/" )
         .then((response) => {
-          this.data.push(response.data)
+          this.data = response.data;
         })
         .catch((err) => alert(err));
     },
-    mounted() {
+  },
+
+  mounted() {
     this.getData();
   },
-      editItem (item) {
+  editItem (item) {
         this.editedIndex = this.desserts.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
@@ -268,7 +258,6 @@ import axios from "axios";
         }
         this.close()
       },
-    },
-  }
+};
 </script>
 

@@ -1,7 +1,7 @@
 <template>
     <v-data-table
       :headers="headers"
-      :items="desserts"
+      :items="data"
       sort-by="calories"
       class="elevation-1"
     >
@@ -202,6 +202,7 @@
   </template>
   
   <script>
+  import axios from "axios";
     export default {
       name:"Order",
       data: () => ({
@@ -226,7 +227,7 @@
           { text: 'Total_money', value: 'total_money' },
           { text: 'Actions', value: 'actions', sortable: false },
         ],
-        desserts: [],
+        data: [],
         editedIndex: -1,
         editedItem: {
           id: '',
@@ -271,89 +272,19 @@
       created () {
         this.initialize()
       },
-      methods: {
-        initialize () {
-          this.desserts = [
-            {
-              id: '',
-              customer_id: 0,
-              fullname: 0,
-              email: 0,
-              phone_number: 0,
-              address: 0,
-              note: 0,
-              order_date: 0,
-              status: 0,
-              total_money: 0,
-              actions: 0,
-            },
-            {
-              id: '',
-              customer_id: 0,
-              fullname: 0,
-              email: 0,
-              phone_number: 0,
-              address: 0,
-              note: 0,
-              order_date: 0,
-              status: 0,
-              total_money: 0,
-              actions: 0,
-            },
-            {
-              id: '',
-              customer_id: 0,
-              fullname: 0,
-              email: 0,
-              phone_number: 0,
-              address: 0,
-              note: 0,
-              order_date: 0,
-              status: 0,
-              total_money: 0,
-              actions: 0,
-            },
-            {
-              id: '',
-              customer_id: 0,
-              fullname: 0,
-              email: 0,
-              phone_number: 0,
-              address: 0,
-              note: 0,
-              order_date: 0,
-              status: 0,
-              total_money: 0,
-              actions: 0,
-            },
-            {
-              id: '',
-              customer_id: 0,
-              fullname: 0,
-              email: 0,
-              phone_number: 0,
-              address: 0,
-              note: 0,
-              order_date: 0,
-              status: 0,
-              total_money: 0,
-              actions: 0,
-            },
-            {
-              id: '',
-              customer_id: 0,
-              fullname: 0,
-              email: 0,
-              phone_number: 0,
-              address: 0,
-              note: 0,
-              order_date: 0,
-              status: 0,
-              total_money: 0,
-              actions: 0,
-            },
-          ]
-        },
+  methods: {
+    getData() {
+      axios
+        .get("http://192.168.1.116:8085/api/orders-list/" )
+        .then((response) => {
+          this.data = response.data;
+        })
+        .catch((err) => alert(err));
+  },
+  },
+  mounted() {
+    this.getData();
+  },
         editItem (item) {
           this.editedIndex = this.desserts.indexOf(item)
           this.editedItem = Object.assign({}, item)
@@ -390,7 +321,6 @@
           }
           this.close()
         },
-      },
     }
   </script>
   
