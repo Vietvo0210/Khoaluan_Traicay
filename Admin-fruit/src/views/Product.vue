@@ -175,7 +175,7 @@ import axios from "axios";
           sortable: false,
           value: 'id',
         },
-        
+
         { text: 'Title', value: 'title' },
         { text: 'Price', value: 'price' },
         { text: 'Discount', value: 'discount' },
@@ -221,7 +221,7 @@ import axios from "axios";
     methods: {
       getData() {
       return axios
-        .get("http://127.0.0.1:8000/api/product-list/" + this.selected, {
+        .get("http://192.168.1.26:8085/api/product-list/" + this.selected, {
           dataType: "json",
         })
         .then((response) => {

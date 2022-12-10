@@ -241,7 +241,7 @@ export default {
     async getData() {
       try {
         let response = await fetch("http://192.168.1.26:8085/api/product-list/");
-        this.posts = await response.json();;
+        this.posts = await response.json();
       } catch (error) {
         console.log(error);
       }
