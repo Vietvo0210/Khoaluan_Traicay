@@ -2,6 +2,7 @@
   <v-data-table
     :headers="headers"
     :items="data"
+    items-per-page="5"
     sort-by="calories"
     class="elevation-1"
   >
@@ -38,17 +39,7 @@
 
             <v-card-text>
               <v-container>
-                <v-row>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.id"
-                      label="ID"
-                    ></v-text-field>
-                  </v-col>
+                <v-row>                 
                   <v-col
                     cols="12"
                     sm="6"
@@ -211,7 +202,11 @@ export default {
   methods: {
     getData() {
       axios
+<<<<<<< Updated upstream
         .get("http://192.168.1.116:8085/api/product-list/" )
+=======
+        .get("http://192.168.1.5:8085/api/product-list/" )
+>>>>>>> Stashed changes
         .then((response) => {
           this.data = response.data;
         })
@@ -223,6 +218,7 @@ export default {
     this.getData();
   },
   editItem (item) {
+<<<<<<< Updated upstream
         this.editedIndex = this.desserts.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
@@ -261,3 +257,42 @@ export default {
 };
 </script>
 
+=======
+    this.editedIndex = this.data.indexOf(item)
+    this.editedItem = Object.assign({}, item)
+    this.dialog = true
+  },
+  deleteItem (item) {
+    this.editedIndex = this.data.indexOf(item)
+    this.editedItem = Object.assign({}, item)
+    this.dialogDelete = true
+  },
+  deleteItemConfirm () {
+    this.data.splice(this.editedIndex, 1)
+    this.closeDelete()
+  },
+  close () {
+    this.dialog = false
+    this.$nextTick(() => {
+      this.editedItem = Object.assign({}, this.defaultItem)
+      this.editedIndex = -1
+    })
+  },
+  closeDelete () {
+    this.dialogDelete = false
+    this.$nextTick(() => {
+      this.editedItem = Object.assign({}, this.defaultItem)
+      this.editedIndex = -1
+    })
+  },
+  save () {
+    if (this.editedIndex > -1) {
+      Object.assign(this.data[this.editedIndex], this.editedItem)
+    } else {
+      this.data.push(this.editedItem)
+    }
+    this.close()
+  },
+};
+</script>
+>>>>>>> Stashed changes

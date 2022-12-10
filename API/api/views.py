@@ -15,20 +15,28 @@ from .models import Product
 from rest_framework import status
 from django.http import JsonResponse
 from rest_framework.generics import ListCreateAPIView
+<<<<<<< Updated upstream
 
 
 ## import lbr load model
+=======
+>>>>>>> Stashed changes
 from keras.models import load_model
 
 import cv2
 import numpy as np
-import requests
-from PIL import Image
-import urllib.request
 import skimage.io
+<<<<<<< Updated upstream
 
 
 
+=======
+from .serializers import ProductSerializer,CustomerSerializer,FeedbackSerializer,GalerySerializer,Order_detailsSerializer,OdersSerializer
+from .models import Product,Galery,Feedback,Order_details,Orders,Customer
+from django.http import JsonResponse
+from rest_framework.generics import ListCreateAPIView
+from django.contrib.auth.models import User
+>>>>>>> Stashed changes
 # Create your views here.
 # Product
 
@@ -49,30 +57,31 @@ def ViewProduct(request, pk):
 @api_view(['POST'])
 def CreateProduct(request):
     serializer = ProductSerializer(data=request.data)
-
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+        return Response(serializer.data,status=status.HTTP_201_CREATED)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
 
-@api_view(['POST'])
+@api_view(['PUT'])
 def updateProduct(request, pk):
     product = Product.objects.get(id=pk)
     serializer = ProductSerializer(instance=product, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+        return Response(serializer.data)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-
-@api_view(['GET'])
+@api_view(['DELETE'])
 def deleteProduct(request, pk):
     product = Product.objects.get(id=pk)
     product.delete()
-
-    return Response('Items delete successfully!')
+    return Response(status=status.HTTP_204_NO_CONTENT) 
 
 
 
@@ -99,21 +108,23 @@ def CreateCustomer(request):
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+        return Response(serializer.data)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
-
-@api_view(['POST'])
+@api_view(['PUT'])
 def updateCustomer(request, pk):
     customer = Customer.objects.get(id=pk)
     serializer = CustomerSerializer(instance=customer, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+        return Response(serializer.data)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-
-@api_view(['GET'])
+@api_view(['DELETE'])
 def deleteCustomer(request, pk):
     customer = Customer.objects.get(id=pk)
     customer.delete()
@@ -143,21 +154,23 @@ def CreateFeedback(request):
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+        return Response(serializer.data)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
-
-@api_view(['POST'])
+@api_view(['PUT'])
 def updateFeedback(request, pk):
     feedback = Feedback.objects.get(id=pk)
     serializer = FeedbackSerializer(instance=feedback, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+        return Response(serializer.data)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-
-@api_view(['GET'])
+@api_view(['DELETE'])
 def deleteFeedback(request, pk):
     feedback = Feedback.objects.get(id=pk)
     feedback.delete()
@@ -187,21 +200,23 @@ def CreateGalery(request):
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+        return Response(serializer.data)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
-
-@api_view(['POST'])
+@api_view(['PUT'])
 def updateGalery(request, pk):
     galery = Galery.objects.get(id=pk)
     serializer = GalerySerializer(instance=galery, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+        return Response(serializer.data)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-
-@api_view(['GET'])
+@api_view(['DELETE'])
 def deleteGalery(request, pk):
     galery = Galery.objects.get(id=pk)
     galery.delete()
@@ -230,21 +245,23 @@ def CreateOrders(request):
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+        return Response(serializer.data)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
-
-@api_view(['POST'])
+@api_view(['PUT'])
 def updateOrders(request, pk):
     orders = Orders.objects.get(id=pk)
     serializer = OdersSerializer(instance=orders, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+        return Response(serializer.data)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-
-@api_view(['GET'])
+@api_view(['DELETE'])
 def deleteOrders(request, pk):
     orders = Orders.objects.get(id=pk)
     orders.delete()
@@ -273,27 +290,30 @@ def Createorder_details(request):
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+        return Response(serializer.data)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
-
-@api_view(['POST'])
+@api_view(['PUT'])
 def updateorder_details(request, pk):
     order_details = Order_details.objects.get(id=pk)
     serializer = Order_detailsSerializer(instance=order_details, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+        return Response(serializer.data)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-
-@api_view(['GET'])
+@api_view(['DELETE'])
 def deleteorder_details(request, pk):
     order_details = Order_details.objects.get(id=pk)
     order_details.delete()
 
     return Response('Items delete successfully!')
 
+<<<<<<< Updated upstream
 class GetPredictedResult(ListCreateAPIView):
     vgg16_model=load_model('E:/huyvip_123/KhoaLuan_NhanDangHoaQua/Viet_Huy_Doan_Traicay/Viet_Huy_Doan_Traicay.model')
     class_names = ["ambarella", "avocado ", "banana", "coconut", "custardapple", "dragonfruit", "durian", "guava", "jackfruit" ,
@@ -317,6 +337,9 @@ class GetPredictedResult(ListCreateAPIView):
 
 from django.contrib.auth.models import User
 
+=======
+@api_view(['POST'])
+>>>>>>> Stashed changes
 def login(seft,request):
             email=request.POST['email']
             password = request.POST['password']
@@ -329,6 +352,33 @@ def login(seft,request):
                      return True
                 else:
                      return False
+<<<<<<< Updated upstream
             
     
         
+=======
+
+
+
+class GetPredictedResult(ListCreateAPIView):
+    vgg16_model=load_model('E:/huyvip_123/KhoaLuan_NhanDangHoaQua/Viet_Huy_Doan_Traicay/Viet_Huy_Doan_Traicay.model')
+    class_names = ["ambarella", "avocado ", "banana", "coconut", "custardapple", "dragonfruit", "durian", "guava", "jackfruit" ,
+                  "lychee","mango","mangosteen","persimmon","pineapple","plumcot",
+                  "plums","pomelo", "rambutan","saboche","tomato", "watermelon"
+                  ]
+    def get(self,request):
+        url = 'https://duockienminh.vn/sites/default/files/anh_bai_viet/1-la-du-du-la-gi-tai-sao-nhieu-ngu.jpg'
+        # req = urllib.request.urlopen(url)
+        # arr = np.asarray(bytearray(req.read()), dtype=np.uint8)
+        # image = cv2.imdecode(arr,1)
+        image=skimage.io.imread('https://duockienminh.vn/sites/default/files/anh_bai_viet/1-la-du-du-la-gi-tai-sao-nhieu-ngu.jpg')
+        image_resized = cv2.resize(image,(224,224))
+        image=np.expand_dims(image_resized,axis=0)
+        pred = self.vgg16_model.predict(image)
+        accuracy = float("{:.2f}".format(max(pred[0]))) * 100
+        accuracy = int(accuracy)
+        return JsonResponse({
+                'Loai': ''+self.class_names[np.argmax(pred)],
+            }, status=status.HTTP_201_CREATED)
+
+>>>>>>> Stashed changes

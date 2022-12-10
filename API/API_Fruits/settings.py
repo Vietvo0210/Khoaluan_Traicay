@@ -52,8 +52,20 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+<<<<<<< Updated upstream
 CORS_ORIGIN_ALLOW_ALL = True
 
+=======
+CORS_ORIGIN_ALLOW_ALL=True
+CORS_ALLOW_METHODS = (
+        'GET',
+        'POST',
+        'PUT',
+        'PATCH',
+        'DELETE',
+        'OPTIONS'
+    )
+>>>>>>> Stashed changes
 ROOT_URLCONF = 'API_Fruits.urls'
 
 TEMPLATES = [
