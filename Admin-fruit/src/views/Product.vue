@@ -1,7 +1,7 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="desserts"
+    :items="data"
     sort-by="calories"
     class="elevation-1"
   >
@@ -153,122 +153,109 @@
     <template v-slot:no-data>
       <v-btn
         color="primary"
-        @click="getData"
+        @click="initialize"
       >
         Reset
       </v-btn>
     </template>
   </v-data-table>
 </template>
-
 <script>
 import axios from "axios";
-  export default {
-    name:"product",
-    data: () => ({
-      dialog: false,
-      dialogDelete: false,
-      headers: [
-      {
-          text: 'ID',
-          align: 'start',
-          sortable: false,
-          value: 'id',
-        },
-
-        { text: 'Title', value: 'title' },
-        { text: 'Price', value: 'price' },
-        { text: 'Discount', value: 'discount' },
-        { text: 'Thumbnail', value: 'thumbnail' },
-        { text: 'Description', value: 'description' },
-        { text: 'Actions', value: 'actions', sortable: false },
-      ],
-      desserts: [],
-      editedIndex: -1,
-      editedItem: {
-        id: '',
-        title: 0,
-        price: 0,
-        discount: 0,
-        thumbnail: 0,
-        description: 0,
-      },
-      defaultItem: {
-        id: '',
-        title: 0,
-        price: 0,
-        discount: 0,
-        thumbnail: 0,
-        description: 0,
-      },
-    }),
+export default {
+  name: "Products",
+  data: () => ({
+    selected: "",
+    headers: [
+      { text: "Id", align: "center", sortable: false, value: "id" },
+      { text: "Title", value: "title" },
+      { text: "Price", value: "price" },
+      { text: "Discount", value: "discount" },
+      { text: "Thumbnail", value: "thumbnail" },
+      { text: "Description", value: "" },
+      { text: "Actions", value: 'actions', sortable: false },
+    ],
+    editedIndex: -1,
+    data: [],
+    editedItem: {
+      id: '',
+      title: 0,
+      price: 0,
+      discount: 0,
+      thumbnail: 0,
+      description: 0,
+    },
+    defaultItem: {
+      id: '',
+      title: 0,
+      price: 0,
+      discount: 0,
+      thumbnail: 0,
+      description: 0,
+    },
     computed: {
       formTitle () {
         return this.editedIndex === -1 ? 'New Product' : 'Edit Product'
       },
     },
-    watch: {
-      dialog (val) {
-        val || this.close()
-      },
-      dialogDelete (val) {
-        val || this.closeDelete()
-      },
+  }),
+  watch: {
+    dialog (val) {
+      val || this.close()
     },
-    created () {
-      this.getData()
+    dialogDelete (val) {
+      val || this.closeDelete()
     },
-    methods: {
-      getData() {
-      return axios
-        .get("http://192.168.1.26:8085/api/product-list/" + this.selected, {
-          dataType: "json",
-        })
+  },
+  methods: {
+    getData() {
+      axios
+        .get("http://192.168.1.26:8085/api/product-list/" )
         .then((response) => {
-          this.data.push(response.data)
+          this.data = response.data;
         })
         .catch((err) => alert(err));
     },
-    mounted() {
+  },
+
+  mounted() {
     this.getData();
   },
-      editItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialog = true
-      },
-      deleteItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialogDelete = true
-      },
-      deleteItemConfirm () {
-        this.desserts.splice(this.editedIndex, 1)
-        this.closeDelete()
-      },
-      close () {
-        this.dialog = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
-      },
-      closeDelete () {
-        this.dialogDelete = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
-      },
-      save () {
-        if (this.editedIndex > -1) {
-          Object.assign(this.desserts[this.editedIndex], this.editedItem)
-        } else {
-          this.desserts.push(this.editedItem)
-        }
-        this.close()
-      },
-    },
-  }
+  editItem (item) {
+    this.editedIndex = this.desserts.indexOf(item)
+    this.editedItem = Object.assign({}, item)
+    this.dialog = true
+  },
+  deleteItem (item) {
+    this.editedIndex = this.desserts.indexOf(item)
+    this.editedItem = Object.assign({}, item)
+    this.dialogDelete = true
+  },
+  deleteItemConfirm () {
+    this.desserts.splice(this.editedIndex, 1)
+    this.closeDelete()
+  },
+  close () {
+    this.dialog = false
+    this.$nextTick(() => {
+      this.editedItem = Object.assign({}, this.defaultItem)
+      this.editedIndex = -1
+    })
+  },
+  closeDelete () {
+    this.dialogDelete = false
+    this.$nextTick(() => {
+      this.editedItem = Object.assign({}, this.defaultItem)
+      this.editedIndex = -1
+    })
+  },
+  save () {
+    if (this.editedIndex > -1) {
+      Object.assign(this.desserts[this.editedIndex], this.editedItem)
+    } else {
+      this.desserts.push(this.editedItem)
+    }
+    this.close()
+  },
+};
 </script>
-
