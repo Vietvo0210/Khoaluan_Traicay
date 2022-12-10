@@ -153,7 +153,7 @@
     <template v-slot:no-data>
       <v-btn
         color="primary"
-        @click="initialize"
+        @click="getData"
       >
         Reset
       </v-btn>
@@ -162,8 +162,9 @@
 </template>
 
 <script>
+import axios from "axios";
   export default {
-    name:"Product",
+    name:"product",
     data: () => ({
       dialog: false,
       dialogDelete: false,
@@ -215,61 +216,22 @@
       },
     },
     created () {
-      this.initialize()
+      this.getData()
     },
     methods: {
-      initialize () {
-        this.desserts = [
-          {
-            id: '1',
-            title: 0,
-            price: 0,
-            discount: 0,
-            thumbnail: 0,
-            description: 0,
-          },
-          {
-            id: '2',
-            title: 0,
-            price: 0,
-            discount: 0,
-            thumbnail: 0,
-            description: 0,
-          },
-          {
-            id: '3',
-            title: 0,
-            price: 0,
-            discount: 0,
-            thumbnail: 0,
-            description: 0,
-          },
-          {
-            id: '4',
-            title: 0,
-            price: 0,
-            discount: 0,
-            thumbnail: 0,
-            description: 0,
-          },
-          {
-            id: '5',
-            title: 0,
-            price: 0,
-            discount: 0,
-            thumbnail: 0,
-            description: 0,
-          },
-          {
-            id: '6',
-            title: 0,
-            price: 0,
-            discount: 0,
-            thumbnail: 0,
-            description: 0,
-          },
-        ]
-      },
+      getData() {
+      return axios
+        .get("http://127.0.0.1:8000/api/product-list/" + this.selected, {
+          dataType: "json",
+        })
+        .then((response) => {
+          this.data.push(response.data)
+        })
+        .catch((err) => alert(err));
+    },
+    mounted() {
+    this.getData();
+  },
       editItem (item) {
         this.editedIndex = this.desserts.indexOf(item)
         this.editedItem = Object.assign({}, item)
