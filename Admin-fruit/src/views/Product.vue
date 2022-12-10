@@ -193,7 +193,6 @@ export default {
       thumbnail: 0,
       description: 0,
     },
-
     computed: {
       formTitle () {
         return this.editedIndex === -1 ? 'New Product' : 'Edit Product'
