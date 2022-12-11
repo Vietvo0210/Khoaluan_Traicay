@@ -15,28 +15,19 @@ from .models import Product
 from rest_framework import status
 from django.http import JsonResponse
 from rest_framework.generics import ListCreateAPIView
-<<<<<<< Updated upstream
 
 
 ## import lbr load model
-=======
->>>>>>> Stashed changes
 from keras.models import load_model
 
 import cv2
 import numpy as np
 import skimage.io
-<<<<<<< Updated upstream
-
-
-
-=======
 from .serializers import ProductSerializer,CustomerSerializer,FeedbackSerializer,GalerySerializer,Order_detailsSerializer,OdersSerializer
 from .models import Product,Galery,Feedback,Order_details,Orders,Customer
 from django.http import JsonResponse
 from rest_framework.generics import ListCreateAPIView
 from django.contrib.auth.models import User
->>>>>>> Stashed changes
 # Create your views here.
 # Product
 
@@ -77,7 +68,7 @@ def updateProduct(request, pk):
     else:
         return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['DELETE'])
+@api_view(['GET'])
 def deleteProduct(request, pk):
     product = Product.objects.get(id=pk)
     product.delete()
@@ -124,7 +115,7 @@ def updateCustomer(request, pk):
     else:
         return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['DELETE'])
+@api_view(['GET'])
 def deleteCustomer(request, pk):
     customer = Customer.objects.get(id=pk)
     customer.delete()
@@ -170,7 +161,7 @@ def updateFeedback(request, pk):
     else:
         return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['DELETE'])
+@api_view(['GET'])
 def deleteFeedback(request, pk):
     feedback = Feedback.objects.get(id=pk)
     feedback.delete()
@@ -216,7 +207,7 @@ def updateGalery(request, pk):
     else:
         return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['DELETE'])
+@api_view(['GET'])
 def deleteGalery(request, pk):
     galery = Galery.objects.get(id=pk)
     galery.delete()
@@ -261,7 +252,7 @@ def updateOrders(request, pk):
     else:
         return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['DELETE'])
+@api_view(['GET'])
 def deleteOrders(request, pk):
     orders = Orders.objects.get(id=pk)
     orders.delete()
@@ -306,14 +297,13 @@ def updateorder_details(request, pk):
     else:
         return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['DELETE'])
+@api_view(['GET'])
 def deleteorder_details(request, pk):
     order_details = Order_details.objects.get(id=pk)
     order_details.delete()
 
     return Response('Items delete successfully!')
 
-<<<<<<< Updated upstream
 class GetPredictedResult(ListCreateAPIView):
     vgg16_model=load_model('E:/huyvip_123/KhoaLuan_NhanDangHoaQua/Viet_Huy_Doan_Traicay/Viet_Huy_Doan_Traicay.model')
     class_names = ["ambarella", "avocado ", "banana", "coconut", "custardapple", "dragonfruit", "durian", "guava", "jackfruit" ,
@@ -337,9 +327,6 @@ class GetPredictedResult(ListCreateAPIView):
 
 from django.contrib.auth.models import User
 
-=======
-@api_view(['POST'])
->>>>>>> Stashed changes
 def login(seft,request):
             email=request.POST['email']
             password = request.POST['password']
@@ -352,33 +339,3 @@ def login(seft,request):
                      return True
                 else:
                      return False
-<<<<<<< Updated upstream
-            
-    
-        
-=======
-
-
-
-class GetPredictedResult(ListCreateAPIView):
-    vgg16_model=load_model('E:/huyvip_123/KhoaLuan_NhanDangHoaQua/Viet_Huy_Doan_Traicay/Viet_Huy_Doan_Traicay.model')
-    class_names = ["ambarella", "avocado ", "banana", "coconut", "custardapple", "dragonfruit", "durian", "guava", "jackfruit" ,
-                  "lychee","mango","mangosteen","persimmon","pineapple","plumcot",
-                  "plums","pomelo", "rambutan","saboche","tomato", "watermelon"
-                  ]
-    def get(self,request):
-        url = 'https://duockienminh.vn/sites/default/files/anh_bai_viet/1-la-du-du-la-gi-tai-sao-nhieu-ngu.jpg'
-        # req = urllib.request.urlopen(url)
-        # arr = np.asarray(bytearray(req.read()), dtype=np.uint8)
-        # image = cv2.imdecode(arr,1)
-        image=skimage.io.imread('https://duockienminh.vn/sites/default/files/anh_bai_viet/1-la-du-du-la-gi-tai-sao-nhieu-ngu.jpg')
-        image_resized = cv2.resize(image,(224,224))
-        image=np.expand_dims(image_resized,axis=0)
-        pred = self.vgg16_model.predict(image)
-        accuracy = float("{:.2f}".format(max(pred[0]))) * 100
-        accuracy = int(accuracy)
-        return JsonResponse({
-                'Loai': ''+self.class_names[np.argmax(pred)],
-            }, status=status.HTTP_201_CREATED)
-
->>>>>>> Stashed changes

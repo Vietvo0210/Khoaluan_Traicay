@@ -1,11 +1,7 @@
 <template>
   <v-data-table
     :headers="headers"
-<<<<<<< Updated upstream
-    :items="data"
-=======
     :items="desserts"
->>>>>>> Stashed changes
     sort-by="calories"
     class="elevation-1"
   >
@@ -176,10 +172,6 @@
 </template>
 
 <script>
-<<<<<<< Updated upstream
-import axios from "axios";
-=======
->>>>>>> Stashed changes
   export default {
     name:"Customer",
     data: () => ({
@@ -200,11 +192,7 @@ import axios from "axios";
         { text: 'Password', value: 'password' },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
-<<<<<<< Updated upstream
       data: [],
-=======
-      desserts: [],
->>>>>>> Stashed changes
       editedIndex: -1,
       editedItem: {
         id: '',
@@ -213,62 +201,6 @@ import axios from "axios";
         phone_number: 0,
         address: 0,
         password: 0,
-<<<<<<< Updated upstream
-      },
-      defaultItem: {
-        id: '',
-        fullname: 0,
-        email: 0,
-        phone_number: 0,
-        address: 0,
-        password: 0,
-      },
-    }),
-    computed: {
-      formTitle () {
-        return this.editedIndex === -1 ? 'Add New' : 'Edit Customer'
-      },
-    },
-    watch: {
-      dialog (val) {
-        val || this.close()
-      },
-      dialogDelete (val) {
-        val || this.closeDelete()
-      },
-    },
-    created () {
-      this.initialize()
-    },
-    methods: {
-    getData() {
-      axios
-        .get("http://192.168.1.116:8085/api/customer-list/" )
-        .then((response) => {
-          this.data = response.data;
-        })
-        .catch((err) => alert(err));
-    },
-  },
-
-  mounted() {
-    this.getData();
-  },
-      editItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialog = true
-      },
-      deleteItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialogDelete = true
-      },
-      deleteItemConfirm () {
-        this.desserts.splice(this.editedIndex, 1)
-        this.closeDelete()
-      },
-=======
       },
       defaultItem: {
         id: '',
@@ -346,7 +278,6 @@ import axios from "axios";
         this.desserts.splice(this.editedIndex, 1)
         this.closeDelete()
       },
->>>>>>> Stashed changes
       close () {
         this.dialog = false
         this.$nextTick(() => {
@@ -369,9 +300,6 @@ import axios from "axios";
         }
         this.close()
       },
-<<<<<<< Updated upstream
-=======
-    },
->>>>>>> Stashed changes
+    }
   }
 </script>
