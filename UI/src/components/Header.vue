@@ -41,13 +41,6 @@
               <a class="nav-link" >Đăng nhập</a>
             </router-link>
           </li>
-
-          <li class="nav-item">
-            <router-link to="/aboutUs">
-              <a class="nav-link" >Tin tức</a>
-            </router-link>
-          </li>
-
         </ul>
 
       <!-- Navbar-collapse -->
