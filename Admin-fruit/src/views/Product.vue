@@ -166,14 +166,16 @@ export default {
       this.dialog = true
     },
     deleteItem (item) {
+      this.id_item_temp=item.id;
       this.editedItem = Object.assign({}, item)
       console.log(this.data.row)
       this.dialogDelete = true
     },
     deleteItemConfirm () {
-      console.log(this.data[0].id)
-      axios.delete("http://192.168.1.26:8085/api/product-delete/")
+      axios.get("http://192.168.1.10:8085/api/product-delete/"+this.id_item_temp+"/")
+      //fetch data after deleted
       this.closeDelete()
+      this.getData()
     },
     close () {
       this.dialog = false
