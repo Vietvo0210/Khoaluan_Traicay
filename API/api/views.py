@@ -330,7 +330,7 @@ from django.contrib.auth.models import User
 def login(seft,request):
             email=request.POST['email']
             password = request.POST['password']
-            bool_answer = User.objects.filter(yourtablefield="admin").exists()
+            bool_answer = User.objects.filter(yourtablefield="customer").exists()
             intakes = bool_answer.objects.all().filter(email,password)
 
             for intake in intakes:
