@@ -24,7 +24,6 @@
             </v-card-title>
 
             <v-card-text>
-              {{ data[0].id }}
               <v-container>
                 <v-row>
                   <v-col cols="12" sm="6" md="4">
@@ -56,7 +55,7 @@
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
 
-              <v-btn color="blue darken-1" text @click="postData">SAVE</v-btn>
+              <v-btn color="blue darken-1" text @click="check_save">SAVE</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -76,7 +75,7 @@
     </template>
 
     <template v-slot:item.actions="{ item }">
-      {{ item.id }}
+      <!-- {{ item.id }} -->
       <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
       <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
     </template>
@@ -144,8 +143,9 @@ export default {
   methods: {
     getData() {
       console.log(this.item)
+      
       axios
-        .get("http://192.168.1.10:8085/api/product-list/" )
+        .get("http://192.188.0.163:8085/api/product-list/" )
         .then((response) => {
           this.data = response.data;
         })
@@ -153,29 +153,47 @@ export default {
     },
     postData(){
       console.log('INSERT DATA')
-      axios.post("http://192.168.1.10:8085/api/product-create/", this.editedItem)
+     // axios.put("http://192.188.0.163:8085/api/product-update/"+ this.id_item_temp + "/",this.editedItem)
+      axios.post("http://192.188.0.163:8085/api/product-create/", this.editedItem)
         .then(function (response) {
           //close form
           this.dialog(false)
         console.log(response)
         console.log("POST SUCCESS!")
-
-        
       })
     },
+    putData(){
+      axios.put("http://192.188.0.163:8085/api/product-update/"+ this.id_item_temp + "/",this.editedItem)
+      .then((response)=>{
+        this.data=response.data;
+      }
+      )
+      .catch((err)=>alert(err));
+    },
+    check_save()
+    {
+      if(this.id_item_temp!=null)
+        this.putData()
+        else
+        this.postData()
+    },
    editItem (item) {
+    this.id_item_temp=item.id;
+    console.log("update",item.id)
      this.editedIndex = this.data.indexOf(item.id)
       this.editedItem = Object.assign({}, item)
       this.dialog = true
+      this.getData()
     },
     deleteItem (item) {
       this.id_item_temp=item.id;
       this.editedItem = Object.assign({}, item)
       console.log(this.data.row)
       this.dialogDelete = true
+      this.getData()
     },
     deleteItemConfirm () {
-      axios.get("http://192.168.1.10:8085/api/product-delete/"+this.id_item_temp+"/")
+      axios.get("http://192.188.0.163:8085/api/product-delete/"+this.id_item_temp+"/")
       this.getData()
       this.closeDelete()
     },
