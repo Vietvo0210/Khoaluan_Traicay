@@ -4,7 +4,7 @@
         class="text-center"
         cols="12"
       >
-        {{ new Date().getFullYear() }} — <strong>Fruit - VietNam</strong>
+        {{ new Date().getFullYear() }} — <strong>Fruit store - VIET/HUY/DOAN</strong>
       </v-col>
     </v-footer>
   </template>
