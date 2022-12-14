@@ -1,7 +1,7 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="desserts"
+    :items="data"
     sort-by="calories"
     class="elevation-1"
   >
@@ -43,11 +43,7 @@
                     cols="12"
                     sm="6"
                     md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.id"
-                      label="ID"
-                    ></v-text-field>
+                  >               
                   </v-col>
                   <v-col
                     cols="12"
@@ -155,9 +151,7 @@
               <v-btn
                 color="blue darken-1"
                 text
-                @click="save"
-              >
-                Save
+                @click="check_save">Save
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -175,20 +169,11 @@
         </v-dialog>
       </v-toolbar>
     </template>
+   
     <template v-slot:item.actions="{ item }">
-      <v-icon
-        small
-        class="mr-2"
-        @click="editItem(item)"
-      >
-        mdi-pencil
-      </v-icon>
-      <v-icon
-        small
-        @click="deleteItem(item)"
-      >
-        mdi-delete
-      </v-icon>
+      <!-- {{ item.id }} -->
+      <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
+      <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
     </template>
     <template v-slot:no-data>
       <v-btn
@@ -202,7 +187,9 @@
 </template>
 
 <script>
+import axios from "axios";
   export default {
+    id_item:Number,
     name:"Order",
     data: () => ({
       dialog: false,
@@ -226,33 +213,33 @@
         { text: 'Total_money', value: 'total_money' },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
-      desserts: [],
+      data: [],
       editedIndex: -1,
       editedItem: {
         id: '',
-        customer_id: 0,
-        fullname: 0,
-        email: 0,
-        phone_number: 0,
-        address: 0,
-        note: 0,
-        order_date: 0,
-        status: 0,
-        total_money: 0,
-        actions: 0,
+        customer_id:'',
+        fullname: '',
+        email: '',
+        phone_number: '',
+        address: '',
+        note: '',
+        order_date: '',
+        status: '',
+        total_money: '',
+        actions: '',
       },
       defaultItem: {
         id: '',
-        customer_id: 0,
-        fullname: 0,
-        email: 0,
-        phone_number: 0,
-        address: 0,
-        note: 0,
-        order_date: 0,
-        status: 0,
-        total_money: 0,
-        actions: 0,
+        customer_id:'',
+        fullname: '',
+        email: '',
+        phone_number: '',
+        address: '',
+        note: '',
+        order_date: '',
+        status: '',
+        total_money: '',
+        actions: '',
       },
     }),
     computed: {
@@ -269,106 +256,66 @@
       },
     },
     created () {
-      this.initialize()
+      this.getData()
     },
     methods: {
-      initialize () {
-        this.desserts = [
-          {
-            id: '',
-            customer_id: 0,
-            fullname: 0,
-            email: 0,
-            phone_number: 0,
-            address: 0,
-            note: 0,
-            order_date: 0,
-            status: 0,
-            total_money: 0,
-            actions: 0,
-          },
-          {
-            id: '',
-            customer_id: 0,
-            fullname: 0,
-            email: 0,
-            phone_number: 0,
-            address: 0,
-            note: 0,
-            order_date: 0,
-            status: 0,
-            total_money: 0,
-            actions: 0,
-          },
-          {
-            id: '',
-            customer_id: 0,
-            fullname: 0,
-            email: 0,
-            phone_number: 0,
-            address: 0,
-            note: 0,
-            order_date: 0,
-            status: 0,
-            total_money: 0,
-            actions: 0,
-          },
-          {
-            id: '',
-            customer_id: 0,
-            fullname: 0,
-            email: 0,
-            phone_number: 0,
-            address: 0,
-            note: 0,
-            order_date: 0,
-            status: 0,
-            total_money: 0,
-            actions: 0,
-          },
-          {
-            id: '',
-            customer_id: 0,
-            fullname: 0,
-            email: 0,
-            phone_number: 0,
-            address: 0,
-            note: 0,
-            order_date: 0,
-            status: 0,
-            total_money: 0,
-            actions: 0,
-          },
-          {
-            id: '',
-            customer_id: 0,
-            fullname: 0,
-            email: 0,
-            phone_number: 0,
-            address: 0,
-            note: 0,
-            order_date: 0,
-            status: 0,
-            total_money: 0,
-            actions: 0,
-          },
-        ]
-      },
-      editItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
+    getData() {
+      console.log(this.item)
+      
+      axios
+        .get("http://192.188.0.163:8085/api/orders-list/" )
+        .then((response) => {
+          this.data = response.data;
+        })
+        .catch((err) => alert(err));
+    },
+    postData(){
+      console.log('INSERT DATA')
+      axios.post("http://192.188.0.163:8085/api/orders-create/", this.editedItem)
+        .then(function (response) {
+          //close form
+          this.dialog(false)
+        console.log(response)
+        console.log("POST SUCCESS!")
+        this.getData()
+        this.close()
+      })
+    },
+    putData(){
+      axios.put("http://192.188.0.163:8085/api/orders-update/"+ this.id_item + "/",this.editedItem)
+      .then((response)=>{
+        this.data=response.data;
+      }
+      )
+      .catch((err)=>alert(err));
+    },
+    check_save()
+    {
+      if(this.id_item!=null)
+        this.putData()
+        else
+        this.postData()
+    },
+    editItem (item) {
+        this.id_item=item.id;
+        console.log("update",item.id)
+        this.editedIndex = this.data.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
-      deleteItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
+    deleteItem (item) {
+        this.id_item=item.id;
+        console.log("delete",item.id)
+        this.editedIndex = this.data.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
       },
-      deleteItemConfirm () {
-        this.desserts.splice(this.editedIndex, 1)
+    deleteItemConfirm () {
+        axios.get("http://192.188.0.163:8085/api/orders-delete/"+this.id_item+"/")
+        this.data.splice(this.editedIndex, 1)
         this.closeDelete()
       },
-      close () {
+    close () {
         this.dialog = false
         this.$nextTick(() => {
           this.editedItem = Object.assign({}, this.defaultItem)
@@ -384,13 +331,16 @@
       },
       save () {
         if (this.editedIndex > -1) {
-          Object.assign(this.desserts[this.editedIndex], this.editedItem)
+          Object.assign(this.data[this.editedIndex], this.editedItem)
         } else {
-          this.desserts.push(this.editedItem)
+          this.data.push(this.editedItem)
         }
         this.close()
       },
-    },
+      mounted() {
+    this.getData();
+  }
+  }  
   }
 </script>
 
