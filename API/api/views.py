@@ -33,7 +33,7 @@ from django.contrib.auth.models import User
 
 @api_view(['GET'])
 def ShowAll(request):
-    products = Product.objects.all()
+    products = Product.objects.all()[:10]
     serializer = ProductSerializer(products, many=True)
     return Response(serializer.data)
 
@@ -80,7 +80,7 @@ def deleteProduct(request, pk):
 
 @api_view(['GET'])
 def ShowAll_Customer(request):
-    customer = Customer.objects.all()
+    customer = Customer.objects.all()[:10]
     serializer = CustomerSerializer(customer, many=True)
     return Response(serializer.data)
 
@@ -126,7 +126,7 @@ def deleteCustomer(request, pk):
 
 @api_view(['GET'])
 def ShowAll_Feedback(request):
-    feedback = Feedback.objects.all()
+    feedback = Feedback.objects.all()[:10]
     serializer = FeedbackSerializer(feedback, many=True)
     return Response(serializer.data)
 
@@ -172,7 +172,7 @@ def deleteFeedback(request, pk):
 #Galery
 @api_view(['GET'])
 def ShowAll_Galery(request):
-    galery = Galery.objects.all()
+    galery = Galery.objects.all()[:10]
     serializer = GalerySerializer(galery, many=True)
     return Response(serializer.data)
 
@@ -217,7 +217,7 @@ def deleteGalery(request, pk):
 #Orders
 @api_view(['GET'])
 def ShowAll_Orders(request):
-    orders = Orders.objects.all()
+    orders = Orders.objects.all()[:10]
     serializer = OdersSerializer(orders, many=True)
     return Response(serializer.data)
 
@@ -262,7 +262,7 @@ def deleteOrders(request, pk):
 #Order_details
 @api_view(['GET'])
 def ShowAll_Order_details(request):
-    order_details = Order_details.objects.all()
+    order_details = Order_details.objects.all()[:10]
     serializer = Order_detailsSerializer(order_details, many=True)
     return Response(serializer.data)
 
