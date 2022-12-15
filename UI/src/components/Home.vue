@@ -35,6 +35,9 @@
       </div>
     </div>
 
+  <view-detail>
+
+  </view-detail>
   <section>
     <div class="container">
       <div class="row" >
@@ -96,7 +99,9 @@
   </section>
 </template>
 <script>
+import ViewDetail from '@/components/ViewDetail'
 export default {
+  components: { ViewDetail },
   data() {
     return {
       posts: [],
