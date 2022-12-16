@@ -271,7 +271,7 @@ def ShowAll_Order_details(request):
 def Vieworder_details(request, pk):
     order_details = Order_details.objects.get(id=pk)
     serializer = Order_detailsSerializer(order_details, many=False)
-    return Response(serializer.data)
+    return Response(serializer.data,request)
 
 
 @api_view(['POST'])
@@ -325,8 +325,8 @@ class GetPredictedResult(ListCreateAPIView):
                 'Loai': ''+self.class_names[np.argmax(pred)],
             }, status=status.HTTP_201_CREATED)
 
-@api_view(['GET'])
+@api_view(['POST'])
 def CheckLogin(request, pk,gk):
     customer = Customer.objects.get(email=pk,password=gk)
     serializer = CustomerSerializer(customer, many=False)
-    return Response(serializer.data)
+    return Response(serializer.data,status=status.HTTP_200_OK)
