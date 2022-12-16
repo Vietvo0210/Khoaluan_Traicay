@@ -16,7 +16,7 @@
                 <input id="email" v-model="email" type="email" class="form-control" placeholder="Email" required>
                 <input id="password" v-model="password" type="password" class="form-control" placeholder="Mật khẩu" required>
                 <input type="button" value="Login" class="btn btn-primary" @click="checkData">
-                
+                <!-- <button  type="submit" @click="checkData">Login</button> -->
                 <p>Bạn chưa có tài khoản? <a href="#" @click="registerActive = !registerActive, emptyFields = false">Sign up here</a>
                 </p>
                 <p><a href="#">Quên mật khẩu?</a></p>
