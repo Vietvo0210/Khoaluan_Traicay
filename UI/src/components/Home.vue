@@ -107,8 +107,9 @@ data() {
 methods: {
   async getData() {
     try {
-      let response = await fetch("http://192.168.1.10:8085/api/product-list/");
-      this.posts = await response.json();;
+      let response = await fetch("http://192.188.0.167:8085/api/product-list/");
+      this.posts = await response.json();
+      console.log(response)
     } catch (error) {
       console.log(error);
     }
