@@ -13,9 +13,10 @@
             <div v-if="!registerActive" class="card login" v-bind:class="{ error: emptyFields }">
               <h1>Đăng nhập</h1>
               <form class="form-group">
-                <input v-model="Email" type="email" class="form-control" placeholder="Email" required>
-                <input v-model="passwordLogin" type="password" class="form-control" placeholder="Mật khẩu" required>
-                <input type="submit" class="btn btn-primary" @click="doLogin">
+                <input id="email" v-model="email" type="email" class="form-control" placeholder="Email" required>
+                <input id="password" v-model="password" type="password" class="form-control" placeholder="Mật khẩu" required>
+                <input type="button" value="Login" class="btn btn-primary" @click="checkData">
+                
                 <p>Bạn chưa có tài khoản? <a href="#" @click="registerActive = !registerActive, emptyFields = false">Sign up here</a>
                 </p>
                 <p><a href="#">Quên mật khẩu?</a></p>
@@ -42,6 +43,37 @@
   </div>
 </template>
 
+<script>
+import axios from "axios";
+    export default {
+      name:"login",
+      data: () => {
+        return{
+          email:'',
+          password:''
+        }     
+      },
+    
+      methods: {
+       async checkData(){
+          let resutl=await axios.get(
+            'http://192.188.0.167:8085/api/login/'+this.email+'/'+this.password
+            ) .then((response)=> {
+          // this.data = response.data;
+          this.$router.push({name:'product'})
+        })
+            //  console.log(resutl)
+            if(resutl.status=200 && resutl.data.length>0)
+            {
+             // localStorage.setItem("info",JSON.stringify(resutl.data[0]))
+             this.$router.push({name:'product'})
+            }
+            this.$router.push({name:'Login'})
+    },
+   
+  },
+    }
+</script>
 <style>
 p {
   line-height: 1rem;
