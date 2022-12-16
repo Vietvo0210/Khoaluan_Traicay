@@ -56,21 +56,21 @@ import axios from "axios";
     
       methods: {
        async checkData(){
-          let resutl=await axios.get(
+          let resutl=await axios.post(
             'http://192.188.0.167:8085/api/login/'+this.email+'/'+this.password
-            ) .then((response)=> {
-          // this.data = response.data;
-          this.$router.push({name:'product'})
-        })
-            //  console.log(resutl)
-            if(resutl.status=200 && resutl.data.length>0)
+            ) 
+            if(resutl.status=200)
             {
-             // localStorage.setItem("info",JSON.stringify(resutl.data[0]))
-             this.$router.push({name:'product'})
+              this.$router.push({name:'product'})
             }
-            this.$router.push({name:'Login'})
+            else
+            // this.$router.push({name:'product'})
+             this.errors.push("Something went wrong, please refresh and try again.");
+             this.$router.push({name:'Login'})
     },
-   
+    created() {
+  this.checkData();
+},
   },
     }
 </script>
