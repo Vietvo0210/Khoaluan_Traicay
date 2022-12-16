@@ -325,17 +325,8 @@ class GetPredictedResult(ListCreateAPIView):
                 'Loai': ''+self.class_names[np.argmax(pred)],
             }, status=status.HTTP_201_CREATED)
 
-from django.contrib.auth.models import User
-
-def login(seft,request):
-            email=request.POST['email']
-            password = request.POST['password']
-            bool_answer = User.objects.filter(yourtablefield="customer").exists()
-            intakes = bool_answer.objects.all().filter(email,password)
-
-            for intake in intakes:
-
-                if intake.email==email and intake.password==password:
-                     return True
-                else:
-                     return False
+@api_view(['GET'])
+def CheckLogin(request, pk,gk):
+    customer = Customer.objects.get(email=pk,password=gk)
+    serializer = CustomerSerializer(customer, many=False)
+    return Response(serializer.data)
