@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     fetchData(){
-      axios.get('http://192.168.1.26:8085/api/predict/')
+      axios.get('http://127.0.0.1:8000/api/predict/')
       .then((response) => {
         console.log(response.data)
         this.tasks = response.data
@@ -66,7 +66,7 @@ export default {
     },
     data() {
       return {
-        predict: axios.get('http://192.168.1.26:8085/api/predict/'),
+        predict: axios.get('http://127.0.0.1:8000/api/predict/'),
       }
     },
   },
