@@ -26,7 +26,11 @@ urlpatterns = [
     path('galery-update/<int:pk>/', views.updateGalery, name='galery-update'),
     path('galery-delete/<int:pk>/', views.deleteGalery, name='galery-delete'),
 
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
     path('orders-list/', views.ShowAll_Orders, name='orders-list'),
     path('orders-detail/<int:pk>/', views.ViewOrders, name='orders-detail'),
     path('orders-create/', views.CreateOrders, name='orders-create'),
@@ -39,6 +43,12 @@ urlpatterns = [
     path('order_details-update/<int:pk>/', views.updateorder_details, name='order_details-update'),
     path('order_details-delete/<int:pk>/', views.deleteorder_details, name='order_details-delete'),
 
+<<<<<<< HEAD
+=======
+    path('predict/', views.GetPredictedResult.as_view()),
+    path('login/',views.login),
+
+>>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
     path('predict/', views.GetPredictedResult.as_view()),
     path('login/<str:pk>/<str:gk>',views.CheckLogin,name='login'),
 

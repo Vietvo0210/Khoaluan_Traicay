@@ -21,9 +21,6 @@
             <a class="nav-link" >Về chúng tôi</a>
             </router-link>
           </li>
-          <!-- Pages -->
-
-          <!-- / Blog -->
 
           <li class="nav-item dropdown dropdown-slide">
             <router-link to="/product">
@@ -38,13 +35,6 @@
               <li><a href="#">Thanh toán</a></li>
             </ul>
           </li><!-- / Blog -->
-
-
-          <li class="nav-item">
-            <router-link to="/login">
-            <a class="nav-link" href="#">Liên hệ</a>
-            </router-link>
-          </li>
 
           <li class="nav-item">
             <router-link to="/login">

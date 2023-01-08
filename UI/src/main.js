@@ -7,5 +7,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "../public/assets/css/style.css";
 import "../public/assets/fonts/style.css";
 import router from './router'
+import axios from 'axios'
+
 
 createApp(App).use(router).mount('#app')

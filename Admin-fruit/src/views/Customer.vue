@@ -229,7 +229,7 @@ import axios, {  } from "axios";
       console.log(this.item)
       
       axios
-        .get("http://192.188.0.163:8085/api/customer-list/" )
+        .get("http://127.0.0.1:8000/api/customer-list/" )
         .then((response) => {
           this.data = response.data;
         })
@@ -237,18 +237,18 @@ import axios, {  } from "axios";
     },
     postData(){
       console.log('INSERT DATA')
-      axios.post("http://192.188.0.163:8085/api/customer-create/", this.editedItem)
+      axios.post("http://127.0.0.1:8000/api/customer-create/", this.editedItem)
         .then(function (response) {
           //close form
           this.dialog(false)
         console.log(response)
         console.log("POST SUCCESS!")
-        this.getData()
-        this.close()
+        this.data.splice(this.editedIndex, 1)
+        this.closeSave()
       })
     },
     putData(){
-      axios.put("http://192.188.0.163:8085/api/customer-update/"+ this.id_item + "/",this.editedItem)
+      axios.put("http://127.0.0.1:8000/api/customer-update/"+ this.id_item + "/",this.editedItem)
       .then((response)=>{
         this.data=response.data;
       }
@@ -277,7 +277,7 @@ import axios, {  } from "axios";
         this.dialogDelete = true
       },
       deleteItemConfirm () {
-        axios.get("http://192.188.0.163:8085/api/customer-delete/"+this.id_item+"/")
+        axios.get("http://127.0.0.1:8000/api/customer-delete/"+this.id_item+"/")
         this.data.splice(this.editedIndex, 1)
         this.closeDelete()
       },
@@ -295,14 +295,7 @@ import axios, {  } from "axios";
           this.editedIndex = -1
         })
       },
-      save () {
-        if (this.editedIndex > -1) {
-          Object.assign(this.data[this.editedIndex], this.editedItem)
-        } else {
-          this.data.push(this.editedItem)
-        }
-        this.close()
-      },
+     
     }
   }
 </script>

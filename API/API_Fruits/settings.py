@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-4q7oxupb)5mjs#7d9kb^wzz#1huvwxxk6$0ppz-7@zrfu!-k79
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ["*"]
+=======
+ALLOWED_HOSTS = ['*']
+>>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
 
 
 # Application definition
@@ -38,7 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api.apps.ApiConfig',
+<<<<<<< HEAD
     'corsheaders',
+=======
+    "corsheaders",
+>>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
     'rest_framework'
 ]
 
@@ -48,11 +56,14 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 CORS_ORIGIN_ALLOW_ALL=True
+<<<<<<< HEAD
 CORS_ALLOW_METHODS = (
         'GET',
         'POST',
@@ -61,6 +72,9 @@ CORS_ALLOW_METHODS = (
         'DELETE',
         'OPTIONS'
     )
+=======
+
+>>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
 ROOT_URLCONF = 'API_Fruits.urls'
 
 TEMPLATES = [
