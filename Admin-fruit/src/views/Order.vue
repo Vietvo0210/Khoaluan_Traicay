@@ -263,7 +263,7 @@ import axios from "axios";
       console.log(this.item)
       
       axios
-        .get("http://192.188.0.163:8085/api/orders-list/" )
+        .get("http://127.0.0.1:8000/api/orders-list/" )
         .then((response) => {
           this.data = response.data;
         })
@@ -271,7 +271,7 @@ import axios from "axios";
     },
     postData(){
       console.log('INSERT DATA')
-      axios.post("http://192.188.0.163:8085/api/orders-create/", this.editedItem)
+      axios.post("http://127.0.0.1:8000/api/orders-create/", this.editedItem)
         .then(function (response) {
           //close form
           this.dialog(false)
@@ -282,7 +282,7 @@ import axios from "axios";
       })
     },
     putData(){
-      axios.put("http://192.188.0.163:8085/api/orders-update/"+ this.id_item + "/",this.editedItem)
+      axios.put("http://127.0.0.1:8000/api/orders-update/"+ this.id_item + "/",this.editedItem)
       .then((response)=>{
         this.data=response.data;
       }
@@ -311,7 +311,7 @@ import axios from "axios";
         this.dialogDelete = true
       },
     deleteItemConfirm () {
-        axios.get("http://192.188.0.163:8085/api/orders-delete/"+this.id_item+"/")
+        axios.get("http://127.0.0.1:8000/api/orders-delete/"+this.id_item+"/")
         this.data.splice(this.editedIndex, 1)
         this.closeDelete()
       },
