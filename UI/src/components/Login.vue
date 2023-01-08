@@ -57,7 +57,7 @@ import axios from "axios";
       methods: {
        async checkData(){
           let resutl=await axios.post(
-            'http://192.188.0.167:8085/api/login/'+this.email+'/'+this.password
+            'http://127.0.0.1:8000/api/login/'+this.email+'/'+this.password
             ) 
             if(resutl.status=200)
             {
