@@ -24,7 +24,6 @@
             </v-card-title>
 
             <v-card-text>
-              {{ data[0].id }}
               <v-container>
                 <v-row>
                   <v-col cols="12" sm="6" md="4">
@@ -56,11 +55,7 @@
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
 
-<<<<<<< HEAD
               <v-btn color="blue darken-1" text @click="check_save">SAVE</v-btn>
-=======
-              <v-btn color="blue darken-1" text @click="postData">SAVE</v-btn>
->>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -80,11 +75,7 @@
     </template>
 
     <template v-slot:item.actions="{ item }">
-<<<<<<< HEAD
       <!-- {{ item.id }} -->
-=======
-      {{ item.id }}
->>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
       <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
       <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
     </template>
@@ -104,10 +95,7 @@ export default {
       }
     }
   },
-<<<<<<< HEAD
   id_item_temp:Number,
-=======
->>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
   name: "Products",
   data: () => ({
     selected: "",
@@ -155,14 +143,9 @@ export default {
   methods: {
     getData() {
       console.log(this.item)
-<<<<<<< HEAD
       
       axios
-        .get("http://192.188.0.163:8085/api/product-list/" )
-=======
-      axios
-        .get("http://192.168.1.26:8085/api/product-list/" )
->>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
+        .get("http://127.0.0.1:8000/api/product-list/" )
         .then((response) => {
           this.data = response.data;
         })
@@ -170,12 +153,8 @@ export default {
     },
     postData(){
       console.log('INSERT DATA')
-<<<<<<< HEAD
-     // axios.put("http://192.188.0.163:8085/api/product-update/"+ this.id_item_temp + "/",this.editedItem)
-      axios.post("http://192.188.0.163:8085/api/product-create/", this.editedItem)
-=======
-      axios.post("http://192.168.1.26:8085/api/product-create/", this.editedItem)
->>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
+     // axios.put("http://127.0.0.1:8000/api/product-update/"+ this.id_item_temp + "/",this.editedItem)
+      axios.post("http://127.0.0.1:8000/api/product-create/", this.editedItem)
         .then(function (response) {
           //close form
           this.dialog(false)
@@ -183,9 +162,8 @@ export default {
         console.log("POST SUCCESS!")
       })
     },
-<<<<<<< HEAD
     putData(){
-      axios.put("http://192.188.0.163:8085/api/product-update/"+ this.id_item_temp + "/",this.editedItem)
+      axios.put("http://127.0.0.1:8000/api/product-update/"+ this.id_item_temp + "/",this.editedItem)
       .then((response)=>{
         this.data=response.data;
       }
@@ -206,33 +184,18 @@ export default {
       this.editedItem = Object.assign({}, item)
       this.dialog = true
       this.getData()
-=======
-   editItem (item) {
-     this.editedIndex = this.data.indexOf(item.id)
-      this.editedItem = Object.assign({}, item)
-      this.dialog = true
->>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
     },
     deleteItem (item) {
       this.id_item_temp=item.id;
       this.editedItem = Object.assign({}, item)
       console.log(this.data.row)
       this.dialogDelete = true
-<<<<<<< HEAD
       this.getData()
     },
     deleteItemConfirm () {
-      axios.get("http://192.188.0.163:8085/api/product-delete/"+this.id_item_temp+"/")
+      axios.get("http://127.0.0.1:8000/api/product-delete/"+this.id_item_temp+"/")
       this.getData()
       this.closeDelete()
-=======
-    },
-    deleteItemConfirm () {
-      axios.get("http://192.168.1.10:8085/api/product-delete/"+this.id_item_temp+"/")
-      //fetch data after deleted
-      this.closeDelete()
-      this.getData()
->>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
     },
     close () {
       this.dialog = false
@@ -259,8 +222,4 @@ export default {
     this.getData();
   },
 };
-<<<<<<< HEAD
 </script>
-=======
-</script>
->>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
