@@ -30,11 +30,24 @@
             </a>
             </router-link>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-              <li><a href="#">Trái cây đặc sản </a></li>
-              <li><a href="#">Giỏ hàng của bạn</a></li>
-              <li><a href="#">Thanh toán</a></li>
+              <li><a href="#">Trái cây Việt </a></li>
+              <li><a href="#">Trái cây ngoại nhập</a></li>
+              <li><a href="#">Sản phẩm HOT</a></li>
             </ul>
-          </li><!-- / Blog -->
+          </li>
+
+
+          <li class="nav-item">
+            <router-link to="/product">
+              <a class="nav-link" >Tin tức</a>
+            </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/product">
+              <a class="nav-link" >Liên hệ</a>
+            </router-link>
+          </li>
 
           <li class="nav-item">
             <router-link to="/login">
