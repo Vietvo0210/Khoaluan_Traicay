@@ -1,11 +1,6 @@
 <template>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-12">
-          <div class="title text-center">
-            <h2 >CỬA HÀNG TRÁI CÂY TƯƠI HUFI</h2>
-          </div>
-        </div>
       </div>
       <br/>
       <br/>

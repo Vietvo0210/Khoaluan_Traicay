@@ -11,14 +11,14 @@
         <ul class="navbar-nav mx-auto">
 
           <li class="nav-item">
-            <router-link to="/homepredict">
-              <a class="nav-link" >Dự đoán trái cây</a>
+            <router-link to="/product">
+              <a class="nav-link" >Trang chủ</a>
             </router-link>
           </li>
 
           <li class="nav-item">
             <router-link to="/aboutUs">
-            <a class="nav-link" >Về chúng tôi</a>
+            <a class="nav-link" >Giới thiệu</a>
             </router-link>
           </li>
 
