@@ -90,7 +90,6 @@
             <i class="tf-clock"></i>
             <div class="content">
               <h5>Hỗ trợ 24/7 </h5>
-              <p>Hỗ trợ khách hàng mọi lúc</p>
             </div>
           </div>
         </div>
