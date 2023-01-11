@@ -13,9 +13,10 @@
             <div v-if="!registerActive" class="card login" v-bind:class="{ error: emptyFields }">
               <h1>Đăng nhập</h1>
               <form class="form-group">
-                <input v-model="Email" type="email" class="form-control" placeholder="Email" required>
-                <input v-model="passwordLogin" type="password" class="form-control" placeholder="Mật khẩu" required>
-                <input type="submit" class="btn btn-primary" @click="doLogin">
+                <input id="email" v-model="email" type="email" class="form-control" placeholder="Email" required>
+                <input id="password" v-model="password" type="password" class="form-control" placeholder="Mật khẩu" required>
+                <input type="button" value="Login" class="btn btn-primary" @click="checkData">
+                <!-- <button  type="submit" @click="checkData">Login</button> -->
                 <p>Bạn chưa có tài khoản? <a href="#" @click="registerActive = !registerActive, emptyFields = false">Sign up here</a>
                 </p>
                 <p><a href="#">Quên mật khẩu?</a></p>
@@ -42,6 +43,37 @@
   </div>
 </template>
 
+<script>
+import axios from "axios";
+    export default {
+      name:"login",
+      data: () => {
+        return{
+          email:'',
+          password:''
+        }     
+      },
+    
+      methods: {
+       async checkData(){
+          let resutl=await axios.post(
+            'http://127.0.0.1:8000/api/login/'+this.email+'/'+this.password
+            ) 
+            if(resutl.status=200)
+            {
+              this.$router.push({name:'product'})
+            }
+            else
+            // this.$router.push({name:'product'})
+             this.errors.push("Something went wrong, please refresh and try again.");
+             this.$router.push({name:'Login'})
+    },
+    created() {
+  this.checkData();
+},
+  },
+    }
+</script>
 <style>
 p {
   line-height: 1rem;
