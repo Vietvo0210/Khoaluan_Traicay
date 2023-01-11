@@ -106,8 +106,8 @@
               <span class="total-price h6">$1799.00</span>
 
               <div class="text-center cart-buttons mt-3">
-                <a href="#" class="btn btn-small btn-transparent btn-block">View Cart</a>
-                <a href="#" class="btn btn-small btn-main btn-block">Checkout</a>
+                <a href="#" class="btn btn-small btn-transparent btn-block">Giỏ Hàng</a>
+                <a href="#" class="btn btn-small btn-main btn-block">Thanh Toán</a>
               </div>
             </div>
           </div>
