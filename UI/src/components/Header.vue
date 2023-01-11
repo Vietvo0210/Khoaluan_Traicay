@@ -11,14 +11,14 @@
         <ul class="navbar-nav mx-auto">
 
           <li class="nav-item">
-            <router-link to="/product">
-              <a class="nav-link" >Trang chủ</a>
+            <router-link to="/homepredict">
+              <a class="nav-link" >Dự đoán trái cây</a>
             </router-link>
           </li>
 
           <li class="nav-item">
             <router-link to="/aboutUs">
-            <a class="nav-link" >Giới thiệu</a>
+            <a class="nav-link" >Về chúng tôi</a>
             </router-link>
           </li>
 
@@ -30,24 +30,11 @@
             </a>
             </router-link>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-              <li><a href="#">Trái cây Việt </a></li>
-              <li><a href="#">Trái cây ngoại nhập</a></li>
-              <li><a href="#">Sản phẩm HOT</a></li>
+              <li><a href="#">Trái cây đặc sản </a></li>
+              <li><a href="#">Giỏ hàng của bạn</a></li>
+              <li><a href="#">Thanh toán</a></li>
             </ul>
-          </li>
-
-
-          <li class="nav-item">
-            <router-link to="/product">
-              <a class="nav-link" >Tin tức</a>
-            </router-link>
-          </li>
-
-          <li class="nav-item">
-            <router-link to="/product">
-              <a class="nav-link" >Liên hệ</a>
-            </router-link>
-          </li>
+          </li><!-- / Blog -->
 
           <li class="nav-item">
             <router-link to="/login">

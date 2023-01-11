@@ -521,6 +521,11 @@ a.text-primary:hover {
   display: block;
 }
 
+.navigation {
+  margin-bottom: 0;
+  padding: 15px 0px;
+}
+
 .navigation .navbar-nav > li {
   padding: 0px 10px;
 }

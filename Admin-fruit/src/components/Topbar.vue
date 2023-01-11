@@ -67,7 +67,7 @@
                 <v-img src="" />
               </v-avatar>
             </v-badge>
-            <span class="ml-3">Đoàn</span>
+            <span class="ml-3">HUY-VIET-DOAN</span>
           </v-chip>
         </span>
       </template>
@@ -78,7 +78,7 @@
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>CaoCongDoan</v-list-item-title>
+            <v-list-item-title>HUYTV</v-list-item-title>
             <v-list-item-subtitle>Logged In</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -109,35 +109,17 @@ export default {
       ],
       items: [
         {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
-          title: "Brunch this weekend?",
+          avatar: "https://scontent.fhan3-4.fna.fbcdn.net/v/t1.6435-9/129722272_1204180786643993_7106996165974283206_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=174925&_nc_ohc=_CDUwD-pYksAX9HjsUL&_nc_ht=scontent.fhan3-4.fna&oh=00_AfCyDwhgcN3jMVtamZKrjqNOGowuRcw_u68ZR87_CBkfbQ&oe=63C10AB1",
+          title: "Quốc việt vừa mua hàng",
           subtitle: '',
         },
         { divider: true, inset: true },
         {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
-          title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
+          avatar:"https://scontent.fhan4-1.fna.fbcdn.net/v/t39.30808-6/244349341_1404050403323696_3025368870314890430_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=174925&_nc_ohc=O8vzY-kGl2YAX-BCChz&_nc_ht=scontent.fhan4-1.fna&oh=00_AfBUfVpuPFDmik8V0H5HFCkkigvhY-aKK4N0YQxJntDiBQ&oe=639DED6A",
+          title: "Quốc việt vừa mua hàng",
           subtitle: '',
         },
-        { divider: true, inset: true },
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
-          title: "Oui oui",
-          subtitle:'',
-        },
-        { divider: true, inset: true },
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
-          title: "Birthday gift",
-          subtitle:'',
-        },
-        { divider: true, inset: true },
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
-          title: "Recipe to try",
-          subtitle:
-            '',
-        },
+       
       ],
     };
   },
