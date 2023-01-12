@@ -1,11 +1,6 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-12">
-        <div class="title text-center">
-          <h2 >CỬA HÀNG TRÁI CÂY TƯƠI HUFI</h2>
-        </div>
-      </div>
     </div>
     <br/>
     <br/>
@@ -90,7 +85,6 @@
           <i class="tf-clock"></i>
           <div class="content">
             <h5>Hỗ trợ 24/7 </h5>
-            <p>Hỗ trợ khách hàng mọi lúc</p>
           </div>
         </div>
       </div>
@@ -111,7 +105,7 @@ data() {
 methods: {
   async getData() {
     try {
-      let response = await fetch("http://192.168.1.26:8085/api/product-list/");
+      let response = await fetch("http://127.0.0.1:8000/api/product-list/");
       this.posts = await response.json();
     } catch (error) {
       console.log(error);
