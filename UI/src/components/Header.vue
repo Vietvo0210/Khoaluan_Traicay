@@ -11,14 +11,14 @@
         <ul class="navbar-nav mx-auto">
 
           <li class="nav-item">
-            <router-link to="/homepredict">
-              <a class="nav-link" >Dự đoán trái cây</a>
+            <router-link to="/product">
+              <a class="nav-link" >Trang chủ</a>
             </router-link>
           </li>
 
           <li class="nav-item">
             <router-link to="/aboutUs">
-            <a class="nav-link" >Về chúng tôi</a>
+            <a class="nav-link" >Giới thiệu</a>
             </router-link>
           </li>
 
@@ -30,24 +30,30 @@
             </a>
             </router-link>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-              <li><a href="#">Trái cây đặc sản </a></li>
-              <li><a href="#">Giỏ hàng của bạn</a></li>
-              <li><a href="#">Thanh toán</a></li>
+              <li><a href="#">Trái cây Việt </a></li>
+              <li><a href="#">Trái cây ngoại nhập</a></li>
+              <li><a href="#">Sản phẩm HOT</a></li>
             </ul>
-          </li><!-- / Blog -->
+          </li>
+
+
+          <li class="nav-item">
+            <router-link to="/product">
+              <a class="nav-link" >Tin tức</a>
+            </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/product">
+              <a class="nav-link" >Liên hệ</a>
+            </router-link>
+          </li>
 
           <li class="nav-item">
             <router-link to="/login">
               <a class="nav-link" >Đăng nhập</a>
             </router-link>
           </li>
-
-          <li class="nav-item">
-            <router-link to="/aboutUs">
-              <a class="nav-link" >Tin tức</a>
-            </router-link>
-          </li>
-
         </ul>
 
       <!-- Navbar-collapse -->
@@ -100,8 +106,8 @@
               <span class="total-price h6">$1799.00</span>
 
               <div class="text-center cart-buttons mt-3">
-                <a href="#" class="btn btn-small btn-transparent btn-block">View Cart</a>
-                <a href="#" class="btn btn-small btn-main btn-block">Checkout</a>
+                <a href="#" class="btn btn-small btn-transparent btn-block">Giỏ Hàng</a>
+                <a href="#" class="btn btn-small btn-main btn-block">Thanh Toán</a>
               </div>
             </div>
           </div>
