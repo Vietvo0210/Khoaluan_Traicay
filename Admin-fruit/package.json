@@ -16,16 +16,12 @@
   "devDependencies": {
     "@mdi/font": "^6.1.95",
     "@vue/cli-plugin-babel": "^5.0.8",
-    "@vue/cli-plugin-eslint": "^5.0.8",
-    "@vue/cli-plugin-router": "^5.0.8",
-    "@vue/cli-service": "^5.0.8",
-    "babel-eslint": "^10.1.0",
-<<<<<<< HEAD
-    "eslint": "^7.32.0",
-=======
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
     "axios": "^1.2.0",
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
->>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
     "eslint-plugin-vue": "^6.2.2",
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
