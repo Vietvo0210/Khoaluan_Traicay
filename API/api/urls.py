@@ -26,11 +26,15 @@ urlpatterns = [
     path('galery-update/<int:pk>/', views.updateGalery, name='galery-update'),
     path('galery-delete/<int:pk>/', views.deleteGalery, name='galery-delete'),
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     
 =======
 
 >>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
+=======
+    
+>>>>>>> Stashed changes
     path('orders-list/', views.ShowAll_Orders, name='orders-list'),
     path('orders-detail/<int:pk>/', views.ViewOrders, name='orders-detail'),
     path('orders-create/', views.CreateOrders, name='orders-create'),
@@ -46,11 +50,15 @@ urlpatterns = [
 <<<<<<< HEAD
 =======
     path('predict/', views.GetPredictedResult.as_view()),
-    path('login/',views.login),
+    path('login/<str:pk>/<str:gk>',views.CheckLogin,name='login'),
+    path('seach/<str:title>',views.SeachProduct,name='seach'),
 
+<<<<<<< Updated upstream
 >>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
     path('predict/', views.GetPredictedResult.as_view()),
     path('login/<str:pk>/<str:gk>',views.CheckLogin,name='login'),
 
 
+=======
+>>>>>>> Stashed changes
 ]
