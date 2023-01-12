@@ -29,8 +29,4 @@ class OdersSerializer(serializers.ModelSerializer):
 class Order_detailsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order_details
-<<<<<<< HEAD
         fields = '__all__'
-=======
-        fields = '__all__'
->>>>>>> 6ede5db404ecb9e0c67ff725f10a8090dffccd9d
