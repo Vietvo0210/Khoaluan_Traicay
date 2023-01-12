@@ -56,7 +56,11 @@ import axios from "axios";
     
       methods: {
        async checkData(){
+<<<<<<< Updated upstream
           let resutl=await axios.post(
+=======
+          let resutl=await axios.get(
+>>>>>>> Stashed changes
             'http://127.0.0.1:8000/api/login/'+this.email+'/'+this.password
             ) 
             if(resutl.status=200)
