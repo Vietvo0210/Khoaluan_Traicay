@@ -17,6 +17,7 @@ from .models import Product,Galery,Feedback,Order_details,Orders,Customer
 from django.http import JsonResponse
 from rest_framework.generics import ListCreateAPIView
 from django.contrib.auth.models import User
+import os
 
 # Create your views here.
 # Product
@@ -295,6 +296,13 @@ def login(seft,request):
                 else:
                      return False
 
+@api_view(['GET'])
+def SeachProduct(request,title):
+    product=Product.objects.filter(title=title)
+    serializer=ProductSerializer(product,many=True)
+    return Response(serializer.data)
+
+
 
 
 class GetPredictedResult(ListCreateAPIView):
@@ -305,16 +313,18 @@ class GetPredictedResult(ListCreateAPIView):
                   ]
     def get(self,request):
         url = 'https://duockienminh.vn/sites/default/files/anh_bai_viet/1-la-du-du-la-gi-tai-sao-nhieu-ngu.jpg'
-        # req = urllib.request.urlopen(url)
-        # arr = np.asarray(bytearray(req.read()), dtype=np.uint8)
-        # image = cv2.imdecode(arr,1)
-        image=skimage.io.imread('/Users/admin/Desktop/Validation_tét/saurieng.jpeg')
-        image_resized = cv2.resize(image,(224,224))
-        image=np.expand_dims(image_resized,axis=0)
-        pred = self.vgg16_model.predict(image)
-        accuracy = float("{:.2f}".format(max(pred[0]))) * 100
-        accuracy = int(accuracy)
-        return JsonResponse({
-                'Loai': ''+self.class_names[np.argmax(pred)],
-            }, status=status.HTTP_201_CREATED)
+        folder = './Image'
+        list = []
+        for filename in os.listdir(folder):
+            pathImg = 'http://127.0.0.1:8089/Image/' + filename
+            img = skimage.io.imread(os.path.join(folder, filename))
 
+            image_resized = cv2.resize(img,(224,224))
+            image=np.expand_dims(image_resized,axis=0)
+            pred = self.vgg16_model.predict(image)
+            accuracy = float("{:.2f}".format(max(pred[0]))) * 100
+            accuracy = int(accuracy)
+            result = {"type": self.class_names[np.argmax(pred)], "acc": accuracy, "image": pathImg}
+            list.append(result)
+
+        return JsonResponse(list, status=status.HTTP_201_CREATED, safe=False, json_dumps_params={'ensure_ascii': False})

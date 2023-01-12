@@ -7,6 +7,7 @@ urlpatterns = [
     path('product-create/', views.CreateProduct, name='product-create'),
     path('product-update/<int:pk>/', views.updateProduct, name='product-update'),
     path('product-delete/<int:pk>/', views.deleteProduct, name='product-delete'),
+    path('search/<str:title>',views.SeachProduct,name='search'),
 
     path('customer-list/', views.ShowAll_Customer, name='customer-list'),
     path('customer-detail/<int:pk>/', views.ViewCustomer, name='customer-detail'),
@@ -42,5 +43,4 @@ urlpatterns = [
     path('predict/', views.GetPredictedResult.as_view()),
     path('login/',views.login),
 
-    path('predict/', views.GetPredictedResult.as_view()),
 ]
