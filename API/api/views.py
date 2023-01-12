@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 from imaplib import _Authenticator
 from django.shortcuts import render
+=======
+
+>>>>>>> Stashed changes
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -8,10 +12,13 @@ from .serializers import ProductSerializer,CustomerSerializer,FeedbackSerializer
 from .models import Product,Galery,Feedback,Order_details,Orders,Customer
 
 
+<<<<<<< Updated upstream
 from .serializers import ProductSerializer
 from .models import Product
 
 
+=======
+>>>>>>> Stashed changes
 from rest_framework import status
 from django.http import JsonResponse
 from rest_framework.generics import ListCreateAPIView
@@ -305,7 +312,12 @@ def deleteorder_details(request, pk):
     return Response('Items delete successfully!')
 
 class GetPredictedResult(ListCreateAPIView):
+<<<<<<< Updated upstream
     vgg16_model=load_model('C:/Users/Demo201/Documents/GitHub/Viet_Huy_Doan_Traicay.model/')
+=======
+    vgg16_model=load_model('C:/Users/caoco/Desktop/Viet_Huy_Doan_Traicay.model')
+    #doi lai duong dan nay nha
+>>>>>>> Stashed changes
     class_names = ["ambarella", "avocado ", "banana", "coconut", "custardapple", "dragonfruit", "durian", "guava", "jackfruit" ,
                   "lychee","mango","mangosteen","persimmon","pineapple","plumcot",
                   "plums","pomelo", "rambutan","saboche","tomato", "watermelon"
@@ -325,8 +337,31 @@ class GetPredictedResult(ListCreateAPIView):
                 'Loai': ''+self.class_names[np.argmax(pred)],
             }, status=status.HTTP_201_CREATED)
 
+<<<<<<< Updated upstream
 @api_view(['POST'])
 def CheckLogin(request, pk,gk):
     customer = Customer.objects.get(email=pk,password=gk)
     serializer = CustomerSerializer(customer, many=False)
     return Response(serializer.data,status=status.HTTP_200_OK)
+=======
+@api_view(['GET'])
+def CheckLogin(request, pk,gk):
+    customer = Customer.objects.get(email=pk ,password=gk)
+    serializer = CustomerSerializer(customer, many=False)
+    return Response(serializer.data,status=status.HTTP_200_OK)
+
+
+# @api_view(['GET'])
+# def SeachProduct(request,title):
+#     product=Product.objects.get(title=title)
+#     serializer=ProductSerializer(product,many=False)
+#     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def SeachProduct(request,title):
+    product=Product.objects.filter(title=title)
+    serializer=ProductSerializer(product,many=True)
+    return Response(serializer.data)
+
+>>>>>>> Stashed changes
