@@ -1,29 +1,24 @@
-
-
+from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-
-from .serializers import ProductSerializer,CustomerSerializer,FeedbackSerializer,GalerySerializer,Order_detailsSerializer,OdersSerializer
-from .models import Product,Galery,Feedback,Order_details,Orders,Customer
-
-
 from rest_framework import status
 from django.http import JsonResponse
-from rest_framework.generics import ListCreateAPIView
-
-
-## import lbr load model
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from keras.models import load_model
-
 import cv2
 import numpy as np
+import requests
+from PIL import Image
+import urllib.request
 import skimage.io
+from imaplib import _Authenticator
 from .serializers import ProductSerializer,CustomerSerializer,FeedbackSerializer,GalerySerializer,Order_detailsSerializer,OdersSerializer
 from .models import Product,Galery,Feedback,Order_details,Orders,Customer
 from django.http import JsonResponse
 from rest_framework.generics import ListCreateAPIView
 from django.contrib.auth.models import User
 import os
+
 # Create your views here.
 # Product
 
@@ -44,33 +39,30 @@ def ViewProduct(request, pk):
 @api_view(['POST'])
 def CreateProduct(request):
     serializer = ProductSerializer(data=request.data)
+
     if serializer.is_valid():
         serializer.save()
 
-        return Response(serializer.data,status=status.HTTP_201_CREATED)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
 
 
 
-@api_view(['PUT'])
+@api_view(['POST'])
 def updateProduct(request, pk):
     product = Product.objects.get(id=pk)
     serializer = ProductSerializer(instance=product, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
+
 
 @api_view(['GET'])
 def deleteProduct(request, pk):
     product = Product.objects.get(id=pk)
     product.delete()
-    return Response(status=status.HTTP_204_NO_CONTENT) 
 
-
+    return Response('Items delete successfully!')
 
 #Customer
 
@@ -95,21 +87,19 @@ def CreateCustomer(request):
     if serializer.is_valid():
         serializer.save()
 
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
 
 
-@api_view(['PUT'])
+
+@api_view(['POST'])
 def updateCustomer(request, pk):
     customer = Customer.objects.get(id=pk)
     serializer = CustomerSerializer(instance=customer, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
+
 
 @api_view(['GET'])
 def deleteCustomer(request, pk):
@@ -141,21 +131,19 @@ def CreateFeedback(request):
     if serializer.is_valid():
         serializer.save()
 
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
 
 
-@api_view(['PUT'])
+
+@api_view(['POST'])
 def updateFeedback(request, pk):
     feedback = Feedback.objects.get(id=pk)
     serializer = FeedbackSerializer(instance=feedback, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
+
 
 @api_view(['GET'])
 def deleteFeedback(request, pk):
@@ -187,21 +175,19 @@ def CreateGalery(request):
     if serializer.is_valid():
         serializer.save()
 
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
 
 
-@api_view(['PUT'])
+
+@api_view(['POST'])
 def updateGalery(request, pk):
     galery = Galery.objects.get(id=pk)
     serializer = GalerySerializer(instance=galery, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
+
 
 @api_view(['GET'])
 def deleteGalery(request, pk):
@@ -232,21 +218,19 @@ def CreateOrders(request):
     if serializer.is_valid():
         serializer.save()
 
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
 
 
-@api_view(['PUT'])
+
+@api_view(['POST'])
 def updateOrders(request, pk):
     orders = Orders.objects.get(id=pk)
     serializer = OdersSerializer(instance=orders, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
+
 
 @api_view(['GET'])
 def deleteOrders(request, pk):
@@ -267,7 +251,7 @@ def ShowAll_Order_details(request):
 def Vieworder_details(request, pk):
     order_details = Order_details.objects.get(id=pk)
     serializer = Order_detailsSerializer(order_details, many=False)
-    return Response(serializer.data,request)
+    return Response(serializer.data)
 
 
 @api_view(['POST'])
@@ -277,21 +261,19 @@ def Createorder_details(request):
     if serializer.is_valid():
         serializer.save()
 
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
 
 
-@api_view(['PUT'])
+
+@api_view(['POST'])
 def updateorder_details(request, pk):
     order_details = Order_details.objects.get(id=pk)
     serializer = Order_detailsSerializer(instance=order_details, data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
+
 
 @api_view(['GET'])
 def deleteorder_details(request, pk):
@@ -300,8 +282,31 @@ def deleteorder_details(request, pk):
 
     return Response('Items delete successfully!')
 
+
+def login(seft,request):
+            email=request.POST['email']
+            password = request.POST['password']
+            bool_answer = User.objects.filter(yourtablefield="admin").exists()
+            intakes = bool_answer.objects.all().filter(email,password)
+
+            for intake in intakes:
+
+                if intake.email==email and intake.password==password:
+                     return True
+                else:
+                     return False
+
+@api_view(['GET'])
+def SeachProduct(request,title):
+    product=Product.objects.filter(title=title)
+    serializer=ProductSerializer(product,many=True)
+    return Response(serializer.data)
+
+
+
+
 class GetPredictedResult(ListCreateAPIView):
-    vgg16_model=load_model('C:/Users/Huy.201/Desktop/Fruits_main/Viet_Huy_Doan_Traicay.model')
+    vgg16_model=load_model('/Users/admin/Desktop/Hocky6/Nhandangraucu_mayhoc/GUI/Viet_Huy_Doan_Traicay.model')
     class_names = ["ambarella", "avocado ", "banana", "coconut", "custardapple", "dragonfruit", "durian", "guava", "jackfruit" ,
                   "lychee","mango","mangosteen","persimmon","pineapple","plumcot",
                   "plums","pomelo", "rambutan","saboche","tomato", "watermelon"
@@ -323,35 +328,3 @@ class GetPredictedResult(ListCreateAPIView):
             list.append(result)
 
         return JsonResponse(list, status=status.HTTP_201_CREATED, safe=False, json_dumps_params={'ensure_ascii': False})
-
-@api_view(['GET'])
-def CheckLogin(request, pk,gk):
-    if(pk.isdigit()):
-        customer = Customer.objects.get(phone_number=pk ,password=gk)
-    else:
-        customer = Customer.objects.get(email=pk ,password=gk)
-    serializer = CustomerSerializer(customer, many=False)
-    return Response(serializer.data,status=status.HTTP_200_OK)
-
-
-# @api_view(['GET'])
-# def SeachProduct(request,title):
-#     product=Product.objects.get(title=title)
-#     serializer=ProductSerializer(product,many=False)
-#     return Response(serializer.data)
-
-
-# @api_view(['GET'])
-# def SeachProduct(request,title):
-#     product=Product.objects.filter(title=title)
-#     serializer=ProductSerializer(product,many=True)
-#     return Response(serializer.data)
-
-@api_view(['GET'])
-def SeachProduct(request,title):
-    if(title.isdigit()):
-        product=Product.objects.filter(price=title)
-    else:
-         product=Product.objects.filter(title=title)
-    serializer=ProductSerializer(product,many=True)
-    return Response(serializer.data)
