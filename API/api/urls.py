@@ -41,6 +41,6 @@ urlpatterns = [
     path('order_details-delete/<int:pk>/', views.deleteorder_details, name='order_details-delete'),
 
     path('predict/', views.GetPredictedResult.as_view()),
-    path('login/',views.login),
-
+    path('login/<str:pk>/<str:gk>',views.CheckLogin,name='login'),
+    path('seach/<str:title>',views.SeachProduct,name='seach'),
 ]
