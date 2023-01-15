@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 07, 2022 at 01:56 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.1.6
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th1 15, 2023 lúc 09:26 AM
+-- Phiên bản máy phục vụ: 10.4.24-MariaDB
+-- Phiên bản PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Traicay`
+-- Cơ sở dữ liệu: `fruits`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Cấu trúc bảng cho bảng `admin`
 --
 
 CREATE TABLE `admin` (
@@ -35,7 +35,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `admin`
+-- Đang đổ dữ liệu cho bảng `admin`
 --
 
 INSERT INTO `admin` (`id`, `name`, `email`, `password`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `admin` (`id`, `name`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_group`
+-- Cấu trúc bảng cho bảng `auth_group`
 --
 
 CREATE TABLE `auth_group` (
@@ -55,7 +55,7 @@ CREATE TABLE `auth_group` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_group_permissions`
+-- Cấu trúc bảng cho bảng `auth_group_permissions`
 --
 
 CREATE TABLE `auth_group_permissions` (
@@ -67,7 +67,7 @@ CREATE TABLE `auth_group_permissions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_permission`
+-- Cấu trúc bảng cho bảng `auth_permission`
 --
 
 CREATE TABLE `auth_permission` (
@@ -78,7 +78,7 @@ CREATE TABLE `auth_permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `auth_permission`
+-- Đang đổ dữ liệu cho bảng `auth_permission`
 --
 
 INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALUES
@@ -110,7 +110,7 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_user`
+-- Cấu trúc bảng cho bảng `auth_user`
 --
 
 CREATE TABLE `auth_user` (
@@ -130,7 +130,7 @@ CREATE TABLE `auth_user` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_user_groups`
+-- Cấu trúc bảng cho bảng `auth_user_groups`
 --
 
 CREATE TABLE `auth_user_groups` (
@@ -142,7 +142,7 @@ CREATE TABLE `auth_user_groups` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_user_user_permissions`
+-- Cấu trúc bảng cho bảng `auth_user_user_permissions`
 --
 
 CREATE TABLE `auth_user_user_permissions` (
@@ -154,7 +154,7 @@ CREATE TABLE `auth_user_user_permissions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer`
+-- Cấu trúc bảng cho bảng `customer`
 --
 
 CREATE TABLE `customer` (
@@ -167,18 +167,18 @@ CREATE TABLE `customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `customer`
+-- Đang đổ dữ liệu cho bảng `customer`
 --
 
 INSERT INTO `customer` (`id`, `fullname`, `email`, `phone_number`, `address`, `password`) VALUES
-(1, '[huy]', '[thanvhuy38@gmial.com]', '[0944332653]', '[ha tinh]', '[huy124]'),
-(2, '[viet]', '[thanvhuy38@gmial.com]', '[0944332653]', '[ha tinh]', '[viet123]'),
-(3, '[doan]', '[thanvhuy38@gmial.com]', '[0944332653]', '[ha tinh]', '[huy124]');
+(1, 'huy', 'thanvhuy38@gmial.com', '0944332653', 'ha tinh', 'Huy.202'),
+(2, 'viet', 'thanvhuy38@gmial.com', '0944332653', 'ha tinh', 'viet123'),
+(3, 'doan', 'thanvhuy38@gmail.com', '0944332653', 'ha tinh', 'vhd1234');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `django_admin_log`
+-- Cấu trúc bảng cho bảng `django_admin_log`
 --
 
 CREATE TABLE `django_admin_log` (
@@ -195,7 +195,7 @@ CREATE TABLE `django_admin_log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `django_content_type`
+-- Cấu trúc bảng cho bảng `django_content_type`
 --
 
 CREATE TABLE `django_content_type` (
@@ -205,7 +205,7 @@ CREATE TABLE `django_content_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `django_content_type`
+-- Đang đổ dữ liệu cho bảng `django_content_type`
 --
 
 INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
@@ -219,7 +219,7 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `django_migrations`
+-- Cấu trúc bảng cho bảng `django_migrations`
 --
 
 CREATE TABLE `django_migrations` (
@@ -230,7 +230,7 @@ CREATE TABLE `django_migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `django_migrations`
+-- Đang đổ dữ liệu cho bảng `django_migrations`
 --
 
 INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
@@ -256,7 +256,7 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `django_session`
+-- Cấu trúc bảng cho bảng `django_session`
 --
 
 CREATE TABLE `django_session` (
@@ -268,7 +268,7 @@ CREATE TABLE `django_session` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `feedback`
+-- Cấu trúc bảng cho bảng `feedback`
 --
 
 CREATE TABLE `feedback` (
@@ -281,17 +281,17 @@ CREATE TABLE `feedback` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `feedback`
+-- Đang đổ dữ liệu cho bảng `feedback`
 --
 
 INSERT INTO `feedback` (`id`, `firstname`, `lastname`, `email`, `phone_number`, `note`) VALUES
-(1, '[than]', '[van huy]', '[doan@gmail.com]', '[093882323]', '[gia nay chua qua]'),
-(3, '[vo]', '[viet ]', '[viet@gmail.com]', '[093882323]', '[gia nay chua qua]');
+(1, 'than', 'van huy', 'doan@gmail.com', '093882323', 'gia nay chua qua'),
+(3, 'vo', 'viet ', 'viet@gmail.com\r\n', '093882323', 'gia nay chua qua');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `galery`
+-- Cấu trúc bảng cho bảng `galery`
 --
 
 CREATE TABLE `galery` (
@@ -301,7 +301,7 @@ CREATE TABLE `galery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `galery`
+-- Đang đổ dữ liệu cho bảng `galery`
 --
 
 INSERT INTO `galery` (`id`, `product_id`, `thumbnail`) VALUES
@@ -311,7 +311,7 @@ INSERT INTO `galery` (`id`, `product_id`, `thumbnail`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Cấu trúc bảng cho bảng `orders`
 --
 
 CREATE TABLE `orders` (
@@ -328,17 +328,20 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `orders`
+-- Đang đổ dữ liệu cho bảng `orders`
 --
 
 INSERT INTO `orders` (`id`, `customer_id`, `fullname`, `email`, `phone_number`, `address`, `note`, `order_date`, `status`, `total_money`) VALUES
-(3, 1, '[value-3]', '[value-4]', '[value-5]', '[ht 02]', '[value-7]', '02/02/2022', 0, 120200),
-(4, 0, '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '02/09/2022', 0, 0);
+(1, 4, 'huy', 'hoang@gmail.com', '095533234', 'Ha tinh', 'giao gio hanh chinh nha', '02/02/2022', 0, 120200),
+(3, 1, 'doan', 'doan@gmail.com', '0923442355', 'ht 02', 'value-7', '02/02/2022', 0, 120200),
+(4, 0, 'viet', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '02/09/2023', 0, 123000),
+(5, 1, 'huy', 'hu@GMIAL', '02348', 'SADF', 'SDF', '02/09/2001', 0, 12000),
+(6, 2, 'Thân Văn', 'thanvhuy38@gmail.com', '0944332653', 'hla', 'D', '02/09/2001', 0, 213);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_details`
+-- Cấu trúc bảng cho bảng `order_details`
 --
 
 CREATE TABLE `order_details` (
@@ -351,7 +354,7 @@ CREATE TABLE `order_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `order_details`
+-- Đang đổ dữ liệu cho bảng `order_details`
 --
 
 INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `price`, `num`, `total_money`) VALUES
@@ -361,7 +364,7 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `price`, `num`, `to
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
@@ -374,38 +377,36 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `product`
+-- Đang đổ dữ liệu cho bảng `product`
 --
 
 INSERT INTO `product` (`id`, `title`, `price`, `discount`, `thumbnail`, `description`) VALUES
-(2, '[value-2]', 0, 0, '[value-5]', '[value-6]'),
-(3, '[value-2]', 0, 0, '[value-5]', '[value-6]'),
-(4, '[value-2]', 0, 0, '[value-5]', '[value-6]'),
-(5, '[hoa]', 23003, 39, '[omg]', '[omg]'),
-(6, '[hoa]', 23003, 39, '[omg]', '[omg]'),
-(7, 'hoa', 23003, 39, 'omg', 'omg'),
-(8, 'lá', 23003, 39, 'omg', 'omg'),
-(9, '[value-2]', 0, 0, '[value-5]', '[value-6]');
+(1, 'asd', 1212, 12, 'https://i.ibb.co/HBydxff/xoai.jpg', 'sdf'),
+(2, 'Xoài', 25000, 0, 'https://i.ibb.co/HBydxff/xoai.jpg', 'Xoài có chứa phenol (những hợp chất hữu cơ mà phân tử của chúng có nhóm hidroxyl liên kết trực tiếp với nguyên tử cacbon của vòng benzene), chẳng hạn như quercetin, isoquercitrin, astragalin, fisetin, axít galic, methylgallat và enzim có khả năng ngăn ngừa bệnh ung thư.  Ngoài ra, xoài còn chứa rất nhiều chất xơ hòa tan trong nước được biết đến như là pectin. Các nhà khoa học cho rằng việc ăn nhiều chất xơ sẽ giúp giảm thiểu nguy cơ mắc bệnh ung thư về đường tiêu hóa. Khoảng 165g xoài sẽ cung cấp cho cơ thể chúng ta tới 75% lượng vitamin C cần thiết hằng ngày. Xoài cũng cung cấp một lượng chất chống oxy hóa mạnh mẽ, giúp bảo vệ các tế bào không bị các gốc tự do hủy hoại, đồng thời giảm thiểu nguy cơ mắc bệnh ung thư.'),
+(3, 'Vải thiều', 40000, 0, 'https://i.ibb.co/x23TfGQ/vai-thieu.jpg', 'Vải thiều (quả vải) còn có một cái tên khác chính là Lệ chi, nó thuộc họ Bồ hòn, có tên khoa học chính là Litchi chinensis và tên tiếng anh chính là Lychee.  Đây như một loại cây nhiệt đới có xuất xứ từ những tỉnh Quảng Đông và Phúc Kiến, Trung Quốc. Thân cây có thể cao đến khoảng 15 – 20m, lá hình lông chim, mọc so le và nhiều lá chét. Những lá non mới mọc có màu đỏ đồng sáng, sau dần chuyển sang màu xanh lúc đạt đến kích thước cực đại.cho sức khỏe và có hương vị ngon ngọt.  Khi vào hè chắc ai cũng thích loại hoa quả vải thiều, một loại hoa quả có vị ngọt thanh thanh ngon tuyệt vời. Nó là hoa quả mang nhiều tác dụng tuyệt vời cho sức khỏe của mọi người nên nó được nhiều người thích. Vải thiều Thanh Hà và vải thiều Lục Ngạn là nổi tiếng nhất. Bạn muốn hiểu hơn về loại quả này bạn hãy đọc bài viết sau đây nhé!  Mục lục Vải thiểu là gì? Vải thiều ở đâu ngon nhất? Vải thiều Thanh Hà, Hải Dương Vải thiều Lục Ngạn, Bắc Giang Giá vải thiều Vải thiều làm món gì ngon? Vải sấy khô Chè vải hạt sen Kem vải Lời kết Vải thiểu là gì? Vải thiều (quả vải) còn có một cái tên khác chính là Lệ chi, nó thuộc họ Bồ hòn, có tên khoa học chính là Litchi chinensis và tên tiếng anh chính là Lychee.  Đây như một loại cây nhiệt đới có xuất xứ từ những tỉnh Quảng Đông và Phúc Kiến, Trung Quốc. Thân cây có thể cao đến khoảng 15 – 20m, lá hình lông chim, mọc so le và nhiều lá chét. Những lá non mới mọc có màu đỏ đồng sáng, sau dần chuyển sang màu xanh lúc đạt đến kích thước cực đại.    Hoa nhỏ màu trắng ánh xanh lục hay trắng ánh vàng, mọc thành những chùm có thể dài đến 30cm và có mùi thơm vô cùng thú vị, đặc biệt.  Quả vải thuộc loại quả hạch, hình cầu, hình trứng tới hình trái tim. Nó có vỏ mỏng, dai và có màu xanh lục lúc nó còn non sau dần chuyển sang màu đỏ hay đỏ hồng lúc nó đã chín, bề mặt vỏ sần sùi. Thịt quả có màu trắng trong, bao quanh một hạt màu nâu sẫm. Kích thước và vị của nó sẽ dựa vào vị trí địa lý và giống.'),
+(4, 'Mảng cầu na', 50000, 0, 'https://i.ibb.co/z5bpP81/mangcau-Na-1.jpg', 'Quả na còn gọi là mãng cầu ta, mãng cầu dai, phan lệ chi. Là quả của cây na có tên khoa học là Annona squamosa. Thuộc họ Mãng cầu Annonaceae. Quả na còn có tên tiếng anh là Sugar apple hay Sweetsop. Đây là loại trái cây thơm ngon, phổ biến và hấp dẫn cho thịt quả ngon, ngọt khi chín.Cây na thuộc loại cây gỗ nhỏ. Cao khoảng 3-8m. Thân ngắn, tán rộng, các nhánh phân tán không đều. Lá mọc xen kẽ, cuống lá dài. Lá có hình elip hoặc hình mác, đỉnh nhọn đến tù, đáy rộng. Cụm hoa gồm các hoa đơn độc. Hoa thơm có màu xanh lục đến vàng. Quả na là dạng quả tụ, mỗi lá noãn sẽ phát triển thành 1 quả mọng. Tất cả những quả này dính với nhau thành một khối hình tim, hình cầu. Mặt ngoài trái na có hình màu xanh, nhiều rãnh. Đường kính 6-10cm. Quả thơm, ngọt và có màu trắng đến vàng nhạt. Hạt bóng, hình thuôn dài và nhẵn, màu nâu sẫm đến đen. Kích thước từ 1.3-1.6 cm. Hạt chứa độc tố, có thể làm bỏng da và trừ sâu bọ, chấy rận.'),
+(5, 'Chôm chôm', 23003, 39, 'https://i.ibb.co/6XD4LTZ/chomchom-1.png', 'Chôm chôm là loại trái cây có giá trị dinh dưỡng cao (chứa nhiều vitamin C, giàu đạm, chất béo và các nguyên tố vi lượng như đồng, mangan, kali, canxi, sắt...) và trái chôm chôm còn được dung làm thuốc chữa bệnh.  Chôm chôm là loài cây có quả hoặc để ăn tươi, hoặc đóng hộp dưới nhiều hình thức, để dự trữ hoặc xuất khẩu. Hạt chôm chôm có thành phần dầu cao nên cũng được dùng để sản xuất dầu ăn hay xà phòng. Cây và rễ chôm chôm cũng có thể dùng cho việc sản xuất dược phẩm và màu. Ở Việt Nam, người làm vườn chôm chôm có mức thu nhập tương đối cao so với các ngành trồng trọt khác.  Hạt chôm chôm chứa 35 - 40% chất dầu béo đặc, có cấu trúc của hạt ca cao, có mùi dễ chịu, gồm phần lớn là arachidin, cùng với olein và stearin. Vỏ cây và quả xanh có chứa tanin.  Vỏ chôm chôm chứa nhiều tanin, chữa ỉa chảy, kiết lỵ, sốt... với liều 20 - 30g. Hạt chôm chôm, còn gọi là thiều tử, vị ngọt, tính ấm, chứa nhiều chất béo không no, có tác dụng tiêu viêm kháng khuẩn, dùng chữa viêm niêm mạc miệng, kiết lỵ, hỗ trợ điều trị tiểu đường, các vết loét lâu ngày, điều chỉnh lipid máu, giảm béo và làm đẹp da. Chôm chôm là loại trái rất thích hợp cho những người bị vữa xơ động mạch, cao huyết áp, tăng đường huyết... Tuy nhiên, vì chứa nhiều chất béo nên nếu ăn quá nhiều hạt chôm chôm có thể xuất hiện cảm giác say say và gây buồn nôn, đầy bụng.  Ngoài ra, có thể dùng áo hạt để ăn vì nó rất bổ và có chức năng giải nhiệt'),
+(6, 'Xoài', 23003, 39, 'https://i.ibb.co/HBydxff/xoai.jpg', 'Xoài có chứa phenol (những hợp chất hữu cơ mà phân tử của chúng có nhóm hidroxyl liên kết trực tiếp với nguyên tử cacbon của vòng benzene), chẳng hạn như quercetin, isoquercitrin, astragalin, fisetin, axít galic, methylgallat và enzim có khả năng ngăn ngừa bệnh ung thư.');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `admin`
+-- Chỉ mục cho bảng `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `auth_group`
+-- Chỉ mục cho bảng `auth_group`
 --
 ALTER TABLE `auth_group`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indexes for table `auth_group_permissions`
+-- Chỉ mục cho bảng `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
   ADD PRIMARY KEY (`id`),
@@ -413,21 +414,21 @@ ALTER TABLE `auth_group_permissions`
   ADD KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`);
 
 --
--- Indexes for table `auth_permission`
+-- Chỉ mục cho bảng `auth_permission`
 --
 ALTER TABLE `auth_permission`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`);
 
 --
--- Indexes for table `auth_user`
+-- Chỉ mục cho bảng `auth_user`
 --
 ALTER TABLE `auth_user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indexes for table `auth_user_groups`
+-- Chỉ mục cho bảng `auth_user_groups`
 --
 ALTER TABLE `auth_user_groups`
   ADD PRIMARY KEY (`id`),
@@ -435,7 +436,7 @@ ALTER TABLE `auth_user_groups`
   ADD KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`);
 
 --
--- Indexes for table `auth_user_user_permissions`
+-- Chỉ mục cho bảng `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
   ADD PRIMARY KEY (`id`),
@@ -443,13 +444,13 @@ ALTER TABLE `auth_user_user_permissions`
   ADD KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`);
 
 --
--- Indexes for table `customer`
+-- Chỉ mục cho bảng `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `django_admin_log`
+-- Chỉ mục cho bảng `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
   ADD PRIMARY KEY (`id`),
@@ -457,192 +458,100 @@ ALTER TABLE `django_admin_log`
   ADD KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`);
 
 --
--- Indexes for table `django_content_type`
+-- Chỉ mục cho bảng `django_content_type`
 --
 ALTER TABLE `django_content_type`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`);
 
 --
--- Indexes for table `django_migrations`
+-- Chỉ mục cho bảng `django_migrations`
 --
 ALTER TABLE `django_migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `django_session`
+-- Chỉ mục cho bảng `django_session`
 --
 ALTER TABLE `django_session`
   ADD PRIMARY KEY (`session_key`),
   ADD KEY `django_session_expire_date_a5c62663` (`expire_date`);
 
 --
--- Indexes for table `feedback`
+-- Chỉ mục cho bảng `feedback`
 --
 ALTER TABLE `feedback`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `galery`
+-- Chỉ mục cho bảng `galery`
 --
 ALTER TABLE `galery`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `orders`
+-- Chỉ mục cho bảng `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `order_details`
+-- Chỉ mục cho bảng `order_details`
 --
 ALTER TABLE `order_details`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product`
+-- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT cho bảng `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `auth_group`
---
-ALTER TABLE `auth_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `auth_group_permissions`
---
-ALTER TABLE `auth_group_permissions`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `auth_permission`
---
-ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT for table `auth_user`
---
-ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `auth_user_groups`
---
-ALTER TABLE `auth_user_groups`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `auth_user_user_permissions`
---
-ALTER TABLE `auth_user_user_permissions`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `customer`
+-- AUTO_INCREMENT cho bảng `customer`
 --
 ALTER TABLE `customer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `django_admin_log`
---
-ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `django_content_type`
---
-ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `django_migrations`
---
-ALTER TABLE `django_migrations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT for table `feedback`
+-- AUTO_INCREMENT cho bảng `feedback`
 --
 ALTER TABLE `feedback`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `galery`
+-- AUTO_INCREMENT cho bảng `galery`
 --
 ALTER TABLE `galery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `order_details`
+-- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `auth_group_permissions`
---
-ALTER TABLE `auth_group_permissions`
-  ADD CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
-
---
--- Constraints for table `auth_permission`
---
-ALTER TABLE `auth_permission`
-  ADD CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
-
---
--- Constraints for table `auth_user_groups`
---
-ALTER TABLE `auth_user_groups`
-  ADD CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
-  ADD CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
-
---
--- Constraints for table `auth_user_user_permissions`
---
-ALTER TABLE `auth_user_user_permissions`
-  ADD CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
-
---
--- Constraints for table `django_admin_log`
---
-ALTER TABLE `django_admin_log`
-  ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
-  ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
