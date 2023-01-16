@@ -65,3 +65,8 @@ class Order_details(models.Model):
     total_money = models.IntegerField()
     class Meta:
         db_table='Order_details'
+
+class Image(models.Model):
+    file=models.ImageField(upload_to='media', null=False, default=None)
+    class Meta:
+        db_table='Image'

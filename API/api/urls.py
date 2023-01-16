@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
@@ -43,4 +45,4 @@ urlpatterns = [
     path('predict/', views.GetPredictedResult.as_view()),
     path('login/<str:pk>/<str:gk>',views.CheckLogin,name='login'),
     path('seach/<str:title>',views.SeachProduct,name='seach'),
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
