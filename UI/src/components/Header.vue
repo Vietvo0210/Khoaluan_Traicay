@@ -60,8 +60,17 @@
 
       <ul class="navbar-nav mx-auto" >
         <li class="nav-item">
-          <i class="tf-ion-android-search"/>
-          <a href="http://localhost:5003/" class="search_toggle" id="search-icon">Tìm kiếm</a>
+          <i
+            class="tf-ion-android-search"
+            @click="() => showModal('buttonTrigger')"
+          >
+          </i>
+
+          <ModalSearch
+            v-if="visible.buttonTrigger"
+            :showModal="() => showModal('buttonTrigger') ">
+            <h3>SEARCH</h3>
+          </ModalSearch>
         </li>
 
         <li class="dropdown cart-nav dropdown-slide list-inline-item">
@@ -117,3 +126,31 @@
     </div>
   </nav>
 </template>
+
+<script>
+import ModalSearch from '@/components/ModalSearch';
+import { ref } from 'vue';
+export default {
+  components: { ModalSearch },
+
+  setup() {
+    const visible = ref({
+      buttonTrigger: false,
+      timeTrigger: false
+    });
+
+    const showModal = (trigger) => {
+      visible.value[trigger] = !visible.value[trigger]
+    };
+
+    return {
+      visible,
+      showModal,
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
