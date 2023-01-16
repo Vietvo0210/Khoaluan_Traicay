@@ -26,10 +26,12 @@
             <div v-else class="card register" v-bind:class="{ error: emptyFields }">
               <h1>Đăng ký</h1>
               <form class="form-group">
-                <input v-model="emailReg" type="email" class="form-control" placeholder="Email" required>
-                <input v-model="passwordReg" type="password" class="form-control" placeholder="Mật khẩu" required>
-                <input v-model="confirmReg" type="password" class="form-control" placeholder="Nhập lại mật khẩu" required>
-                <input type="submit" class="btn btn-primary" @click="doRegister">
+                <input v-model="Item.fullname" type="fullname" class="form-control" placeholder="Full name" required>
+                <input v-model="Item.email" type="email" class="form-control" placeholder="Email" required>
+                <input v-model="Item.phone_number" type="tel" class="form-control" placeholder="Phone number " required>
+                <input v-model="Item.address" type="address" class="form-control" placeholder="Address" required>
+                <input v-model="Item.password" type="password" class="form-control" placeholder="Password" required>
+                <input type="submit" class="btn btn-primary" @click="postData">
                 <p>Bạn đã có tài khoản? <a href="#" @click="registerActive = !registerActive, emptyFields = false">Sign in here</a>
                 </p>
               </form>
@@ -49,8 +51,14 @@ import axios from "axios";
       name:"login",
       data: () => {
         return{
-          email:'',
-          password:''
+        Item: {
+        id: '',
+        fullname: '',
+        email: '',
+        phone_number: '',
+        address: '',
+        password: '',
+      },
         }     
       },
     
@@ -62,14 +70,22 @@ import axios from "axios";
             if(resutl.status=200)
             {
               this.$router.push({name:'product'})
-            }
+            } 
             else
             //  this.$router.push({name:'Login'})
              this.errors.push("That bai.");
     },
-    created() {
-  this.checkData();
-},
+    postData(){
+      axios.post("http://127.0.0.1:8000/api/customer-create/", this.Item)
+        .then(function (response) {
+        console.log(response)
+        this.data.splice(this.editedIndex, 1)
+      })
+    },
+    created()
+    {
+      this.checkData()
+    } 
   },
     }
 </script>
@@ -90,7 +106,7 @@ input {
 .login-page {
   align-items: center;
   display: flex;
-  height: 50vh;
+  height: 80vh;
 }
 
 .wallpaper-login {
