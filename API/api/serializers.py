@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Product,Customer,Feedback,Galery,Order_details,Orders
+from .models import Product,Customer,Feedback,Galery,Order_details,Orders,Image
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,3 +30,8 @@ class Order_detailsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order_details
         fields = '__all__'
+
+class ImgSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= Image
+        fields=('file',)

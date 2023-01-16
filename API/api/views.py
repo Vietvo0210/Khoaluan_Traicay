@@ -3,8 +3,10 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from .serializers import ProductSerializer,CustomerSerializer,FeedbackSerializer,GalerySerializer,Order_detailsSerializer,OdersSerializer
-from .models import Product,Galery,Feedback,Order_details,Orders,Customer
+from .serializers import *
+from .models import *
+from django.db.models.signals import pre_delete
+from django.dispatch.dispatcher import receiver
 
 
 from rest_framework import status
@@ -68,7 +70,7 @@ def updateProduct(request, pk):
 def deleteProduct(request, pk):
     product = Product.objects.get(id=pk)
     product.delete()
-    return Response(status=status.HTTP_204_NO_CONTENT) 
+    return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 
@@ -300,18 +302,26 @@ def deleteorder_details(request, pk):
 
     return Response('Items delete successfully!')
 
+@receiver(pre_delete, sender=Image)
+def mymodel_delete(sender, instance, **kwargs):
+    instance.file.delete(False)
+
 class GetPredictedResult(ListCreateAPIView):
-    vgg16_model=load_model('C:/Users/Huy.201/Desktop/Fruits_main/Viet_Huy_Doan_Traicay.model')
+    vgg16_model=load_model('/Users/admin/Desktop/Hocky6/Nhandangraucu_mayhoc/GUI/Viet_Huy_Doan_Traicay.model')
     class_names = ["ambarella", "avocado ", "banana", "coconut", "custardapple", "dragonfruit", "durian", "guava", "jackfruit" ,
                   "lychee","mango","mangosteen","persimmon","pineapple","plumcot",
                   "plums","pomelo", "rambutan","saboche","tomato", "watermelon"
                   ]
-    def get(self,request):
-        url = 'https://duockienminh.vn/sites/default/files/anh_bai_viet/1-la-du-du-la-gi-tai-sao-nhieu-ngu.jpg'
-        folder = './Image'
+    def post(self,request):
+        #delete old img
+        Image.objects.all().delete()
+        #post new img
+        images = request.FILES['FILE']
+        Image.objects.create(file=images)
+        folder = './media/media'
         list = []
         for filename in os.listdir(folder):
-            pathImg = 'http://127.0.0.1:8089/Image/' + filename
+            pathImg = 'http://127.0.0.1:8089/media/media/' + filename
             img = skimage.io.imread(os.path.join(folder, filename))
 
             image_resized = cv2.resize(img,(224,224))
