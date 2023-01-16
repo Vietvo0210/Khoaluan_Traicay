@@ -9,7 +9,8 @@
       <button class="searchButton">TIM KIEM</button>
      <br/>
       <br/>
-      <input type="file" id="img" name="img" accept="image/*">
+      <input type="file" id="img" name="img" accept="image/*" @change="previewImage"/>
+      <img class="previewImg"  :src="preview" alt="your image" />
       <br/>
       <br/>
     </div>
@@ -22,9 +23,29 @@
 </template>
 
 <script>
+
 export default {
   name: 'ModalSearch',
-  props: ['showModal']
+  props: ['showModal'],
+  data: function() {
+    return {
+      preview: null,
+      image: null,
+    };
+  },
+  methods: {
+    previewImage: function (event){
+      const input = event.target
+      if (input.files) {
+        const reader = new FileReader()
+        reader.onload = (e) => {
+          this.preview = e.target.result;
+        }
+        this.image=input.files[0];
+        reader.readAsDataURL(input.files[0]);
+      }
+    },
+  }
 }
 </script>
 
@@ -64,6 +85,10 @@ export default {
     width: 400px;
     height: 50px;
     border-radius: 15px;
+  }
+  .previewImg{
+    height: 200px;
+    width: 400px;
   }
   .searchButton:hover {background-color: #3e8e41}
   .popup-close:hover {background-color: #dcbba8}
