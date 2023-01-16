@@ -105,7 +105,7 @@ export default {
   methods: {
     async getData() {
       try {
-        let response = await fetch("http://192.168.1.26:8085/api/product-list/");
+        let response = await fetch("http://192.168.1.13:8089/api/product-list/");
         this.posts = await response.json();
       } catch (error) {
         console.log(error);
@@ -123,5 +123,9 @@ h2{
   padding: 40px;
   background-color:powderblue;
   color: #1b1e21;
+}
+.product {
+  height: 250px;
+  width: 200px;
 }
 </style>

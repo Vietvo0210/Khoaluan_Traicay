@@ -6,7 +6,7 @@
     <input class="searchInput">
       &nbsp
       &nbsp
-      <button class="searchButton">TIM KIEM</button>
+      <button class="searchButton" @click="predictImg">TIM KIEM</button>
      <br/>
       <br/>
       <input type="file" id="img" name="img" accept="image/*" @change="previewImage"/>
@@ -24,6 +24,9 @@
 
 <script>
 
+import axios from 'axios'
+import { Form } from 'ant-design-vue'
+
 export default {
   name: 'ModalSearch',
   props: ['showModal'],
@@ -31,6 +34,7 @@ export default {
     return {
       preview: null,
       image: null,
+      predictedImg: '',
     };
   },
   methods: {
@@ -43,9 +47,31 @@ export default {
         }
         this.image=input.files[0];
         reader.readAsDataURL(input.files[0]);
+        console.log(this.image)
+        console.log(this.image.name)
+        let img = new FormData();
+        img.append('FILE', this.image)
+        axios.post("http://192.168.1.13:8089/api/predict/", img, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        }).then(function (response) {
+          console.log(response.data[0])
+        })
       }
     },
-  }
+    async predictImg() {
+      try {
+        let response = await fetch("http://192.168.1.13:8089/api/predict/" );
+        let result = await response.json()
+        this.predictedImg = result[0].type
+        console.log(this.predictedImg)
+
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 }
 </script>
 
