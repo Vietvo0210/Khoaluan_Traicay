@@ -333,22 +333,8 @@ def CheckLogin(request, pk,gk):
     serializer = CustomerSerializer(customer, many=False)
     return Response(serializer.data,status=status.HTTP_200_OK)
 
-
-# @api_view(['GET'])
-# def SeachProduct(request,title):
-#     product=Product.objects.get(title=title)
-#     serializer=ProductSerializer(product,many=False)
-#     return Response(serializer.data)
-
-
-# @api_view(['GET'])
-# def SeachProduct(request,title):
-#     product=Product.objects.filter(title=title)
-#     serializer=ProductSerializer(product,many=True)
-#     return Response(serializer.data)
-
 @api_view(['GET'])
-def SeachProduct(request,title):
+def SearchProduct(request,title):
     if(title.isdigit()):
         product=Product.objects.filter(price=title)
     else:
