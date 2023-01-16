@@ -89,6 +89,7 @@ export default {
   .previewImg{
     height: 200px;
     width: 400px;
+    border-radius: 15px;
   }
   .searchButton:hover {background-color: #3e8e41}
   .popup-close:hover {background-color: #dcbba8}
