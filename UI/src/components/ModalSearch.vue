@@ -3,7 +3,7 @@
   <div class="popup-inner">
     <slot/>
     <div>
-    <input class="searchInput">
+    <input class="searchInput" id="textField">
       &nbsp
       &nbsp
       <button class="searchButton" @click="predictImg">TIM KIEM</button>
@@ -57,6 +57,7 @@ export default {
           }
         }).then(function (response) {
           console.log(response.data[0])
+          document.getElementById('textField').value = response.data[0].type
         })
       }
     },
