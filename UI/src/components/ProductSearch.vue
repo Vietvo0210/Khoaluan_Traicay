@@ -4,7 +4,6 @@
       </div>
       <br/>
       <br/>
-      <button @click="getData">REFRESH</button>
       <div class="row" >
         <div class="col-lg-3" v-for="post in posts" :key="post.id">
           <div class="product" >
@@ -95,7 +94,6 @@
 </template>
 <script>
 import ViewDetail from '@/components/ViewDetail'
-import axios from 'axios'
 export default {
   components: { ViewDetail },
   data() {
@@ -107,16 +105,9 @@ export default {
   methods: {
     async getData() {
       try {
-        let title = localStorage.getItem('nameSearch')
         let response = await fetch("http://192.168.1.13:8089/api/product-list/");
         this.posts = await response.json();
-        console.log(title)
-        if(title){
-          let response = await fetch('http://192.168.1.13:8089/api/search/' + title)
-          this.posts = await  response.json();
-          localStorage.clear()
-        }}
-      catch (error) {
+      } catch (error) {
         console.log(error);
       }
     },
@@ -125,9 +116,6 @@ export default {
   created() {
     this.getData();
   },
-  watch() {
-    this.getData();
-  }
 };
 </script>
 <style>

@@ -6,7 +6,7 @@
     <input class="searchInput" id="textField">
       &nbsp
       &nbsp
-      <button class="searchButton" @click="predictImg">TIM KIEM</button>
+      <button class="searchButton" @click="SEARCH">TIM KIEM</button>
      <br/>
       <br/>
       <input type="file" id="img" name="img" accept="image/*" @change="previewImage"/>
@@ -61,15 +61,18 @@ export default {
         })
       }
     },
-    async predictImg() {
+    async SEARCH() {
       try {
-        let response = await fetch("http://192.168.1.13:8089/api/predict/" );
-        let result = await response.json()
-        this.predictedImg = result[0].type
-        console.log(this.predictedImg)
-
+        const name = document.getElementById('textField').value
+        console.log(name)
+        localStorage.setItem('nameSearch', name)
+        await axios.get('http://192.168.1.13:8089/api/search/' + name)
+          .then(function (response)
+          {
+            console.log(response)
+          })
       } catch (error) {
-        console.log(error);
+        console.log('ERROR!')
       }
     },
   },
