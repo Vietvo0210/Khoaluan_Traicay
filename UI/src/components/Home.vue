@@ -95,7 +95,6 @@
 </template>
 <script>
 import ViewDetail from '@/components/ViewDetail'
-import axios from 'axios'
 export default {
   components: { ViewDetail },
   data() {
