@@ -291,10 +291,13 @@ import axios from "axios";
     },
     check_save()
     {
-      if(this.id_item!=null)
+      if(this.id_item_temp!=null){
         this.putData()
-        else
+      }else{
         this.postData()
+      }
+      this.close()
+      this.getData()
     },
     editItem (item) {
         this.id_item=item.id;

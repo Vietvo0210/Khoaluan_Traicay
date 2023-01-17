@@ -27,6 +27,9 @@
               <v-container>
                 <v-row>
                   <v-col cols="12" sm="6" md="4">
+                    
+                  </v-col>
+                  <v-col cols="12" sm="6" md="4">
                     <v-text-field v-model="editedItem.title" label="Title"></v-text-field>
                   </v-col>
 
@@ -172,10 +175,13 @@ export default {
     },
     check_save()
     {
-      if(this.id_item_temp!=null)
+      if(this.id_item_temp!=null){
         this.putData()
-        else
+      }else{
         this.postData()
+      }
+      this.close()
+      this.getData()
     },
    editItem (item) {
     this.id_item_temp=item.id;
@@ -196,6 +202,7 @@ export default {
       axios.get("http://127.0.0.1:8000/api/product-delete/"+this.id_item_temp+"/")
       this.getData()
       this.closeDelete()
+      location.reload()
     },
     close () {
       this.dialog = false

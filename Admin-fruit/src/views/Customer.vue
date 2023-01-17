@@ -244,7 +244,6 @@ import axios, {  } from "axios";
         console.log(response)
         console.log("POST SUCCESS!")
         this.data.splice(this.editedIndex, 1)
-        this.closeSave()
       })
     },
     putData(){
@@ -257,10 +256,13 @@ import axios, {  } from "axios";
     },
     check_save()
     {
-      if(this.id_item!=null)
+      if(this.id_item_temp!=null){
         this.putData()
-        else
+      }else{
         this.postData()
+      }
+      this.close()
+      this.getData()
     },
       editItem (item) {
         this.id_item=item.id
