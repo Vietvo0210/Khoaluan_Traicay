@@ -13,7 +13,7 @@ import skimage.io
 
 class Product(models.Model):
     title = models.CharField(max_length=250)
-    price = models.IntegerField()
+    price = models.FloatField()
     discount = models.IntegerField()
     thumbnail =models.CharField(max_length=500)
     description =models.CharField(max_length=2000)
