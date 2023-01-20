@@ -2,7 +2,7 @@ import { createRouter, createWebHistory} from 'vue-router';
 import HomeSetting from "../components/HomeSetting";
 import Login from "../components/Login";
 import AboutUs from "../components/AboutUs";
-
+import Contact from "../components/Contact";
 const routes = [
     {
         path: "/product",
@@ -18,7 +18,12 @@ const routes = [
         path: "/aboutUs",
         name: "aboutUs",
         component: AboutUs,
-    }
+    },
+    {
+        path: "/contact",
+        name: "contact",
+        component: Contact,
+    },
 ];
 
 const router = createRouter({
@@ -27,3 +32,4 @@ const router = createRouter({
 });
 
 export default router;
+
