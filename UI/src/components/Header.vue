@@ -15,13 +15,6 @@
               <a class="nav-link" >Trang chủ</a>
             </router-link>
           </li>
-
-          <li class="nav-item">
-            <router-link to="/aboutUs">
-            <a class="nav-link" >Giới thiệu</a>
-            </router-link>
-          </li>
-
           <li class="nav-item dropdown dropdown-slide">
             <router-link to="/product">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
@@ -29,23 +22,18 @@
               Sản phẩm
             </a>
             </router-link>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-              <li><a href="#">Trái cây Việt </a></li>
-              <li><a href="#">Trái cây ngoại nhập</a></li>
-              <li><a href="#">Sản phẩm HOT</a></li>
-            </ul>
           </li>
 
 
           <li class="nav-item">
-            <router-link to="/product">
+            <router-link to="/news">
               <a class="nav-link" >Tin tức</a>
             </router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="/product">
-              <a class="nav-link" >Liên hệ</a>
+            <router-link to="/aboutUs">
+              <a class="nav-link" >Liên Hệ</a>
             </router-link>
           </li>
 
@@ -57,7 +45,6 @@
         </ul>
 
       <!-- Navbar-collapse -->
-
       <ul class="navbar-nav mx-auto" >
         <li class="nav-item">
           <i
@@ -75,47 +62,28 @@
 
         <li class="dropdown cart-nav dropdown-slide list-inline-item">
           <a href="#" class="dropdown-toggle cart-icon" data-toggle="dropdown" data-hover="dropdown">
-            <i class="tf-ion-android-cart"></i>
+            <i class="tf-ion-android-cart" @click="getProducts"></i>
           </a>
-          <div class="dropdown-menu cart-dropdown">
+          <div class="dropdown-menu cart-dropdown" >
+            <template v-if="cart.length !== 0" >
             <!-- Cart Item -->
-            <div class="media">
+            <div class="media" v-for="(item, index) in cart">
               <a href="#">
-                <img class="media-object img- mr-3" src="assets/images/1.jpg" alt="image" />
+                <img class="media-object img-fluid mr-3" :src="item?.thumbnail" alt="image" />
               </a>
-              <div class="media-body">
-                <h6>
-
-                Buoi  Tay</h6>
+              <div class="media-body" >
+                <h6>{{ item?.title }}</h6>
                 <div class="cart-price">
-                  <span>1 x</span>
-                  <span>1250.00</span>
+                  <span>{{ item.price }} {{'VNĐ'}}</span>
                 </div>
               </div>
-              <a href="#" class="remove"><i class="tf-ion-close"></i></a>
+              <a href="#" class="remove"><i class="tf-ion-close" @click="deleteProductInCart(index)"></i></a>
             </div><!-- / Cart Item -->
-
-            <!-- Cart Item -->
-            <div class="media">
-              <a href="#">
-                <img class="media-object img-fluid mr-3" src="assets/images/cart-2.jpg" alt="image" />
-              </a>
-              <div class="media-body">
-                <h6>Chuoi Tay</h6>
-                <div class="cart-price">
-                  <span>1 x</span>
-                  <span>1250.00</span>
-                </div>
-              </div>
-              <a href="#" class="remove"><i class="tf-ion-close"></i></a>
-            </div><!-- / Cart Item -->
+            </template>
 
             <div class="cart-summary">
-              <span class="h6">Total</span>
-              <span class="total-price h6">$1799.00</span>
 
               <div class="text-center cart-buttons mt-3">
-                <a href="#" class="btn btn-small btn-transparent btn-block">Giỏ Hàng</a>
                 <a href="#" class="btn btn-small btn-main btn-block">Thanh Toán</a>
               </div>
             </div>
@@ -134,18 +102,37 @@ export default {
   components: { ModalSearch },
 
   setup() {
+    const cart = ref([])
     const visible = ref({
       buttonTrigger: false,
       timeTrigger: false
     });
-
     const showModal = (trigger) => {
       visible.value[trigger] = !visible.value[trigger]
     };
 
+    const getProducts = () => {
+      let products = localStorage.getItem('products')
+      const jsonProducts = JSON.parse(products)
+      cart.value = jsonProducts
+      console.log(jsonProducts)
+      // jsonProducts.forEach(p => {
+      //   console.log(cart.value)
+      //   // cart.value.some((c) => c.id !== p.id ? cart.value.push(p) : console.log('item exist'))
+      // })
+      // cart.value.push(jsonProducts)
+      // console.log(cart.value)
+    }
+    const deleteProductInCart = (index) => {
+      cart.value =  cart.value.filter((c, i) => i !== index)
+    }
+
     return {
       visible,
+      cart,
+      deleteProductInCart,
       showModal,
+      getProducts
     }
   }
 }
