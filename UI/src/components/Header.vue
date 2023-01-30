@@ -44,7 +44,7 @@
           </li>
 
           <li class="nav-item">
-            <router-link to="/contact">
+            <router-link to="/product">
               <a class="nav-link" >Liên hệ</a>
             </router-link>
           </li>
