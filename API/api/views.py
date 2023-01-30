@@ -31,7 +31,7 @@ import os
 
 @api_view(['GET'])
 def ShowAll(request):
-    products = Product.objects.all()[:10]
+    products = Product.objects.all()[:8]
     serializer = ProductSerializer(products, many=True)
     return Response(serializer.data)
 
@@ -358,10 +358,10 @@ def CheckLogin(request, pk,gk):
 #     return Response(serializer.data)
 
 @api_view(['GET'])
-def SeachProduct(request,title):
+def SearchProduct(request,title):
     if(title.isdigit()):
         product=Product.objects.filter(price=title)
     else:
-         product=Product.objects.filter(title=title)
+         product=Product.objects.filter(title__icontains=title)
     serializer=ProductSerializer(product,many=True)
     return Response(serializer.data)
