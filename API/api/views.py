@@ -20,11 +20,10 @@ from keras.models import load_model
 import cv2
 import numpy as np
 import skimage.io
-from .serializers import ProductSerializer,CustomerSerializer,FeedbackSerializer,GalerySerializer,Order_detailsSerializer,OdersSerializer
-from .models import Product,Galery,Feedback,Order_details,Orders,Customer
+from .serializers import ProductSerializer,CustomerSerializer,FeedbackSerializer,Order_detailsSerializer,OdersSerializer
+from .models import Product,Feedback,Order_details,Orders,Customer
 from django.http import JsonResponse
 from rest_framework.generics import ListCreateAPIView
-from django.contrib.auth.models import User
 import os
 # Create your views here.
 # Product
@@ -166,52 +165,6 @@ def deleteFeedback(request, pk):
 
     return Response('Items delete successfully!')
 
-
-#Galery
-@api_view(['GET'])
-def ShowAll_Galery(request):
-    galery = Galery.objects.all()[:10]
-    serializer = GalerySerializer(galery, many=True)
-    return Response(serializer.data)
-
-
-@api_view(['GET'])
-def ViewGalery(request, pk):
-    galery = Galery.objects.get(id=pk)
-    serializer = GalerySerializer(galery, many=False)
-    return Response(serializer.data)
-
-
-@api_view(['POST'])
-def CreateGalery(request):
-    serializer = GalerySerializer(data=request.data)
-
-    if serializer.is_valid():
-        serializer.save()
-
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['PUT'])
-def updateGalery(request, pk):
-    galery = Galery.objects.get(id=pk)
-    serializer = GalerySerializer(instance=galery, data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-
-        return Response(serializer.data)
-    else:
-        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-
-@api_view(['GET'])
-def deleteGalery(request, pk):
-    galery = Galery.objects.get(id=pk)
-    galery.delete()
-
-    return Response('Items delete successfully!')
-
 #Orders
 @api_view(['GET'])
 def ShowAll_Orders(request):
@@ -307,7 +260,7 @@ def mymodel_delete(sender, instance, **kwargs):
     instance.file.delete(False)
 
 class GetPredictedResult(ListCreateAPIView):
-    vgg16_model=load_model('/Users/admin/Desktop/Hocky6/Nhandangraucu_mayhoc/GUI/Viet_Huy_Doan_Traicay.model')
+    vgg16_model=load_model('C:/Users/Huy.201/Desktop/Fruits/Viet_Huy_Doan_Traicay.model')
     class_names = ["ambarella", "avocado ", "banana", "coconut", "custardapple", "dragonfruit", "durian", "guava", "jackfruit" ,
                   "lychee","mango","mangosteen","persimmon","pineapple","plumcot",
                   "plums","pomelo", "rambutan","saboche","tomato", "watermelon"
@@ -321,7 +274,7 @@ class GetPredictedResult(ListCreateAPIView):
         folder = './media/media'
         list = []
         for filename in os.listdir(folder):
-            pathImg = 'http://127.0.0.1:8089/media/media/' + filename
+            pathImg = 'http://127.0.0.1:8080/media/media/' + filename
             img = skimage.io.imread(os.path.join(folder, filename))
 
             image_resized = cv2.resize(img,(224,224))
@@ -344,18 +297,6 @@ def CheckLogin(request, pk,gk):
     return Response(serializer.data,status=status.HTTP_200_OK)
 
 
-# @api_view(['GET'])
-# def SeachProduct(request,title):
-#     product=Product.objects.get(title=title)
-#     serializer=ProductSerializer(product,many=False)
-#     return Response(serializer.data)
-
-
-# @api_view(['GET'])
-# def SeachProduct(request,title):
-#     product=Product.objects.filter(title=title)
-#     serializer=ProductSerializer(product,many=True)
-#     return Response(serializer.data)
 
 @api_view(['GET'])
 def SearchProduct(request,title):

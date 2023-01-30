@@ -4,7 +4,6 @@
       </div>
       <br/>
       <br/>
-      <button @click="getData">REFRESH</button>
       <div class="row" >
         <div class="col-lg-3" v-for="post in posts" :key="post.id">
           <div class="product" >
@@ -21,7 +20,7 @@
             </div>
 
             <div class="product-info">
-              <h3 class="product-title h5 mb-0">{{post.title}}</h3>
+              <router-link :to="{ name: 'viewdetail', params: { id: post.id }}">{{post.title}}</router-link>
               <span class="price">
                 {{post.price}}
                     </span>
@@ -31,9 +30,6 @@
       </div>
     </div>
 
-  <view-detail>
-
-  </view-detail>
   <section>
     <div class="container">
       <div class="row" >
@@ -100,6 +96,7 @@ export default {
   data() {
     return {
       posts: [],
+      id:null
     };
   },
 
@@ -107,11 +104,11 @@ export default {
     async getData() {
       try {
         let title = localStorage.getItem('nameSearch')
-        let response = await fetch("http://192.168.1.13:8089/api/product-list/");
+        let response = await fetch("http://127.0.0.1:8000/api/product-list/");
         this.posts = await response.json();
         console.log(title)
         if(title){
-          let response = await fetch('http://192.168.1.13:8089/api/search/' + title)
+          let response = await fetch('http://127.0.0.1:8000/api/search/' + title)
           this.posts = await  response.json();
           localStorage.clear()
         }}
@@ -119,8 +116,11 @@ export default {
         console.log(error);
       }
     },
+    mounted() {
+            this.id = this.$route.params.id;
+            this.post = this.post.find(post => post.id == this.id)
+        }
   },
-
   created() {
     this.getData();
   },

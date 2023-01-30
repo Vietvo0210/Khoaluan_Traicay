@@ -1,14 +1,5 @@
 from django.db import models
 
-from keras.models import load_model
-
-import cv2
-import numpy as np
-import requests
-from PIL import Image
-import urllib.request
-import skimage.io
-
 # Create your models here.
 
 class Product(models.Model):
@@ -30,19 +21,13 @@ class Customer(models.Model):
         db_table='Customer'
 
 class Feedback(models.Model):
-    firstname = models.CharField(max_length=30)
-    lastname = models.CharField(max_length=30)
+    fullname = models.CharField(max_length=30)
     email = models.CharField(max_length=250)
     phone_number = models.CharField(max_length=20)
     note = models.CharField(max_length=1000)
     class Meta:
         db_table='Feedback'
 
-class Galery(models.Model):
-    product_id = models.IntegerField()
-    thumbnail = models.CharField(max_length=500)
-    class Meta:
-        db_table='Galery'
 
 class Orders(models.Model):
     customer_id = models.IntegerField()
