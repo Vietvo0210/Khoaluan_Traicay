@@ -4,7 +4,6 @@
       </div>
       <br/>
       <br/>
-      <button @click="getData">REFRESH</button>
       <div class="row" >
         <div class="col-lg-3" v-for="(post,index) in posts" :key="post.id">
           <div class="product" >
@@ -21,7 +20,7 @@
             </div>
 
             <div class="product-info">
-              <h3 class="product-title h5 mb-0">{{post.title}}</h3>
+              <router-link :to="{ name: 'viewdetail', params: { id: post.id }}">{{post.title}}</router-link>
               <span class="price">
                 {{post.price}} {{'VNĐ'}}
                     </span>
@@ -31,9 +30,6 @@
       </div>
     </div>
 
-  <view-detail>
-
-  </view-detail>
   <section>
     <div class="container">
       <div class="row" >
@@ -101,6 +97,7 @@ export default {
     return {
       productsLiked: [],
       posts: [],
+      id:null
     };
   },
 
@@ -126,8 +123,11 @@ export default {
         console.log(error);
       }
     },
+    mounted() {
+            this.id = this.$route.params.id;
+            this.post = this.post.find(post => post.id == this.id)
+        }
   },
-
   created() {
     this.getData();
   },

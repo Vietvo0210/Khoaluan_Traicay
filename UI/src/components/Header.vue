@@ -32,8 +32,8 @@
           </li>
 
           <li class="nav-item">
-            <router-link to="/aboutUs">
-              <a class="nav-link" >Liên Hệ</a>
+            <router-link to="/contact">
+              <a class="nav-link" >Liên hệ</a>
             </router-link>
           </li>
 

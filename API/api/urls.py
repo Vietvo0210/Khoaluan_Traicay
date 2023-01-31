@@ -23,13 +23,6 @@ urlpatterns = [
     path('feedback-update/<int:pk>/', views.updateFeedback, name='feedback-update'),
     path('feedback-delete/<int:pk>/', views.deleteFeedback, name='feedback-delete'),
 
-    path('galery-list/', views.ShowAll_Galery, name='galery-list'),
-    path('galery-detail/<int:pk>/', views.ViewGalery, name='galery-detail'),
-    path('galery-create/', views.CreateGalery, name='galery-create'),
-    path('galery-update/<int:pk>/', views.updateGalery, name='galery-update'),
-    path('galery-delete/<int:pk>/', views.deleteGalery, name='galery-delete'),
-
-
     path('orders-list/', views.ShowAll_Orders, name='orders-list'),
     path('orders-detail/<int:pk>/', views.ViewOrders, name='orders-detail'),
     path('orders-create/', views.CreateOrders, name='orders-create'),
