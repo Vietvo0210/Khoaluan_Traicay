@@ -111,12 +111,12 @@ export default {
     async getData() {
       try {
         let title = localStorage.getItem('nameSearch')
-        let response = await fetch("http://192.168.1.26:8089/api/product-list/");
+        let response = await fetch("http://10.1.14.234:8089/api/product-list/");
         this.posts = await response.json();
         localStorage.clear()
         console.log(title)
         if(title){
-          let response = await fetch('http://192.168.1.26:8089/api/search/' + title)
+          let response = await fetch('http://10.1.14.234:8089/api/search/' + title)
           this.posts = await  response.json();
         }}
       catch (error) {
