@@ -56,7 +56,7 @@ export default {
         methods: {
   async getData() {
     try {
-      let response = await fetch("http://127.0.0.1:8000/api/product-detail/"+this.$route.params.id+"/");
+      let response = await fetch("http://10.1.14.234:8089/api/product-detail/"+this.$route.params.id+"/");
       this.posts = await response.json();
     } catch (error) {
       console.log(error);

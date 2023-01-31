@@ -45,7 +45,7 @@
     },
     methods: {
       postData(){
-        axios.post("http://127.0.0.1:8000/api/feedback-create/", this.Item)
+        axios.post("http://10.1.14.234:8089/api/feedback-create/", this.Item)
           .then(function (response) {
           console.log(response)
           this.data.splice(this.editedIndex, 1)
@@ -76,7 +76,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 1em;
-    height: 400;
+    height: 400px;
   }
   .form-group {
     padding: 10px;

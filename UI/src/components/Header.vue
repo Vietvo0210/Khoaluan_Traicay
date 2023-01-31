@@ -55,7 +55,9 @@
 
           <ModalSearch
             v-if="visible.buttonTrigger"
-            :showModal="() => showModal('buttonTrigger') ">
+            :showModal="() => showModal('buttonTrigger') "
+            @hiddenModel="catchHidden"
+          >
             <h3>SEARCH</h3>
           </ModalSearch>
         </li>
@@ -111,6 +113,11 @@ export default {
       visible.value[trigger] = !visible.value[trigger]
     };
 
+    const catchHidden = () => {
+      console.log('23131321321')
+      console.log('23131321321')
+    };
+
     const getProducts = () => {
       let products = localStorage.getItem('products')
       const jsonProducts = JSON.parse(products)
@@ -132,7 +139,8 @@ export default {
       cart,
       deleteProductInCart,
       showModal,
-      getProducts
+      getProducts,
+      catchHidden,
     }
   }
 }
