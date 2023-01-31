@@ -55,3 +55,11 @@ class Image(models.Model):
     file=models.ImageField(upload_to='media', null=False, default=None)
     class Meta:
         db_table='Image'
+
+class News(models.Model):
+    maTT =models.CharField(max_length=50)
+    Thongtin = models.TextField()
+    Hinh = models.CharField(max_length=50)
+    Ngaydang = models.DateField()
+    class Meta:
+        db_table='News'

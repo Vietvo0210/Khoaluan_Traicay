@@ -20,12 +20,28 @@ from keras.models import load_model
 import cv2
 import numpy as np
 import skimage.io
-from .serializers import ProductSerializer,CustomerSerializer,FeedbackSerializer,Order_detailsSerializer,OdersSerializer
-from .models import Product,Feedback,Order_details,Orders,Customer
+from .serializers import NewSerializer,ProductSerializer,CustomerSerializer,FeedbackSerializer,Order_detailsSerializer,OdersSerializer
+from .models import Product,Feedback,Order_details,Orders,Customer,News
 from django.http import JsonResponse
 from rest_framework.generics import ListCreateAPIView
 import os
 # Create your views here.
+
+#New
+@api_view(['GET'])
+def NewList(request):
+    news = News.objects.all()
+    serializer = NewSerializer(news, many=True)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def CreateNew(request):
+    serializer = NewSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data,status=status.HTTP_201_CREATED)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 # Product
 
 @api_view(['GET'])
@@ -260,7 +276,7 @@ def mymodel_delete(sender, instance, **kwargs):
     instance.file.delete(False)
 
 class GetPredictedResult(ListCreateAPIView):
-    vgg16_model=load_model('C:/Users/Huy.201/Desktop/Fruits/Viet_Huy_Doan_Traicay.model')
+    vgg16_model=load_model('/Users/admin/Desktop/Hocky6/Nhandangraucu_mayhoc/GUI/Viet_Huy_Doan_Traicay.model')
     class_names = ["ambarella", "avocado ", "banana", "coconut", "custardapple", "dragonfruit", "durian", "guava", "jackfruit" ,
                   "lychee","mango","mangosteen","persimmon","pineapple","plumcot",
                   "plums","pomelo", "rambutan","saboche","tomato", "watermelon"
