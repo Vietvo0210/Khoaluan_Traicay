@@ -5,7 +5,7 @@
       <br/>
       <br/>
       <div class="row" >
-        <div class="col-lg-3" v-for="post in posts" :key="post.id">
+        <div class="col-lg-3" v-for="(post,index) in posts" :key="post.id">
           <div class="product" >
             <div class="product-wrap">
               <a href="#"><img
@@ -14,15 +14,15 @@
                 alt="okke"/>
               </a>
             </div>
-            <div class="product-hover-overlay">
-              <a href="#"><i class="tf-ion-android-cart"></i></a>
-              <a href="#"><i class="tf-ion-ios-heart"></i></a>
+            <div class="product-hover-overlay" >
+              <a href="#" ><i class="tf-ion-android-cart"></i></a>
+              <a href="#" @click=onClick(post)><i class="tf-ion-ios-heart"></i></a>
             </div>
 
             <div class="product-info">
               <router-link :to="{ name: 'viewdetail', params: { id: post.id }}">{{post.title}}</router-link>
               <span class="price">
-                {{post.price}}
+                {{post.price}} {{'VNĐ'}}
                     </span>
             </div>
           </div>
@@ -95,22 +95,29 @@ export default {
   components: { ViewDetail },
   data() {
     return {
+      productsLiked: [],
       posts: [],
       id:null
     };
   },
 
   methods: {
+    onClick(item) {
+      console.log(item)
+      if(!this.productsLiked.includes(item))
+        this.productsLiked.push(item)
+      localStorage.setItem('products', JSON.stringify(this.productsLiked))
+    },
     async getData() {
       try {
         let title = localStorage.getItem('nameSearch')
-        let response = await fetch("http://127.0.0.1:8000/api/product-list/");
+        let response = await fetch("http://192.168.1.26:8089/api/product-list/");
         this.posts = await response.json();
+        localStorage.clear()
         console.log(title)
         if(title){
-          let response = await fetch('http://127.0.0.1:8000/api/search/' + title)
+          let response = await fetch('http://192.168.1.26:8089/api/search/' + title)
           this.posts = await  response.json();
-          localStorage.clear()
         }}
       catch (error) {
         console.log(error);

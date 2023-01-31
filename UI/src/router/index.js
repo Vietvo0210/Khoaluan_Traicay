@@ -4,11 +4,18 @@ import Login from "../components/Login";
 import AboutUs from "../components/AboutUs";
 import Contact from "../components/Contact";
 import ViewDetail from "../components/ViewDetail";
+import NewView from '@/components/NewView'
+
 const routes = [
     {
         path: "/product",
         name: "product",
         component: HomeSetting,
+    },
+    {
+      path: "/news",
+      name: "news",
+      component: NewView,
     },
     {
         path: "/login",
