@@ -11,15 +11,15 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 col-sm-8 mx-auto">
             <div v-if="!registerActive" class="card login" v-bind:class="{ error: emptyFields }">
-              <h1>Đăng nhập</h1>
+              <h1>Login</h1>
               <form class="form-group">
                 <input id="email" v-model="email" type="email" class="form-control" placeholder="Email" required>
-                <input id="password" v-model="password" type="password" class="form-control" placeholder="Mật khẩu" required>
+                <input id="password" v-model="password" type="password" class="form-control" placeholder="Password" required>
                 <input type="button" value="Login" class="btn btn-primary" @click="checkData">
                 <!-- <button  type="submit" @click="checkData">Login</button> -->
-                <p>Bạn chưa có tài khoản? <a href="#" @click="registerActive = !registerActive, emptyFields = false">Sign up here</a>
+                <p>Do you already have an account?<a href="#" @click="registerActive = !registerActive, emptyFields = false">Sign up here</a>
                 </p>
-                <p><a href="#">Quên mật khẩu?</a></p>
+                <p><a href="#">Forgot password?</a></p>
               </form>
             </div>
 
@@ -32,7 +32,7 @@
                 <input v-model="Item.address" type="address" class="form-control" placeholder="Address" required>
                 <input v-model="Item.password" type="password" class="form-control" placeholder="Password" required>
                 <input type="submit" class="btn btn-primary" @click="postData">
-                <p>Bạn đã có tài khoản? <a href="#" @click="registerActive = !registerActive, emptyFields = false">Sign in here</a>
+                <p>Do you already have an account?<a href="#" @click="registerActive = !registerActive, emptyFields = false">Sign in here</a>
                 </p>
               </form>
             </div>

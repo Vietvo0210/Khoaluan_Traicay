@@ -7,7 +7,7 @@
     <input class="searchInput" id="textField">
       &nbsp
       &nbsp
-      <button class="searchButton" @click="SEARCH">TIM KIEM</button>
+      <button class="searchButton" @click="SEARCH">Seach</button>
      <br/>
       <br/>
       <input type="file" id="img" name="img" accept="image/*" @change="previewImage"/>

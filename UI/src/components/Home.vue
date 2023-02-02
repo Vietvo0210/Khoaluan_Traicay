@@ -35,12 +35,12 @@
       <div class="row" >
         <div class="col-lg-6">
       <img
-        src="https://img.meta.com.vn/Data/image/2020/09/03/trai-cay-tot-cho-sinh-ly-nam-al.jpg"/>\
+        src="https://img.meta.com.vn/Data/image/2020/09/03/trai-cay-tot-cho-sinh-ly-nam-al.jpg"/>
         </div>
         <div class="col-lg-6">
-            <span class="h5 deal">Giảm lên đến 50% </span>
-            <h3 class="mt-3 text-black">Các loại trái cây Việt Nam</h3>
-            <p class="text-md mt-3 text-white">Nhanh chóng đặt hàng ngay nào!</p>
+            <span class="h5 deal">Up to 50% off </span>
+            <h3 class="mt-3 text-black">Vietnamese fruits</h3>
+            <p class="text-md mt-3 text-white">Quickly order now!</p>
             <a href="#" class="btn btn-main"><i class="ti-bag mr-2"></i>Shop Now </a>
           </div>
         </div>
@@ -54,8 +54,8 @@
           <div class="feature-block">
             <i class="tf-ion-android-bicycle"></i>
             <div class="content">
-              <h5>Miễn phí giao hàng</h5>
-              <p>Khi tổng hoá đơn trên 300.000vnđ</p>
+              <h5>Free ship</h5>
+              <p>When the total bill is over 300,000 VND</p>
             </div>
           </div>
         </div>
@@ -63,8 +63,8 @@
           <div class="feature-block">
             <i class="tf-wallet"></i>
             <div class="content">
-              <h5>Hoàn trả trong vòng 3h</h5>
-              <p>Đảm bảo hoàn lại tiền</p>
+              <h5>Refund within 3 hours</h5>
+              <p>Money back guarantee</p>
             </div>
           </div>
         </div>
@@ -72,8 +72,8 @@
           <div class="feature-block">
             <i class="tf-key"></i>
             <div class="content">
-              <h5>Thanh toán an toàn</h5>
-              <p>100% được đảm bảo bởi ứng dụng Momo</p>
+              <h5>Secure payment</h5>
+              <p>100% guaranteed by the Momo app</p>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@
           <div class="feature-block">
             <i class="tf-clock"></i>
             <div class="content">
-              <h5>Hỗ trợ 24/7 </h5>
+              <h5>24/7 support</h5>
             </div>
           </div>
         </div>

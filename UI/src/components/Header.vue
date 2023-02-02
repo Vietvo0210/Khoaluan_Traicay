@@ -12,14 +12,14 @@
 
           <li class="nav-item">
             <router-link to="/product">
-              <a class="nav-link" >Trang chủ</a>
+              <a class="nav-link" >Home</a>
             </router-link>
           </li>
           <li class="nav-item dropdown dropdown-slide">
             <router-link to="/product">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Sản phẩm
+              Product
             </a>
             </router-link>
           </li>
@@ -27,19 +27,19 @@
 
           <li class="nav-item">
             <router-link to="/news">
-              <a class="nav-link" >Tin tức</a>
+              <a class="nav-link" >News</a>
             </router-link>
           </li>
 
           <li class="nav-item">
             <router-link to="/contact">
-              <a class="nav-link" >Liên hệ</a>
+              <a class="nav-link" >Contact</a>
             </router-link>
           </li>
 
           <li class="nav-item">
             <router-link to="/login">
-              <a class="nav-link" >Đăng nhập</a>
+              <a class="nav-link" >Login</a>
             </router-link>
           </li>
         </ul>
@@ -84,7 +84,7 @@
             <div class="cart-summary">
 
               <div class="text-center cart-buttons mt-3">
-                <a href="#" class="btn btn-small btn-main btn-block">Thanh Toán</a>
+                <a href="#" class="btn btn-small btn-main btn-block">Pay</a>
               </div>
             </div>
           </div>
