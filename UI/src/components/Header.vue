@@ -24,7 +24,6 @@
             </router-link>
           </li>
 
-
           <li class="nav-item">
             <router-link to="/news">
               <a class="nav-link" >News</a>
@@ -66,7 +65,8 @@
           <a href="#" class="dropdown-toggle cart-icon" data-toggle="dropdown" data-hover="dropdown">
             <i class="tf-ion-android-cart" @click="getProducts"></i>
           </a>
-          <div class="dropdown-menu cart-dropdown" >
+          <div class="dropdown-menu cart-dropdown" width="150px">
+            <h4 v-if="cart.length === 0">No items chosen</h4>
             <template v-if="cart.length !== 0" >
             <!-- Cart Item -->
             <div class="media" v-for="(item, index) in cart">
@@ -77,16 +77,25 @@
                 <h6>{{ item?.title }}</h6>
                 <div class="cart-price">
                   <span>{{ item.price }} {{'VNĐ'}}</span>
+                  <div class="input-group">
+                    <input type="button" value="-" class="button-minus" data-field="quantity" @click="minusCountProduct(index)">
+                    <input type="number" step="1" :value="item.soluong" name="quantity" class="quantity-field" disabled>
+                    <input type="button" value="+" class="button-plus" data-field="quantity" @click="updateCountProduct(index)">
+                  </div>
                 </div>
+              </div>
+              <div>
               </div>
               <a href="#" class="remove"><i class="tf-ion-close" @click="deleteProductInCart(index)"></i></a>
             </div><!-- / Cart Item -->
             </template>
 
-            <div class="cart-summary">
+            <div class="cart-summary" v-if="cart.length > 0">
 
               <div class="text-center cart-buttons mt-3">
-                <a href="#" class="btn btn-small btn-main btn-block">Pay</a>
+                <router-link to="/payment">
+                <a href="" class="btn btn-small btn-main btn-block">Payment</a>
+                </router-link>
               </div>
             </div>
           </div>
@@ -114,21 +123,27 @@ export default {
     };
 
     const catchHidden = () => {
-      console.log('23131321321')
-      console.log('23131321321')
     };
+
+    const updateCountProduct = (index) => {
+      if(cart.value[index].soluong < 5){
+        let updatedSoluong = cart.value[index].soluong+= 1
+        console.log(cart.value[index])
+        cart.value[index] = Object.assign(cart.value[index], {'soluong': updatedSoluong})
+        localStorage.setItem('cartPay', JSON.stringify(cart.value))
+      }
+    }
+
+    const minusCountProduct = (index) => {
+      if(cart.value[index].soluong > 1){
+        cart.value[index].soluong-=1
+      }
+    }
 
     const getProducts = () => {
       let products = localStorage.getItem('products')
       const jsonProducts = JSON.parse(products)
       cart.value = jsonProducts
-      console.log(jsonProducts)
-      // jsonProducts.forEach(p => {
-      //   console.log(cart.value)
-      //   // cart.value.some((c) => c.id !== p.id ? cart.value.push(p) : console.log('item exist'))
-      // })
-      // cart.value.push(jsonProducts)
-      // console.log(cart.value)
     }
     const deleteProductInCart = (index) => {
       cart.value =  cart.value.filter((c, i) => i !== index)
@@ -137,6 +152,8 @@ export default {
     return {
       visible,
       cart,
+      updateCountProduct,
+      minusCountProduct,
       deleteProductInCart,
       showModal,
       getProducts,
@@ -144,8 +161,69 @@ export default {
     }
   }
 }
+
 </script>
 
 <style scoped>
+input,
+textarea {
+  border: 1px solid #eeeeee;
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  padding: 10px;
+}
 
+input[type="button"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.input-group {
+  clear: both;
+  margin: 15px 0;
+  position: relative;
+}
+
+.input-group input[type='button'] {
+  background-color: #eeeeee;
+  min-width: 38px;
+  width: auto;
+  transition: all 300ms ease;
+}
+
+.input-group .button-minus,
+.input-group .button-plus {
+  font-weight: bold;
+  height: 38px;
+  padding: 0;
+  width: 38px;
+  position: relative;
+}
+
+.input-group .quantity-field {
+  position: relative;
+  height: 38px;
+  left: -6px;
+  text-align: center;
+  width: 62px;
+  display: inline-block;
+  font-size: 13px;
+  margin: 0 0 5px;
+  resize: vertical;
+}
+
+.button-plus {
+  left: -13px;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+}
 </style>

@@ -5,6 +5,8 @@ import AboutUs from "../components/AboutUs";
 import Contact from "../components/Contact";
 import ViewDetail from "../components/ViewDetail";
 import NewView from '@/components/NewView'
+import NewDetail from '@/components/NewDetail'
+import Payment from '@/components/Payment'
 
 const routes = [
     {
@@ -16,6 +18,11 @@ const routes = [
       path: "/news",
       name: "news",
       component: NewView,
+    },
+    {
+        path: "/news/detail",
+        name: "nameDetail",
+        component: NewDetail,
     },
     {
         path: "/login",
@@ -37,6 +44,11 @@ const routes = [
         name: "viewdetail",
         component: ViewDetail,
     },
+    {
+        path: "/payment",
+        name: "payment",
+        component: Payment,
+    }
 ];
 
 const router = createRouter({
