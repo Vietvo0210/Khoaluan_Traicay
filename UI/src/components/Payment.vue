@@ -10,6 +10,8 @@
               <input type="text" id="fname" name="firstname" placeholder="Viet, Huy, Doan">
               <label for="email"><i class="fa fa-envelope"></i> Email</label>
               <input type="text" id="email" name="email" placeholder="2001190936@hufi.edu.vn">
+              <label for="number"><i class="fa fa-envelope"></i>Phone Number</label>
+              <input id="number" @keypress="onlyNumber" type="text" placeholder="+84**********">
               <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
               <input type="text" id="adr" name="address" placeholder="140 LE TRONG TAN">
               <label for="city"><i class="fa fa-institution"></i> City</label>
@@ -20,7 +22,7 @@
           <label>
             <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
           </label>
-          <input type="submit" value="Continue to checkout" class="btn">
+          <input value="Continue to checkout" class="btn" @click="checkOut">
         </form>
       </div>
     </div>
@@ -65,6 +67,20 @@ export default {
   setup() {
     const cart = ref([])
     const summaryPara = ref(0)
+
+    const checkOut = () => {
+      console.log(document.getElementById("number").value )
+    }
+
+    const onlyNumber = ($event) => {
+      //console.log($event.keyCode); //keyCodes value
+      let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
+      if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { // 46 is dot
+        console.log($event.value)
+        $event.preventDefault();
+      }
+    }
+
     const summary = () => {
       cart.value.forEach((value, index) => {
         console.log(value)
@@ -90,6 +106,8 @@ export default {
     return {
       cart,
       summaryPara,
+      onlyNumber,
+      checkOut,
       summary,
       getProducts
     }
