@@ -16,13 +16,25 @@
               <input type="text" id="adr" name="address" placeholder="140 LE TRONG TAN">
               <label for="city"><i class="fa fa-institution"></i> City</label>
               <input type="text" id="city" name="city" placeholder="Q. Tan Phu, TP.HCM">
-
+              <label for="otp" id="otp" v-if="checkOTP === true"> OTP </label>
+              <input v-if="checkOTP === true" type="text" >
             </div>
           </div>
           <label>
             <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
           </label>
+          <div class="row">
+            <div class="col-6">
           <input value="Continue to checkout" class="btn" @click="checkOut">
+            </div>
+            <div class="col-6">
+          <button class="btn" @click="OTPVERIFY" v-if="checkOTP === true">Verify OTP</button>
+            </div>
+            <div class="col-12">
+              <label for="otp" id="otp">PLEASE VERIFY YOUR OTP BEFORE CHECKOUT</label>
+              <button class="btn" @click="OTPVERIFY">CHECKOUT</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
@@ -52,7 +64,7 @@
         <p>Total <span class="price" style="color:black"><b>{{ item.price * item.soluong}}</b></span></p>
           </div>
         <br/>
-        <p>Summary<span class="price" style="color:black"><b>{{ summaryPara   }}</b></span></p>
+        <p>Summary<span class="price" style="color:black"><b>{{ summaryPara }}</b></span></p>
       </div>
     </div>
   </div>
@@ -60,15 +72,33 @@
 
 <script>
 import { onMounted, ref } from 'vue'
+import axios from 'axios'
 
 export default {
   name: 'Payment',
 
   setup() {
+
+    const checkOTP = ref(false)
     const cart = ref([])
     const summaryPara = ref(0)
+    const otp = {
+      "otp": 540699
+    }
 
+    const OTPVERIFY = () => {
+      axios.post('http://192.168.1.26:8089/api/verify-otp', otp, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      })
+        .then((response) => {
+        console.log(response)
+      })
+    }
     const checkOut = () => {
+      checkOTP.value = true
+      console.log(checkOTP.value)
       console.log(document.getElementById("number").value )
     }
 
@@ -106,6 +136,8 @@ export default {
     return {
       cart,
       summaryPara,
+      checkOTP,
+      OTPVERIFY,
       onlyNumber,
       checkOut,
       summary,

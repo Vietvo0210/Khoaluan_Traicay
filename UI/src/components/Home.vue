@@ -9,7 +9,7 @@
           <div class="product" >
             <div class="product-wrap">
               <a href="#"><img
-                class="img-fluid w-100 mb-3 img-first"
+                class="media-object w-100 mb-3 img-first"
                 :src="post.thumbnail"
                 alt="okke"/>
               </a>
@@ -113,11 +113,11 @@ export default {
     async getData() {
       try {
         let title = localStorage.getItem('nameSearch')
-        let response = await fetch("http://192.168.0.16:8089/api/product-list/");
+        let response = await fetch("http://192.168.1.26:8089/api/product-list/");
         this.posts = await response.json();
         localStorage.clear()
         if(title){
-          let response = await fetch('http://192.168.0.16:8089/api/search/' + title)
+          let response = await fetch('http://192.168.1.26:8089/api/search/' + title)
           this.posts = await  response.json();
         }}
       catch (error) {
