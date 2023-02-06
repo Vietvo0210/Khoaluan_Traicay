@@ -40,4 +40,7 @@ urlpatterns = [
 
     path('predict/', views.GetPredictedResult.as_view()),
     path('login/<str:pk>/<str:gk>',views.CheckLogin,name='login'),
+
+    path('otp', views.sendOTP, name='sendOTP'),
+    path('verify-otp', views.verifyOTP, name='verifyOTP')
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -2,7 +2,7 @@
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-
+from twilio.rest import Client
 from .serializers import *
 from .models import *
 from django.db.models.signals import pre_delete
@@ -322,3 +322,30 @@ def SearchProduct(request,title):
          product=Product.objects.filter(title__icontains=title)
     serializer=ProductSerializer(product,many=True)
     return Response(serializer.data)
+
+#OTP
+@api_view(['POST'])
+def sendOTP(request):
+    account_sid = "AC806b72167758dd44c9a04e032192ec4f"
+    auth_token = "148bfb252f1e4a4af8e9f03194ffc98d"
+    verify_sid="VA7f492bce2e5249aba54f1d92795cd5a8"
+    client = Client(account_sid, auth_token)
+    client.verify.services(verify_sid).verifications.create(
+        to=f"+84{985357111}",
+        channel="sms"
+    )
+    return Response(status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+def verifyOTP(request):
+    otp= request.POST.get("otp")
+    account_sid = "AC806b72167758dd44c9a04e032192ec4f"
+    auth_token = "148bfb252f1e4a4af8e9f03194ffc98d"
+    verify_sid="VA7f492bce2e5249aba54f1d92795cd5a8"
+    client = Client(account_sid, auth_token)
+    print(otp)
+    client.verify.services(verify_sid).verification_checks.create(
+        to="+84985357111",
+        code=otp
+    )
+    return Response(status=status.HTTP_200_OK)
