@@ -15,22 +15,22 @@
                         alt="Err"/>
                       </a>
                       <a>
-                        <label>Loại quả:</label>
+                        <label>Type of fruit:</label>
                         {{posts.title}}
                       </a>
                       <br>
                       <a>
-                        <label>Giá:</label>
+                        <label>Price:</label>
                         {{posts.price}}
                       </a>
                       <br>
                       <a>
-                        <label>Giảm giá:</label>
+                        <label>Discount:</label>
                         {{posts.discount}} %
                       </a>
                       <br>
                       <a>
-                        <label>Chi tiết loại quả:</label>
+                        <label>Details of the fruit:</label>
                         {{posts.description}}
                       </a>
                       
@@ -56,7 +56,7 @@ export default {
         methods: {
   async getData() {
     try {
-      let response = await fetch("http://10.1.14.234:8089/api/product-detail/"+this.$route.params.id+"/");
+      let response = await fetch("http://192.168.0.16:8089/api/product-detail/"+this.$route.params.id+"/");
       this.posts = await response.json();
     } catch (error) {
       console.log(error);

@@ -45,7 +45,7 @@
     },
     methods: {
       postData(){
-        axios.post("http://10.1.14.234:8089/api/feedback-create/", this.Item)
+        axios.post("http://192.168.0.16:8089/api/feedback-create/", this.Item)
           .then(function (response) {
           console.log(response)
           this.data.splice(this.editedIndex, 1)
