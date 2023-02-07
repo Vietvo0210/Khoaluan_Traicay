@@ -16,7 +16,6 @@
                 <input id="email" v-model="email" type="email" class="form-control" placeholder="Email" required>
                 <input id="password" v-model="password" type="password" class="form-control" placeholder="Password" required>
                 <input type="button" value="Login" class="btn btn-primary" @click="checkData">
-                <!-- <button  type="submit" @click="checkData">Login</button> -->
                 <p>Do you already have an account?<a href="#" @click="registerActive = !registerActive, emptyFields = false">Sign up here</a>
                 </p>
                 <p><a href="#">Forgot password?</a></p>
@@ -65,22 +64,15 @@ import axios from "axios";
       methods: {
        async checkData(){
           let resutl=await axios.get(
-            'http://127.0.0.1:8000/api/login/'+this.email+'/'+this.password
+            'http://192.168.1.26:8089/api/login/'+this.email+'/'+this.password
             ) 
             if(resutl.status=200)
             {
-              this.$router.push({name:'product'})
+              window.open('http://localhost:8080')
             } 
             else
             //  this.$router.push({name:'Login'})
              this.errors.push("That bai.");
-    },
-    postData(){
-      axios.post("http://127.0.0.1:8000/api/customer-create/", this.Item)
-        .then(function (response) {
-        console.log(response)
-        this.data.splice(this.editedIndex, 1)
-      })
     },
     created()
     {

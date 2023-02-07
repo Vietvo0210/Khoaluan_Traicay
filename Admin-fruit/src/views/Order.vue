@@ -261,9 +261,8 @@ import axios from "axios";
     methods: {
     getData() {
       console.log(this.item)
-      
       axios
-        .get("http://127.0.0.1:8000/api/orders-list/" )
+        .get("http://192.168.1.13:8089/api/orders-list/" )
         .then((response) => {
           this.data = response.data;
         })
@@ -271,7 +270,7 @@ import axios from "axios";
     },
     postData(){
       console.log('INSERT DATA')
-      axios.post("http://127.0.0.1:8000/api/orders-create/", this.editedItem)
+      axios.post("http://192.168.1.26:8089/api/orders-create/", this.editedItem)
         .then(function (response) {
           //close form
           this.dialog(false)
@@ -282,12 +281,14 @@ import axios from "axios";
       })
     },
     putData(){
-      axios.put("http://127.0.0.1:8000/api/orders-update/"+ this.id_item + "/",this.editedItem)
+      axios.put("http://192.168.1.26:8089/api/orders-update/"+ this.id_item + "/",this.editedItem)
       .then((response)=>{
         this.data=response.data;
       }
       )
       .catch((err)=>alert(err));
+      this.close()
+      this.getData()
     },
     check_save()
     {

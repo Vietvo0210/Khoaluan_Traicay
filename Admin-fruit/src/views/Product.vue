@@ -34,7 +34,7 @@
                   </v-col>
 
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.price" label="price"></v-text-field>
+                    <v-text-field v-model="editedItem.price " label="price"></v-text-field>
                   </v-col>
 
                   <v-col cols="12" sm="6" md="4">
@@ -148,7 +148,7 @@ export default {
       console.log(this.item)
       
       axios
-        .get("http://127.0.0.1:8000/api/product-list/" )
+        .get("http://192.168.1.26:8089/api/product-list/" )
         .then((response) => {
           this.data = response.data;
         })
@@ -157,7 +157,7 @@ export default {
     postData(){
       console.log('INSERT DATA')
      // axios.put("http://127.0.0.1:8000/api/product-update/"+ this.id_item_temp + "/",this.editedItem)
-      axios.post("http://127.0.0.1:8000/api/product-create/", this.editedItem)
+      axios.post("http://192.168.1.26:8089/api/product-create/", this.editedItem)
         .then(function (response) {
           //close form
           this.dialog(false)

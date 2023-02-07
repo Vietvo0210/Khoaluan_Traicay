@@ -94,9 +94,11 @@ export default {
         }
       })
         .then((response) => {
+          if(response.status === 200){
+            visibleContinue.value = false
+          }
         console.log(response)
       })
-      visibleContinue.value = false
     }
     const checkOut = () => {
       checkOTP.value = true

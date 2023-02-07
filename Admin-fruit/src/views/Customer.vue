@@ -279,7 +279,7 @@ import axios, {  } from "axios";
         this.dialogDelete = true
       },
       deleteItemConfirm () {
-        axios.get("http://127.0.0.1:8000/api/customer-delete/"+this.id_item+"/")
+        axios.get("http://192.168.1.26:8089/api/customer-delete/"+this.id_item+"/")
         this.data.splice(this.editedIndex, 1)
         this.closeDelete()
       },
