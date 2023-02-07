@@ -7,7 +7,7 @@
             <div class="col-50">
               <h3>Billing Address</h3>
               <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-              <input type="text" id="fname" name="firstname" placeholder="Viet, Huy, Doan">
+              <input type="text" id="fname" name="fullname" placeholder="Viet, Huy, Doan">
               <label for="email"><i class="fa fa-envelope"></i> Email</label>
               <input type="text" id="email" name="email" placeholder="2001190936@hufi.edu.vn">
               <label for="number"><i class="fa fa-envelope"></i>Phone Number</label>
@@ -16,8 +16,10 @@
               <input type="text" id="adr" name="address" placeholder="140 LE TRONG TAN">
               <label for="city"><i class="fa fa-institution"></i> City</label>
               <input type="text" id="city" name="city" placeholder="Q. Tan Phu, TP.HCM">
+              <label for="note"><i class="fa fa-user"></i> Full Name</label>
+              <input type="text" id="note" name="note" placeholder="Note">
               <label for="otp" id="otp" v-if="checkOTP === true"> OTP </label>
-              <input v-if="checkOTP === true" type="text" >
+              <input v-if="checkOTP === true" type="text" id="inputOtp">
             </div>
           </div>
           <label>
@@ -28,11 +30,11 @@
           <input value="Continue to checkout" class="btn" @click="checkOut">
             </div>
             <div class="col-6">
-          <button class="btn" @click="OTPVERIFY" v-if="checkOTP === true">Verify OTP</button>
+              <input value="VerifyOTP" class="btn" @click="OTPVERIFY" v-if="checkOTP === true">
             </div>
             <div class="col-12">
               <label for="otp" id="otp">PLEASE VERIFY YOUR OTP BEFORE CHECKOUT</label>
-              <button class="btn" @click="OTPVERIFY">CHECKOUT</button>
+              <input value="Checkout" class="btn" @click="Payment">
             </div>
           </div>
         </form>
@@ -80,14 +82,13 @@ export default {
   setup() {
 
     const checkOTP = ref(false)
+    const visibleContinue = ref(true)
     const cart = ref([])
+    const date = Date()
     const summaryPara = ref(0)
-    const otp = {
-      "otp": 540699
-    }
 
     const OTPVERIFY = () => {
-      axios.post('http://192.168.1.26:8089/api/verify-otp', otp, {
+      axios.post('http://192.168.1.26:8089/api/verify-otp', { "otp": document.getElementById("inputOtp").value }, {
         headers: {
           "Content-Type": "multipart/form-data"
         }
@@ -95,11 +96,36 @@ export default {
         .then((response) => {
         console.log(response)
       })
+      visibleContinue.value = false
     }
     const checkOut = () => {
       checkOTP.value = true
       console.log(checkOTP.value)
-      console.log(document.getElementById("number").value )
+      console.log(document.getElementById("number").value)
+      axios.post('http://192.168.1.26:8089/api/otp')
+    }
+
+    const Payment = () => {
+      let OrderForm = {
+        "fullname": document.getElementById("fname").value,
+        "email": document.getElementById("email").value,
+        "phone_number": document.getElementById("number").value,
+        "address": document.getElementById("adr").value,
+        "note": document.getElementById("note").value,
+        "order_date": Date(),
+        "total_money": summaryPara.value,
+      }
+      console.log(OrderForm)
+      if(visibleContinue.value === false){
+      axios.post("http://192.168.1.26:8089/api/orders-create/", OrderForm)
+        .then(function (response) {
+          //close form
+          console.log(response)
+          if(response.status === 200){
+            alert('Payment Success!')
+          }
+        })
+      }
     }
 
     const onlyNumber = ($event) => {
@@ -135,13 +161,16 @@ export default {
     })
     return {
       cart,
+      visibleContinue,
       summaryPara,
       checkOTP,
+      date,
       OTPVERIFY,
       onlyNumber,
       checkOut,
       summary,
-      getProducts
+      getProducts,
+      Payment,
     }
   }
 }
