@@ -20,8 +20,8 @@ from keras.models import load_model
 import cv2
 import numpy as np
 import skimage.io
-from .serializers import NewSerializer,ProductSerializer,CustomerSerializer,FeedbackSerializer,Order_detailsSerializer,OdersSerializer
-from .models import Product,Feedback,Order_details,Orders,Customer,News
+from .serializers import NewSerializer,ProductSerializer,CustomerSerializer,FeedbackSerializer,Order_detailsSerializer,OdersSerializer,AdminSerializer
+from .models import Product,Feedback,Order_details,Orders,Customer,News,Admin
 from django.http import JsonResponse
 from rest_framework.generics import ListCreateAPIView
 import os
@@ -276,7 +276,7 @@ def mymodel_delete(sender, instance, **kwargs):
     instance.file.delete(False)
 
 class GetPredictedResult(ListCreateAPIView):
-    vgg16_model=load_model('/Users/admin/Desktop/Hocky6/Nhandangraucu_mayhoc/GUI/Viet_Huy_Doan_Traicay.model')
+    vgg16_model=load_model('C:/Users/Huy.201/Desktop/Fruits/Viet_Huy_Doan_Traicay.model')
     class_names = ["ambarella", "avocado ", "banana", "coconut", "custardapple", "dragonfruit", "durian", "guava", "jackfruit" ,
                   "lychee","mango","mangosteen","persimmon","pineapple","plumcot",
                   "plums","pomelo", "rambutan","saboche","tomato", "watermelon"
@@ -305,11 +305,8 @@ class GetPredictedResult(ListCreateAPIView):
 
 @api_view(['GET'])
 def CheckLogin(request, pk,gk):
-    if(pk.isdigit()):
-        customer = Customer.objects.get(phone_number=pk ,password=gk)
-    else:
-        customer = Customer.objects.get(email=pk ,password=gk)
-    serializer = CustomerSerializer(customer, many=False)
+    admin = Admin.objects.get(email=pk ,password=gk)
+    serializer = AdminSerializer(admin, many=False)
     return Response(serializer.data,status=status.HTTP_200_OK)
 
 
@@ -349,3 +346,15 @@ def verifyOTP(request):
         code=otp
     )
     return Response(status=status.HTTP_200_OK)
+
+# create acc admin
+@api_view(['POST'])
+def CreateAdmin(request):
+    serializer = AdminSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+        return Response(serializer.data)
+    else:
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)

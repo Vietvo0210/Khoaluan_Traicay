@@ -27,8 +27,6 @@
               <form class="form-group">
                 <input v-model="Item.fullname" type="fullname" class="form-control" placeholder="Full name" required>
                 <input v-model="Item.email" type="email" class="form-control" placeholder="Email" required>
-                <input v-model="Item.phone_number" type="tel" class="form-control" placeholder="Phone number " required>
-                <input v-model="Item.address" type="address" class="form-control" placeholder="Address" required>
                 <input v-model="Item.password" type="password" class="form-control" placeholder="Password" required>
                 <input type="submit" class="btn btn-primary" @click="postData">
                 <p>Do you already have an account?<a href="#" @click="registerActive = !registerActive, emptyFields = false">Sign in here</a>
@@ -54,8 +52,6 @@ import axios from "axios";
         id: '',
         fullname: '',
         email: '',
-        phone_number: '',
-        address: '',
         password: '',
       },
         }     
@@ -64,7 +60,7 @@ import axios from "axios";
       methods: {
        async checkData(){
           let resutl=await axios.get(
-            'http://192.168.1.26:8089/api/login/'+this.email+'/'+this.password
+            'http://127.0.0.1:8000/api/login/'+this.email+'/'+this.password
             ) 
             if(resutl.status=200)
             {
@@ -73,6 +69,13 @@ import axios from "axios";
             else
             //  this.$router.push({name:'Login'})
              this.errors.push("That bai.");
+    },
+    postData(){
+      axios.post("http://127.0.0.1:8000/api/admin-create/", this.Item)
+        .then(function (response) {
+        console.log(response)
+        this.data.splice(this.editedIndex, 1)
+      })
     },
     created()
     {
