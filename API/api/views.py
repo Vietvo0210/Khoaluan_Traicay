@@ -356,3 +356,9 @@ def CreateAdmin(request):
         return Response(serializer.data)
     else:
         return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def Vietnamesespecialtyfruit(request):
+    products = Product.objects.filter(Vietnamesespecialfruit=bool(True))
+    serializer = ProductSerializer(products, many=True)
+    return Response(serializer.data)

@@ -8,6 +8,7 @@ class Product(models.Model):
     discount = models.IntegerField()
     thumbnail =models.CharField(max_length=500)
     description =models.CharField(max_length=2000)
+    Vietnamesespecialfruit=models.BooleanField()
     class Meta:
         db_table='Product'
 

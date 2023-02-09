@@ -10,6 +10,7 @@ urlpatterns = [
     path('new-list/', views.NewList, name='new-list'),
     path('new-create/', views.CreateNew, name='new-create'),
 
+    path('vietnam-fruits/', views.Vietnamesespecialtyfruit, name='vietnam-fruits'),
     path('product-list/', views.ShowAll, name='product-list'),
     path('product-detail/<int:pk>/', views.ViewProduct, name='product-detail'),
     path('product-create/', views.CreateProduct, name='product-create'),
