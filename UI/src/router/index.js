@@ -7,8 +7,14 @@ import ViewDetail from "../components/ViewDetail";
 import NewView from '@/components/NewView'
 import NewDetail from '@/components/NewDetail'
 import Payment from '@/components/Payment'
+import Vietnamesespecialtyfruit from '@/components/Vietnamesespecialtyfruit'
 
 const routes = [
+    {
+        path: "/fruits",
+        name: "Vietnamesespecialtyfruit",
+        component: Vietnamesespecialtyfruit,
+    },
     {
         path: "/product",
         name: "product",

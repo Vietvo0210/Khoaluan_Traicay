@@ -22,6 +22,18 @@
               Product
             </a>
             </router-link>
+            <ul class="dropdown-menu"> 
+              <li>
+                <router-link to="/fruits">
+                  <a >Vietnamese special fruit</a> 
+                </router-link>
+              </li>
+              <li>
+                <router-link to="/product">
+                  <a >All fruit</a> 
+                </router-link>
+              </li>
+            </ul> 
           </li>
 
           <li class="nav-item">
