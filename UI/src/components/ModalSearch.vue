@@ -52,7 +52,7 @@ export default {
         console.log(this.image.name)
         let img = new FormData();
         img.append('FILE', this.image)
-        axios.post("http://192.168.0.16:8089/api/predict/", img, {
+        axios.post("http://192.168.1.26:8089/api/predict/", img, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
@@ -65,7 +65,7 @@ export default {
     async SEARCH() {
         const name = document.getElementById('textField').value
         localStorage.setItem('nameSearch', name)
-        await axios.get('http://192.168.0.16:8089/api/search/' + name)
+        await axios.get('http://192.168.1.26:8089/api/search/' + name)
           .then(function (response) {
             location.reload()
             console.log(this)

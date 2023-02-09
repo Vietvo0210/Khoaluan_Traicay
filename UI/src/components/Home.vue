@@ -1,50 +1,46 @@
 <template>
-    <div class="container">
-      <div class="row justify-content-center">
-      </div>
-      <br/>
-      <br/>
-      <div class="row" >
-        <div class="col-lg-3" v-for="post in posts" :key="post.id">
-          <div class="product" >
-            <div class="product-wrap">
-              <a href="#"><img
-                class="media-object w-100 mb-3 img-first"
-                :src="post.thumbnail"
-                alt="okke"/>
-              </a>
-            </div>
-            <div class="product-hover-overlay" >
-              <a href="#" @click=onClick(post)><i class="tf-ion-ios-heart"></i></a>
-            </div>
+  <div class="container">
+    <div class="row justify-content-center">
+    </div>
+    <br />
+    <br />
+    <div class="row">
+      <div class="col-lg-3" v-for="post in posts" :key="post.id">
+        <div class="product">
+          <div class="product-wrap">
+            <a href="#"><img class="media-object w-100 mb-3 img-first" :src="post.thumbnail" alt="okke" />
+            </a>
+          </div>
+          <div class="product-hover-overlay">
+            <a href="#" @click=onClick(post)><i class="tf-ion-ios-heart"></i></a>
+          </div>
 
-            <div class="product-info">
-              <router-link :to="{ name: 'viewdetail', params: { id: post.id }}">{{post.title}}</router-link>
-              <br/>
-              <span class="price">
-                {{post.price}} {{'VNĐ'}}
-                    </span>
-            </div>
+          <div class="product-info">
+            <router-link :to="{ name: 'viewdetail', params: { id: post.id } }">{{ post.title }}</router-link>
+            <br />
+            <span class="price">
+              {{ post.price }} {{ 'VNĐ' }}
+            </span>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
   <section>
     <div class="container">
-      <div class="row" >
+      <div class="row">
         <div class="col-lg-6">
-      <img
-        src="https://img.meta.com.vn/Data/image/2020/09/03/trai-cay-tot-cho-sinh-ly-nam-al.jpg"/>
+          <img src="https://img.meta.com.vn/Data/image/2020/09/03/trai-cay-tot-cho-sinh-ly-nam-al.jpg" />
         </div>
         <div class="col-lg-6">
-            <span class="h5 deal">Up to 50% off </span>
-            <h3 class="mt-3 text-black">Vietnamese fruits</h3>
-            <p class="text-md mt-3 text-white">Quickly order now!</p>
-            <a href="#" class="btn btn-main"><i class="ti-bag mr-2"></i>Shop Now </a>
-          </div>
+          <span class="h5 deal">Up to 50% off </span>
+          <h3 class="mt-3 text-black">Vietnamese fruits</h3>
+          <p class="text-md mt-3 text-white">Quickly order now!</p>
+          <a href="#" class="btn btn-main"><i class="ti-bag mr-2"></i>Shop Now </a>
         </div>
       </div>
+    </div>
   </section>
 
   <section class="features border-top">
@@ -90,44 +86,55 @@
   </section>
 </template>
 <script>
-import ViewDetail from '@/components/ViewDetail'
+import ViewDetail from '@/components/ViewDetail';
 export default {
   // eslint-disable-next-line vue/no-unused-components
   components: { ViewDetail },
+
   data() {
     return {
       productsLiked: [],
       posts: [],
-      id:null
+      id: null
     };
   },
 
   methods: {
     onClick(item) {
-      if(!this.productsLiked.includes(item)){
+      if (!this.productsLiked.includes(item)) {
         this.productsLiked.push(item)
-        item = Object.assign(item, {'soluong': 1})
+        item = Object.assign(item, { 'soluong': 1 })
       }
       localStorage.setItem('products', JSON.stringify(this.productsLiked))
     },
     async getData() {
       try {
+        let response = {};
+        let check = localStorage.getItem('vietname');
+
         let title = localStorage.getItem('nameSearch')
-        let response = await fetch("http://192.168.1.26:8089/api/product-list/");
+
+        if (check == 1) {
+          response = await fetch("http://192.168.1.26:8089/api/product-list/");
+        }
+        else {
+          response = await fetch('http://192.168.1.26:8089/api/vietnam-fruits/')
+        }
         this.posts = await response.json();
-        localStorage.clear()
-        if(title){
+        if (title) {
           let response = await fetch('http://192.168.1.26:8089/api/search/' + title)
-          this.posts = await  response.json();
-        }}
+          this.posts = await response.json();
+        }
+
+      }
       catch (error) {
         console.log(error);
       }
     },
     mounted() {
-            this.id = this.$route.params.id;
-            this.post = this.post.find(post => post.id == this.id)
-        }
+      this.id = this.$route.params.id;
+      this.post = this.post.find(post => post.id == this.id)
+    }
   },
   created() {
     this.getData();
@@ -138,11 +145,12 @@ export default {
 };
 </script>
 <style>
-h2{
+h2 {
   padding: 40px;
-  background-color:powderblue;
+  background-color: powderblue;
   color: #1b1e21;
 }
+
 .product {
   height: 250px;
   width: 200px;

@@ -1,3 +1,4 @@
+
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-white w-100 navigation" id="navbar">
     <div class="container">
@@ -12,16 +13,23 @@
 
           <li class="nav-item">
             <router-link to="/product">
-              <a class="nav-link" >Home</a>
+              <a  @click="setfruits(1)" class="nav-link" >Home</a>
             </router-link>
           </li>
           <li class="nav-item dropdown dropdown-slide">
-            <router-link to="/product">
+            <router-link  to="/product">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Product
             </a>
             </router-link>
+            <ul class="dropdown-menu"> 
+              <li  >
+                <router-link to="/product">
+                  <a @click="setfruits(0)">Vietnamese special fruit</a> 
+                </router-link>
+              </li>
+            </ul> 
           </li>
 
           <li class="nav-item">
@@ -108,15 +116,17 @@
 
 <script>
 import ModalSearch from '@/components/ModalSearch';
+import Home from '@/components/Home';
 import { ref } from 'vue';
+import router from '@/router';
 export default {
-  components: { ModalSearch },
+  components: { ModalSearch,Home },
 
   setup() {
     const cart = ref([])
     const visible = ref({
       buttonTrigger: false,
-      timeTrigger: false
+      timeTrigger: false,
     });
     const showModal = (trigger) => {
       visible.value[trigger] = !visible.value[trigger]
@@ -148,6 +158,22 @@ export default {
     const deleteProductInCart = (index) => {
       cart.value =  cart.value.filter((c, i) => i !== index)
     }
+    const setfruits=(val)=>{
+      
+      let vn=val;
+      const vietnam = JSON.parse(vn);
+
+      localStorage.setItem('vietname',vietnam);
+      location.reload()
+
+    }
+    const notsetfruits =()=>{
+      let vn=0;
+      const vietnam = JSON.parse(vn);
+
+      localStorage.setItem('vietname',vietnam);
+      
+    }
 
     return {
       visible,
@@ -158,6 +184,8 @@ export default {
       showModal,
       getProducts,
       catchHidden,
+      setfruits,
+      notsetfruits
     }
   }
 }
