@@ -43,4 +43,5 @@ urlpatterns = [
 
     path('otp', views.sendOTP, name='sendOTP'),
     path('verify-otp', views.verifyOTP, name='verifyOTP')
+
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

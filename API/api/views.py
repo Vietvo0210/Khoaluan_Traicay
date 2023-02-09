@@ -326,9 +326,9 @@ def SearchProduct(request,title):
 #OTP
 @api_view(['POST'])
 def sendOTP(request):
-    account_sid = "AC806b72167758dd44c9a04e032192ec4f"
-    auth_token = "148bfb252f1e4a4af8e9f03194ffc98d"
-    verify_sid="VA7f492bce2e5249aba54f1d92795cd5a8"
+    account_sid = "AC076f02360fc3d2b87ea9806cab108be0"
+    auth_token = "08d6e8b1a21f12261ffee43e339f4b2b"
+    verify_sid="VA462db428ceddbf93cefae70888e0d69c"
     client = Client(account_sid, auth_token)
     client.verify.services(verify_sid).verifications.create(
         to=f"+84{985357111}",
@@ -336,12 +336,13 @@ def sendOTP(request):
     )
     return Response(status=status.HTTP_200_OK)
 
+
 @api_view(['POST'])
 def verifyOTP(request):
     otp= request.POST.get("otp")
-    account_sid = "AC806b72167758dd44c9a04e032192ec4f"
-    auth_token = "148bfb252f1e4a4af8e9f03194ffc98d"
-    verify_sid="VA7f492bce2e5249aba54f1d92795cd5a8"
+    account_sid = "AC076f02360fc3d2b87ea9806cab108be0"
+    auth_token = "08d6e8b1a21f12261ffee43e339f4b2b"
+    verify_sid="VA462db428ceddbf93cefae70888e0d69c"
     client = Client(account_sid, auth_token)
     print(otp)
     client.verify.services(verify_sid).verification_checks.create(
