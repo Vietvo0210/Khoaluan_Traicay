@@ -8,6 +8,7 @@ class Product(models.Model):
     discount = models.IntegerField()
     thumbnail =models.CharField(max_length=500)
     description =models.CharField(max_length=2000)
+    Vietnamesespecialfruit=models.BooleanField()
     class Meta:
         db_table='Product'
 
@@ -61,3 +62,10 @@ class News(models.Model):
     Ngaydang = models.DateField()
     class Meta:
         db_table='News'
+
+class Admin(models.Model):
+    fullname = models.CharField(max_length=50)
+    email = models.CharField(max_length=150)
+    password = models.CharField(max_length=32)
+    class Meta:
+        db_table='Admin'
