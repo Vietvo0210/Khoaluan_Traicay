@@ -20,7 +20,7 @@
             <router-link :to="{ name: 'viewdetail', params: { id: post.id } }">{{ post.title }}</router-link>
             <br />
             <span class="price">
-              {{ post.price }}{{'.000'}} {{ 'VNĐ' }}
+              {{ post.price }}{{'.000'}} {{ 'VNĐ/KG' }}
             </span>
           </div>
         </div>
