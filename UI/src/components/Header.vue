@@ -39,7 +39,7 @@
           </li>
           <li class="nav-item">
             <router-link to="/contact">
-              <a class="nav-link">Contact</a>
+              <a class="nav-link">FeedBack</a>
             </router-link>
           </li>
           <li class="nav-item">
