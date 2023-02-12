@@ -26,7 +26,7 @@
                         <section class="text-c">
                           <a>
                           <label>Price:</label>
-                          {{posts.price}}
+                          {{ posts.price + '.000'}} {{'VNĐ/KG'}}
                         </a>
                         <br>
                         <a>
