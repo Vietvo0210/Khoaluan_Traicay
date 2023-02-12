@@ -10,7 +10,7 @@
                       <div class="product-detail row">
                         <div class="col-6" placeholder="{{ post.title }}">
                           <a href="#"><img
-                          class="img-first img-sp"
+                          class="w-100 mb-3 img-first"
                           :src="posts.thumbnail"
                           alt="Err"/>
                         </a>
@@ -82,8 +82,8 @@
     margin-top: 50px;
   }
 
-  .img-sp{
-    height: 400px;
+  .img-first{
+    height: 450px;
   }
   .text-dl{
     font-size: 18px;
