@@ -1,4 +1,3 @@
-
 <template>
   <div class="container">
           <div class="row">
@@ -11,7 +10,7 @@
                       <div class="product-detail row">
                         <div class="col-6" placeholder="{{ post.title }}">
                           <a href="#"><img
-                          class="img-fluid w-100 mb-3 img-first "
+                          class="img-first img-sp"
                           :src="posts.thumbnail"
                           alt="Err"/>
                         </a>
@@ -23,7 +22,6 @@
                           {{posts.title}}
                         </a>
                           </section>
-  
                         <br>
                         <section class="text-c">
                           <a>
@@ -41,11 +39,7 @@
                           {{posts.description}}
                         </a>
                         </section>
-                        
                         </div>
-   
-                      
-                        
                       </div>
                   </form>
               </div>
@@ -68,7 +62,7 @@
           methods: {
     async getData() {
       try {
-        let response = await fetch("http://127.0.0.1:8000/api/product-detail/"+this.$route.params.id+"/");
+        let response = await fetch("http://192.168.1.26:8089/api/product-detail/"+this.$route.params.id+"/");
         this.posts = await response.json();
       } catch (error) {
         console.log(error);
@@ -82,14 +76,14 @@
   
   </script>
   
-  <style scoped>
+<style scoped>
   
   .mr-top{
     margin-top: 50px;
   }
-  
+
   .img-sp{
-    height: 150px;
+    height: 400px;
   }
   .text-dl{
     font-size: 18px;
@@ -98,7 +92,4 @@
     font-size: 14px;
     text-align: center;
   }
-  </style>
-  
-  
-  
+</style>

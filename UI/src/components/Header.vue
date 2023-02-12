@@ -73,7 +73,7 @@
                   <div class="media-body">
                     <h6>{{ item?.title }}</h6>
                     <div class="cart-price">
-                      <span>{{ item.price }} {{ 'VNĐ'}}</span>
+                      <span>{{ item.price }}{{'.000'}} {{ 'VNĐ'}}</span>
                       <div class="input-group">
                         <input type="button" value="-" class="button-minus" data-field="quantity"
                           @click="minusCountProduct(index)">
@@ -155,12 +155,6 @@ export default {
       localStorage.setItem('vietname',vietnam);
       location.reload()
 
-    }
-    const notsetfruits =()=>{
-      let vn=0;
-      const vietnam = JSON.parse(vn);
-
-      localStorage.setItem('vietname', vietnam);
     }
 
     return {

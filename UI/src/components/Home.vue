@@ -20,7 +20,7 @@
             <router-link :to="{ name: 'viewdetail', params: { id: post.id } }">{{ post.title }}</router-link>
             <br />
             <span class="price">
-              {{ post.price }} {{ 'VNĐ' }}
+              {{ post.price }}{{'.000'}} {{ 'VNĐ' }}
             </span>
           </div>
         </div>
@@ -89,7 +89,6 @@
 <script>
 import ViewDetail from '@/components/ViewDetail';
 export default {
-  // eslint-disable-next-line vue/no-unused-components
   components: { ViewDetail },
 
   data() {

@@ -54,7 +54,7 @@
 
           <a href="#">
             <img class="media-object mr-3 img-pay" :src="item?.thumbnail" alt="image" />
-            <a class="price">{{ item.price }}  {{'VNĐ'}}{{'/KG'}}</a>
+            <a class="price">{{ item.price }}{{'.000'}}{{'VNĐ'}}{{'/KG'}}</a>
           </a>
 
           &nbsp
@@ -63,10 +63,10 @@
                 {{ item.soluong }}
           </span>
           </p>
-        <p>Total <span class="price" style="color:black"><b>{{ item.price * item.soluong}}</b></span></p>
+        <p>Total <span class="price" style="color:black"><b>{{ item.price * item.soluong + '.000'}}</b></span></p>
           </div>
         <br/>
-        <p>Summary<span class="price" style="color:black"><b>{{ summaryPara }}</b></span></p>
+        <p>Summary<span class="price" style="color:black"><b>{{ summaryPara }}{{'.000'}}</b></span></p>
       </div>
     </div>
   </div>
