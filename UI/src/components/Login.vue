@@ -12,6 +12,7 @@
           <div class="col-lg-4 col-md-6 col-sm-8 mx-auto">
             <div v-if="!registerActive" class="card login" v-bind:class="{ error: emptyFields }">
               <h1>Login</h1>
+              <h4>(For Admin)</h4>
               <form class="form-group">
                 <input id="email" v-model="email" type="email" class="form-control" placeholder="Email" required>
                 <input id="password" v-model="password" type="password" class="form-control" placeholder="Password" required>
