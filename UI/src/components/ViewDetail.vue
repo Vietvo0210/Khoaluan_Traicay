@@ -1,3 +1,4 @@
+
 <template>
 <div class="container">
         <div class="row">
@@ -5,21 +6,27 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6">
+            <div class="mr-top">
                 <form v-if="posts">
-                    <div class="product-detail">
-                      <a href="#"><img
-                        class="img-fluid w-100 mb-3 img-first"
+                    <div class="product-detail row">
+                      <div class="col-6" placeholder="{{ post.title }}">
+                        <a href="#"><img
+                        class="img-fluid w-100 mb-3 img-first "
                         :src="posts.thumbnail"
                         alt="Err"/>
                       </a>
-                      <a>
+                      </div>
+                      <div class="col-6"> 
+                        <section class="text-dl">
+                          <a>
                         <label>Type of fruit:</label>
                         {{posts.title}}
                       </a>
+                        </section>
+
                       <br>
-                      <a>
+                      <section class="text-c">
+                        <a>
                         <label>Price:</label>
                         {{posts.price}}
                       </a>
@@ -33,6 +40,11 @@
                         <label>Details of the fruit:</label>
                         {{posts.description}}
                       </a>
+                      </section>
+                      
+                      </div>
+ 
+                    
                       
                     </div>
                 </form>
@@ -56,7 +68,7 @@ export default {
         methods: {
   async getData() {
     try {
-      let response = await fetch("http://192.168.0.16:8089/api/product-detail/"+this.$route.params.id+"/");
+      let response = await fetch("http://127.0.0.1:8000/api/product-detail/"+this.$route.params.id+"/");
       this.posts = await response.json();
     } catch (error) {
       console.log(error);
@@ -72,4 +84,20 @@ created() {
 
 <style scoped>
 
+.mr-top{
+  margin-top: 50px;
+}
+
+.img-sp{
+  height: 150px;
+}
+.text-dl{
+  font-size: 18px;
+}
+.text-c{
+  font-size: 14px;
+  text-align: center;
+}
 </style>
+
+

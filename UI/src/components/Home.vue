@@ -4,11 +4,12 @@
     </div>
     <br />
     <br />
+
     <div class="row">
       <div class="col-lg-3" v-for="post in posts" :key="post.id">
         <div class="product">
           <div class="product-wrap">
-            <a href="#"><img class="media-object w-100 mb-3 img-first" :src="post.thumbnail" alt="okke" />
+            <a href="#"><img class="media-object w-100 mb-3 img-first img-sp" :src="post.thumbnail" alt="okke" />
             </a>
           </div>
           <div class="product-hover-overlay">
@@ -27,21 +28,21 @@
     </div>
   </div>
 
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <img src="https://img.meta.com.vn/Data/image/2020/09/03/trai-cay-tot-cho-sinh-ly-nam-al.jpg" />
+  <div class="qc">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <img class="img-bottom" src="https://img.meta.com.vn/Data/image/2020/09/03/trai-cay-tot-cho-sinh-ly-nam-al.jpg" />
+            </div>
+            <div class="col-lg-4">
+              <span class="h5 deal">Up to 50% off </span>
+              <h3 class="mt-3 text-black">Vietnamese fruits</h3>
+              <p class="text-md mt-3 text-white">Quickly order now!</p>
+              <a href="#" class="btn btn-main"><i class="ti-bag mr-2"></i>Shop Now </a>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-6">
-          <span class="h5 deal">Up to 50% off </span>
-          <h3 class="mt-3 text-black">Vietnamese fruits</h3>
-          <p class="text-md mt-3 text-white">Quickly order now!</p>
-          <a href="#" class="btn btn-main"><i class="ti-bag mr-2"></i>Shop Now </a>
-        </div>
-      </div>
     </div>
-  </section>
 
   <section class="features border-top">
     <div class="container">
@@ -115,14 +116,14 @@ export default {
         let title = localStorage.getItem('nameSearch')
 
         if (check == 1) {
-          response = await fetch("http://192.168.1.26:8089/api/product-list/");
+          response = await fetch("http://127.0.0.1:8000/api/product-list/");
         }
         else {
-          response = await fetch('http://192.168.1.26:8089/api/vietnam-fruits/')
+          response = await fetch('http://127.0.0.1:8000/api/vietnam-fruits/')
         }
         this.posts = await response.json();
         if (title) {
-          let response = await fetch('http://192.168.1.26:8089/api/search/' + title)
+          let response = await fetch('http://127.0.0.1:8000/api/search/' + title)
           this.posts = await response.json();
         }
 
@@ -154,5 +155,17 @@ h2 {
 .product {
   height: 250px;
   width: 200px;
+}
+
+.qc{
+  margin-bottom: 50px;
+}
+
+.img-bottom{
+      width:800px ;height: 300px;
+}
+
+.img-sp{
+  height: 150px;
 }
 </style>
