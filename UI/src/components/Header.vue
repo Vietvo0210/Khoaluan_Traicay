@@ -14,7 +14,7 @@
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
             <router-link to="/product">
-              <a class="nav-link">Home</a>
+              <a  @click="setfruits(1)" class="nav-link" >Home</a>
             </router-link>
           </li>
           <li class="nav-item dropdown dropdown-slide">
@@ -28,11 +28,6 @@
               <li>
                 <router-link to="/product">
                   <a @click="setfruits(0)">Vietnamese special fruit</a>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/product">
-                  <a @click="setfruits(1)">All fruit</a>
                 </router-link>
               </li>
             </ul>
@@ -113,7 +108,6 @@
 import ModalSearch from '@/components/ModalSearch';
 import Home from '@/components/Home';
 import { ref } from 'vue';
-import router from '@/router';
 export default {
   components: { ModalSearch, Home },
 
@@ -153,14 +147,20 @@ export default {
     const deleteProductInCart = (index) => {
       cart.value = cart.value.filter((c, i) => i !== index)
     }
-    const setfruits = (val) => {
+    const setfruits=(val)=>{
 
-      let vn = val;
+      let vn=val;
+      const vietnam = JSON.parse(vn);
+
+      localStorage.setItem('vietname',vietnam);
+      location.reload()
+
+    }
+    const notsetfruits =()=>{
+      let vn=0;
       const vietnam = JSON.parse(vn);
 
       localStorage.setItem('vietname', vietnam);
-      location.reload()
-
     }
 
     return {

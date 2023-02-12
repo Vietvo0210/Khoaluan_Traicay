@@ -116,10 +116,10 @@ export default {
         let title = localStorage.getItem('nameSearch')
 
         if (check == 1) {
-          response = await fetch("http://127.0.0.1:8000/api/product-list/");
+          response = await fetch("http://192.168.1.26:8089/api/product-list/");
         }
         else {
-          response = await fetch('http://127.0.0.1:8000/api/vietnam-fruits/')
+          response = await fetch('http://192.168.1.26:8089/api/vietnam-fruits/')
         }
         this.posts = await response.json();
         if (title) {
