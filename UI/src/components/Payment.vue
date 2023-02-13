@@ -16,7 +16,7 @@
               <input type="text" id="adr" name="address" placeholder="140 LE TRONG TAN">
               <label for="city"><i class="fa fa-institution"></i> City</label>
               <input type="text" id="city" name="city" placeholder="Q. Tan Phu, TP.HCM">
-              <label for="note"><i class="fa fa-user"></i> Full Name</label>
+              <label for="note"><i class="fa fa-user"></i>Note</label>
               <input type="text" id="note" name="note" placeholder="Note">
               <label for="otp" id="otp" v-if="checkOTP === true"> OTP </label>
               <input v-if="checkOTP === true" type="text" id="inputOtp">
@@ -60,7 +60,7 @@
           &nbsp
           <p>Count
           <span class="price">
-                {{ item.soluong }}
+            {{ item.soluong }}
           </span>
           </p>
         <p>Total <span class="price" style="color:black"><b>{{ item.price * item.soluong + '.000'}}</b></span></p>
@@ -95,6 +95,7 @@ export default {
       })
         .then((response) => {
           if(response.status === 200){
+            alert("Verify your OTP Success!")
             visibleContinue.value = false
           }
         console.log(response)

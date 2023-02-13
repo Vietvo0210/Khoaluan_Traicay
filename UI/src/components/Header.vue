@@ -154,6 +154,7 @@ export default {
 
       localStorage.setItem('vietname',vietnam);
       location.reload()
+      localStorage.removeItem('nameSearch')
 
     }
 

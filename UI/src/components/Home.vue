@@ -122,11 +122,10 @@ export default {
         }
         this.posts = await response.json();
         if (title) {
-          let response = await fetch('http://127.0.0.1:8000/api/search/' + title)
-          this.posts = await response.json();
+            let response = await fetch('http://192.168.1.26:8089/api/search/' + title)
+            this.posts = await response.json();
+          }
         }
-
-      }
       catch (error) {
         console.log(error);
       }
